@@ -1,0 +1,12 @@
+ <%= form_for(:session, url: login_path) do |f| %>
+ 
+    <%= f.label :username %>
+    <%= f.text_field :name, autofocus: true, class: 'new-post-title' %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password,class: 'new-post-title' %>
+
+    <%= f.submit "Log in", class: "post-button" %>
+<% end %>
+    
+

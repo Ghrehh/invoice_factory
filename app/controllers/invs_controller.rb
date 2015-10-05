@@ -1,0 +1,2 @@
+class InvsController < ApplicationController
+end
