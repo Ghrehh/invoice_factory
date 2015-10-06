@@ -1,0 +1,48 @@
+////////////////////////////////////
+<br>
+INVOICE FOR: <%= @inv.recipient %>
+<br>
+////////////////////////////////////
+<br>
+
+<%= form_for [@inv, Line.new], :remote => true do |f| %>
+
+  <%= f.label :service %>
+  <br>
+  <%= f.text_field :service, class: "service", input_html: {autocomplete: 'off'} %>
+  <br>
+  
+  <%= f.label :description %>
+  <br>
+  <%= f.text_area :description, class: "description", input_html: {autocomplete: 'off'} %>
+  <br>
+  
+  <%= f.label :price %>
+  <br>
+  <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'} %>
+  <br>
+  
+  
+  <%= f.submit "Add", class: "line-button" %>
+<% end %>
+
+<br>
+
+<%= link_to "Download as PDF", inv_download_path  %>
+
+<br>
+<br>
+
+
+<div class="line-container">
+  
+  <% @lines.each do |x| %>
+  
+    <%= x.service %>:
+    <%= x.description %>
+    ||£<%= x.price %>||
+    <br>
+    
+  <% end %>
+  
+</div>

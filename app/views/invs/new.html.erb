@@ -1,0 +1,9 @@
+<p>Creating a new Invoice</p>
+<%= form_for(@inv) do |f| %>
+  <%= f.label "Who is the recipient?" %>
+  <br>
+  <%= f.text_field :recipient, autofocus: true %>
+  <br>
+  <%= f.submit "Create" %>
+<% end %>
+    
