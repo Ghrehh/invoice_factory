@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005220245) do
+ActiveRecord::Schema.define(version: 20151007105212) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "invs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.string   "recipient"
+    t.integer  "group_id"
   end
 
   create_table "lines", force: :cascade do |t|
@@ -30,11 +38,12 @@ ActiveRecord::Schema.define(version: 20151005220245) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "name"
     t.string   "password_digest"
     t.string   "email"
+    t.string   "current_group",   default: "all", null: false
   end
 
 end

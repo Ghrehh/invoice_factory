@@ -4,6 +4,8 @@
   <br>
   <%= f.text_field :recipient, autofocus: true %>
   <br>
+  <%= f.select :group_id, options_for_select(Group.all) %>
+  <br>
   <%= f.submit "Create" %>
 <% end %>
     

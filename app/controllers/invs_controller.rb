@@ -2,6 +2,8 @@ require "prawn"
 require "fileutils"
 
 class InvsController < ApplicationController
+  before_action :correct_user,   only: [:edit, :update, :show, :download]
+  before_action :logged_in_user
   
   def new
     @inv = Inv.new
@@ -16,7 +18,6 @@ class InvsController < ApplicationController
   
   def show
     @inv = Inv.find(params[:id])
-    #im guessing I won't need to make a var for the lines as i'll be appending them all with js if it's a new invoice
   end
   
   
@@ -29,7 +30,7 @@ class InvsController < ApplicationController
   
   
   def index
-    @inv = Inv.all
+    @invs = Inv.all.where(user_id: current_user.id) 
   end
   
   
@@ -72,6 +73,11 @@ class InvsController < ApplicationController
 
   def inv_params
     params.require(:inv).permit(:recipient)
+  end
+  
+  def correct_user
+    @user = Inv.find(params[:id]).user
+    redirect_to(root_url) unless current_user?(@user)
   end
 
   
