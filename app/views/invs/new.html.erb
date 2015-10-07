@@ -6,7 +6,7 @@
   <br>
   <%= f.label "Include in a group? Leave blank if no" %>
   <br>
-  <%= f.collection_select :group_id, Group.order(:name),:id,:name, include_blank: true %>
+  <%= f.collection_select :group_id, @group,:id,:name, include_blank: true %>
   <br>
   <%= f.submit "Create" %>
 <% end %>

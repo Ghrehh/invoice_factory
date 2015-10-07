@@ -9,6 +9,7 @@ class InvsController < ApplicationController
   
   def new
     @inv = Inv.new
+    @group = Group.all.where(user_id: current_user.id).reverse
   end
   
   
@@ -25,8 +26,6 @@ class InvsController < ApplicationController
   
   
   def edit
-    
-    
     @inv = Inv.find(params[:id])
     @lines = @inv.lines.all
     @line = @inv.lines.new

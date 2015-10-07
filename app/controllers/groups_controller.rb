@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
   end
   
   def index
-    @groups = Group.all.where(user_id: current_user.id) 
+    @groups = Group.all.where(user_id: current_user.id).reverse
   end
   
   def show
