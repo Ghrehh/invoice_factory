@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   
   get "/download/:id", to: "invs#download", as: "inv_download"
+  get "/download_group/:id", to: "groups#download", as: "group_download"
   
   
   

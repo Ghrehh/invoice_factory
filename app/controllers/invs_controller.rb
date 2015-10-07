@@ -25,12 +25,13 @@ class InvsController < ApplicationController
   
   
   def edit
-    @total = 0
+    
     
     @inv = Inv.find(params[:id])
     @lines = @inv.lines.all
     @line = @inv.lines.new
     
+    @total = 0
     @inv.lines.each do |x|
       if x.price != nil
         @total += x.price

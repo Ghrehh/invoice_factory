@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   
   include SessionsHelper
   include InvsHelper
+  include GroupsHelper
 end

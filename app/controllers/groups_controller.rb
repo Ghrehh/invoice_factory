@@ -26,6 +26,11 @@ class GroupsController < ApplicationController
     @invs = @group.invs.all
   end
   
+  def download
+    @group = Group.find(params[:id])
+    makepdfgroup(@group)
+  end
+  
   private
 
   def group_params

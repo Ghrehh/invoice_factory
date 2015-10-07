@@ -5,6 +5,7 @@ class LinesController < ApplicationController
   before_action :logged_in_user
   
   
+  
   def create
     @inv = Inv.find(params[:inv_id])
     @line = @inv.lines.new(line_params)
@@ -26,6 +27,8 @@ class LinesController < ApplicationController
     
   end
   
+  
+  
   def destroy
     @line = Line.find(params[:id])
     @lines = @line.inv.lines.all
@@ -39,6 +42,7 @@ class LinesController < ApplicationController
       end
     end
   end
+  
   
   
   private
