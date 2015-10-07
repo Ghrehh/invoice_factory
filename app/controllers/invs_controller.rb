@@ -2,7 +2,7 @@ require "prawn"
 require "fileutils"
 
 class InvsController < ApplicationController
-  before_action :correct_user,   only: [:edit, :update, :show, :download]
+  before_action :correct_user,   only: [:edit, :update, :show, :download, :delete]
   before_action :logged_in_user
   
   def new
@@ -72,7 +72,7 @@ class InvsController < ApplicationController
   private
 
   def inv_params
-    params.require(:inv).permit(:recipient)
+    params.require(:inv).permit(:recipient, :group_id)
   end
   
   def correct_user

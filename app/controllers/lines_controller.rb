@@ -1,5 +1,5 @@
 class LinesController < ApplicationController
-  before_action :correct_user,   only: [:edit, :update, :show, :download]
+  before_action :correct_user,   only: [:edit, :update, :show, :delete]
   before_action :logged_in_user
   
   
@@ -9,10 +9,20 @@ class LinesController < ApplicationController
     
     if @line.save
       flash[:success] = "Successfully created Comment!"
+      
+      respond_to do |format|
+        format.js
+      end
+       
     else
       flash.now[:danger] = 'Your comment must contain a body!'
     end
     
+  end
+  
+  def destroy
+    @line = Line.find(params[:id])
+    @line.destroy
   end
   
   

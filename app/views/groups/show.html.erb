@@ -1,5 +1,5 @@
 <% @invs.each do |x| %>
-  <%= link_to x.recipient + x.id.to_s, edit_inv_path(x.id) %>
+  <%= link_to x.recipient, inv_path(x.id) %>
   <%= x.lines.count %> lines
   <br>
 <% end %>

@@ -4,7 +4,9 @@
   <br>
   <%= f.text_field :recipient, autofocus: true %>
   <br>
-  <%= f.select :group_id, options_for_select(Group.all) %>
+  <%= f.label "Include in a group? Leave blank if no" %>
+  <br>
+  <%= f.collection_select :group_id, Group.order(:name),:id,:name, include_blank: true %>
   <br>
   <%= f.submit "Create" %>
 <% end %>

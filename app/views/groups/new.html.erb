@@ -1,0 +1,8 @@
+<p>Creating a new Invoice</p>
+<%= form_for(@group) do |f| %>
+  <%= f.label "What's the name of the group?" %>
+  <br>
+  <%= f.text_field :name, autofocus: true %>
+  
+  <%= f.submit "Create" %>
+<% end %>
