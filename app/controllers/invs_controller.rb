@@ -1,10 +1,12 @@
 require "prawn"
+require "fileutils"
 
 class InvsController < ApplicationController
   
   def new
     @inv = Inv.new
   end
+  
   
   def download
     @inv = Inv.find(params[:id])
