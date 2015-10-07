@@ -5,8 +5,9 @@ INVOICE FOR: <%= @inv.recipient %>
 GROUP: 
 <% if @inv.group == nil %>
   none
-<% end %>
+<% else %>
 <%= @inv.group.name %>
+<% end %>
 <br>
 ////////////////////////////////////
 
@@ -42,16 +43,7 @@ GROUP:
 
 <div class="line-container">
   
-  <% @lines.each do |x| %>
-  
-    <div class="line">
-      <p class="service-paragraph"><%= x.service %>:</p>
-      <p class="description-paragraph"><%= x.description %></p>
-      <%= link_to 'X', x, :method => :delete, class: "delete-button", :remote => true, data: { confirm: 'Are you sure you want to delete this line?' } %>
-      <p class="price-paragraph">||£<%= x.price %>||</p>
-      
-    </div>
-    
-  <% end %>
+ <%= render "line.html.erb" %>
   
 </div>
+

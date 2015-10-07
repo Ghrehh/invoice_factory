@@ -2,6 +2,8 @@ require "prawn"
 require "fileutils"
 
 class InvsController < ApplicationController
+  respond_to :html, :js
+  
   before_action :correct_user,   only: [:edit, :update, :show, :download, :delete]
   before_action :logged_in_user
   
@@ -23,8 +25,18 @@ class InvsController < ApplicationController
   
   
   def edit
+    @total = 0
+    
     @inv = Inv.find(params[:id])
     @lines = @inv.lines.all
+    @line = @inv.lines.new
+    
+    @inv.lines.each do |x|
+      if x.price != nil
+        @total += x.price
+      end
+    end
+    
   end
   
   
@@ -36,13 +48,14 @@ class InvsController < ApplicationController
   
   
   def update
+    
     @inv = Inv.find(params[:id])
     if @inv.update_attributes(inv_params)
-      flash[:success] = "inv updated"
       redirect_to edit_inv_path(@inv.id)
     else
       render 'edit'
     end
+    
   end
 
 
