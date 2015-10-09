@@ -45,6 +45,7 @@ module GroupsHelper
       filename: "invoice" + inv.id.to_s +  ".pdf",
       type: "application/pdf"
     )
+    
   end
   
   

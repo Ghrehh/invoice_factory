@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
   
+  
   def create
     @group = current_user.groups.create(group_params)
     if @group.valid?
@@ -17,25 +18,30 @@ class GroupsController < ApplicationController
     end
   end
   
+  
   def index
     @groups = Group.all.where(user_id: current_user.id).reverse
   end
+  
   
   def show
     @group = Group.find(params[:id])
     @invs = @group.invs.all
   end
   
+  
   def download
     @group = Group.find(params[:id])
     makepdfgroup(@group)
   end
+  
   
   private
 
   def group_params
     params.require(:group).permit(:name)
   end
+  
   
   def correct_user
     @user = Group.find(params[:id]).user
