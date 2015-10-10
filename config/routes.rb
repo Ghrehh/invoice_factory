@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :lines
   end
   
-  resources :lines
+  resources :lines do
+    put :order, on: :collection
+  end
   
   resources :groups
   

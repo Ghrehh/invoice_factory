@@ -1,15 +1,23 @@
+<ul class="sortable">
 <% @lines.each do |x| %>
-
+  
+  <li data-id="<%= x.id %>">
   <div class="line">
     <p class="service-paragraph"><%= x.service %>:</p>
     <p class="description-paragraph"><%= x.description %></p>
     <%= link_to 'X', x, :method => :delete, class: "delete-button", :remote => true %>
     <p class="price-paragraph">||£<%= x.price %>||</p>
+    (<%= x.id %>||
+    <%= x.position %>)
     
   </div>
-  
-  
-  
+  </li>
+
 <% end %>
+</ul>
 
 <p>Total: £ <%= @total %> </p>
+
+<script type="text/javascript">
+    ready();
+</script>

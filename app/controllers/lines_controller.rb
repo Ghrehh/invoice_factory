@@ -8,7 +8,6 @@ class LinesController < ApplicationController
   
   def create
     @inv = Inv.find(params[:inv_id])
-    @line = @inv.lines.new(line_params)
     @lines = @inv.lines.all
     
     @total = 0
@@ -18,6 +17,10 @@ class LinesController < ApplicationController
       end
     end
     
+    @line = @inv.lines.new(line_params)
+    @line.position = @inv.lines.count + 1
+    
+    
     if @line.save
       
        
@@ -25,6 +28,13 @@ class LinesController < ApplicationController
       flash.now[:danger] = 'Your comment must contain a body!'
     end
     
+  end
+  
+  def order
+    params[:order].each_with_index do |post_id, i|
+	    Line.find_by(id: post_id).update_attribute(:position, i + 1)
+    end
+    render :nothing => true
   end
   
   
