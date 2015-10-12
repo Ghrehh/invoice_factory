@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151012141420) do
 
-  create_table "blocks", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.integer  "inv_id"
-    t.text     "body"
-  end
-
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -35,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151012141420) do
     t.string   "recipient"
     t.integer  "group_id"
     t.integer  "total"
+    t.text     "block"
   end
 
   create_table "lines", force: :cascade do |t|

@@ -8,18 +8,8 @@ set_positions = function(){
 
 var ready = function() {
   
-  $(".line-button").click(function(){
 
-    setTimeout(function(){ //timeout because without it the form cleared to fast and a empty form was submitted
-      $(".service").val("");
-      $(".description").val("");
-      $(".price").val("");
-      $(".service").focus();
-    }, 100);
-    
-  });
-  
- set_positions()
+  set_positions()
   
   
   $('.sortable').sortable().bind('sortupdate', function() {
@@ -42,6 +32,21 @@ var ready = function() {
         data: { order: updated_order }
     });
     
+  });
+  
+  var mode = 0;
+  
+  $(".change-mode").click(function(){
+    if (mode == 0){
+      mode = 1;
+      $(".line-mode").hide();
+      $(".block-mode").show();
+    }
+    else {
+      mode = 0;
+      $(".line-mode").show();
+      $(".block-mode").hide();
+    }
   });
 
 };

@@ -1,3 +1,7 @@
+<br>
+<a class="change-mode" href="javascript:void(0)" style="text-align:center; display: block">Change Mode</a>
+<br>
+
 ////////////////////////////////////
 <br>
 INVOICE FOR: <%= @inv.recipient %>
@@ -12,41 +16,72 @@ GROUP:
 ////////////////////////////////////
 
 
-
-<%= form_for [@inv, Line.new], :remote => true do |f| %>
-
-<div class="form-container">
-  <%= f.label :service %>
-  <%= f.text_field :service, autofocus: true, class: "service", input_html: {autocomplete: 'off'} %>
-</div>
-
-<div class="form-container">
-  <%= f.label :description %>
-  <%= f.text_field :description, class: "description", input_html: {autocomplete: 'off'} %>
-</div>
-
-<div class="form-container">
-  <%= f.label :price %>
-  <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'} %>
-</div>
+<div class="line-mode">
+  
+  <%= form_for [@inv, Line.new], :remote => true do |f| %>
+  
+  <div class="form-container">
+    <%= f.label :service %>
+    <%= f.text_field :service, autofocus: true, class: "service", input_html: {autocomplete: 'off'} %>
+  </div>
+  
+  <div class="form-container">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "description", input_html: {autocomplete: 'off'} %>
+  </div>
+  
+  <div class="form-container">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'} %>
+  </div>
+    
+    
+  <%= f.submit "Add", class: "line-button" %>
+  
+  <% end %>
   
   
-<%= f.submit "Add", class: "line-button" %>
-<% end %>
+  <br>
+  
+  <%= link_to "Download as PDF", inv_download_path  %>
+  
+  <br>
+  <br>
+  
+  
+  <div class="line-container">
+   <%= render "line.html.erb" %>
+  </div>
 
+</div>
 
+<div class="block-mode" style="display:none">
+  
+  
+<br>
 <br>
 
 <%= link_to "Download as PDF", inv_download_path  %>
-
-<br>
 <br>
 
+  
+  <%= form_for [@inv], :remote => true do |f| %>
+    <br>
+    <%= f.label :block %>
+    <br>
+    <%= f.text_area :block %>
+    <br>
+    
+    <div class="form-container">
+      <%= f.label "Total" %>
+      <%= f.text_field :total, class: "price", input_html: {autocomplete: 'off'} %>
+    </div>
+      
+    <%= f.submit "Update", class: "line-button" %>
+    
+  <% end %>
+  <br>
+  
 
-<div class="line-container">
-  
- <%= render "line.html.erb" %>
- 
-  
 </div>
 
