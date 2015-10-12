@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010161227) do
+ActiveRecord::Schema.define(version: 20151012141420) do
+
+  create_table "blocks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "inv_id"
+    t.text     "body"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
