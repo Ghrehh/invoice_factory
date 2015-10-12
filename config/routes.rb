@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     put :order, on: :collection
   end
   
+  
+  resources :users
   resources :groups
   
 end

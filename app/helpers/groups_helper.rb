@@ -19,9 +19,21 @@ module GroupsHelper
         total = 0
         
         y.lines.each do |x| 
-          lines << x.service + ": " + x.description + " ||£" + x.price.to_s + "||" 
-          total += x.price
+          to_push = "" #holds each line and pushes it to the line array, will only push service and price if they're not nil
+          unless x.service == ""
+            to_push += x.service + ": "
+          end
+            to_push += x.description
+            
+          unless x.price.nil?
+            to_push += " ||£" + x.price.to_s + "||"
+          end
+          
+          lines << to_push
+          total += x.price unless x.price.nil?
         end
+        
+        total = y.total unless y.total.nil?
         
         text lines.join("\n") + "\n\n" + "Total: £" + total.to_s
         

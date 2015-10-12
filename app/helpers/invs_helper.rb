@@ -1,30 +1,40 @@
-
-
 module InvsHelper
   
   def makepdf(inv)
   
-    lines = []
-    total = 0
-    inv.lines.each do |x| 
-      lines << x.service + ": " + x.description + " ||£" + x.price.to_s + "||" 
-      total += x.price
-    end
+    lines = [] #array that holds each line
+    total = 0 #total for if a custom total isn't assigned
     
-    if File.directory?("invoices") == false
+    inv.lines.each do |x| 
+      to_push = "" #holds each line and pushes it to the line array, will only push service and price if they're not nil
+      unless x.service == ""
+        to_push += x.service + ": "
+      end
+        to_push += x.description
+        
+      unless x.price.nil?
+        to_push += " ||£" + x.price.to_s + "||"
+      end
+      
+      lines << to_push
+      total += x.price unless x.price.nil?
+    end
+
+    total = inv.total unless inv.total.nil?
+    
+    if File.directory?("invoices") == false #makes the invoices folder if it doesn't exist
       Dir.mkdir("invoices")
     end
     
-    if File.directory?(inv.user.name) == false
+    if File.directory?(inv.user.name) == false #makes a folder for the user in the invoices folder if it doesn't exist
       FileUtils::mkdir_p "invoices/" + inv.user.name
     end
-    
     
     Prawn::Document.generate("invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf") do
       text lines.join("\n") + "\n\n" + "Total: £" + total.to_s
     end
     
-    downloadpdf(inv)
+    downloadpdf(inv) #sends the file for download after it's created
     
   end
   
@@ -38,6 +48,30 @@ module InvsHelper
       type: "application/pdf"
     )
   
+  end
+  
+  
+  
+  def get_total(inv)
+    
+    if inv.total.nil? #checks if the inv has a custom total or not, if not it adds all the prices of the lines
+      
+      total = 0
+      
+      inv.lines.each do |x|
+        
+        total += x.price unless x.price.nil?
+        
+      end
+      
+      return total
+      
+    else
+      
+      return inv.total
+      
+    end
+    
   end
 
 end

@@ -1,6 +1,3 @@
-require "prawn"
-require "fileutils"
-
 class InvsController < ApplicationController
   respond_to :html, :js
   
@@ -9,7 +6,7 @@ class InvsController < ApplicationController
   
   def new
     @inv = Inv.new
-    @group = Group.all.where(user_id: current_user.id).reverse
+    @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
   end
   
   
@@ -19,45 +16,29 @@ class InvsController < ApplicationController
   end
   
   
-  def show
-    @inv = Inv.find(params[:id])
-  end
-  
-  
-  
   def edit
     @inv = Inv.find(params[:id])
     @lines = @inv.lines.all
     @line = @inv.lines.new
     
-    @total = 0
-    @inv.lines.each do |x|
-      if x.price != nil
-        @total += x.price
-      end
-    end
-    
+    @total = get_total(@inv)
   end
   
+  
+  def update
+    @inv = Inv.find(params[:id]) 
+    @inv.update_attributes(inv_params)
+    
+    
+    @invs = Inv.all
+    @lines = @inv.lines.all
+    @total = get_total(@inv)
+  end
   
   
   def index
     @invs = Inv.all.where(user_id: current_user.id) 
   end
-  
-  
-  
-  def update
-    
-    @inv = Inv.find(params[:id])
-    if @inv.update_attributes(inv_params)
-      redirect_to edit_inv_path(@inv.id)
-    else
-      render 'edit'
-    end
-    
-  end
-
 
 
   def create
@@ -76,7 +57,7 @@ class InvsController < ApplicationController
   def destroy
     @inv = Inv.find(params[:id])
     @inv.destroy
-    redirect_to(:root)
+    @total = get_total(@inv)
   end
   
   
@@ -85,7 +66,7 @@ class InvsController < ApplicationController
   private
 
   def inv_params
-    params.require(:inv).permit(:recipient, :group_id)
+    params.require(:inv).permit(:recipient, :group_id, :total)
   end
   
   def correct_user
