@@ -12,9 +12,14 @@ class LinesController < ApplicationController
     
     @line = @inv.lines.new(line_params)
     @line.position = @inv.lines.count + 1
-    @line.save
+    if @line.save
+      flash.now[:success] = "Line created successfully"
+    else
+      flash.now[:danger] = "Line wasn't created properly, ensure the description field contains something"
+    end
     
     @total = get_total(@inv)
+    
   end
   
   def edit
@@ -28,7 +33,11 @@ class LinesController < ApplicationController
   
   def update
     @line = Line.find(params[:id]) 
-    @line.update_attributes(line_params)
+    if @line.update_attributes(line_params)
+      flash.now[:success] = "Line updated successfully"
+    else
+      flash.now[:danger] = "Line wasn't updated, ensure the description field contains something"
+    end
     
     @inv = @line.inv
     @lines = @inv.lines.all
@@ -51,6 +60,7 @@ class LinesController < ApplicationController
     @inv = @line.inv
     
     @total = get_total(@inv)
+    flash.now[:danger] = "Deleted Line"
   end
   
   

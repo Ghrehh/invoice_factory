@@ -19,6 +19,8 @@ var ready = function() {
      
    });
    
+   
+   //FOR THE EDIT INV BUTTON
     var edit_inv_shown = false;
     
     $(".edit-inv").click(function(){
@@ -34,6 +36,8 @@ var ready = function() {
      
    });
    
+   
+   //FOR THE CUSTOM TOTAL BAR
     var custom_total_shown = false;
     
     $(".custom-total").click(function(){
@@ -48,6 +52,8 @@ var ready = function() {
       }
      
    });
+   
+  
 
   set_positions()
   

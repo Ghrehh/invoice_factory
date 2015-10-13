@@ -6,12 +6,31 @@ $dark-blue: #2588b2;
 $nearly-black: #1c1c1c;
 
 
+/***************8
+*******GENERaL STUFF **
+*******************/
+
 html, body, p, div, a {
  
 }
 
 .contains-everything {
   padding: 0px 5px;
+}
+
+
+
+/**** ALERTS ******/
+
+.alert {
+  height: 30px !important;
+  margin: 0px  !important;
+  padding: 5px 0px 0px 5px !important;
+}
+
+.alert-container {
+  height: 50px;
+  padding: 10px 5px;
 }
 
 

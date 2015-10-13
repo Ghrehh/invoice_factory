@@ -17,9 +17,10 @@
    <%= link_to " Log Out(" + current_user.name + ") ", logout_path, method: "delete" %>
  </div>
  
-
- <br>
- <br>
+ <div class="alert-container">
+   <%= render "layouts/alerts.html.erb" %>
+ </div>
+ 
 <% end %>
 
 <%= yield %>

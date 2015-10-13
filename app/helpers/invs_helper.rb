@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 module InvsHelper
   
   
@@ -17,22 +19,19 @@ module InvsHelper
     
     ###############>>>>LINES METHOD<<<<###################
     
+    
     if inv.block.nil? || inv.block == "" #will use this section if the block method is unused
   
       lines = [] #array that holds each line
       total = 0
       
       inv.lines.each do |x| 
-        to_push = "" #holds each line and pushes it to the line array, will only push service and price if they're not nil
-        unless x.service == ""
-          to_push += x.service + ": "
-        end
-          to_push += x.description
-          
-        unless x.price.nil?
-          to_push += " ||£" + ('%.2f' % x.price).to_s + "||"
-        end
-        
+        to_push = [] #holds each line and pushes it to the line array, will only push service and price if they're not nil
+ 
+        to_push << x.service 
+        to_push << x.description
+        to_push << x.price
+
         lines << to_push
         total += x.price unless x.price.nil?
       end
@@ -40,14 +39,20 @@ module InvsHelper
       total = inv.total unless inv.total.nil?
       
       Prawn::Document.generate("invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf") do
-        text lines.join("\n") + "\n\n" + "Total: £" + ('%.2f' % total).to_s
+        make_invoice(lines, total)
       end
       
     ############>>>BLOCK METHOD<<<<<<##############  
-    else # method used for the block, will only take the custom total
+    
+    else
+      unless inv.total.nil?
+        total = inv.total 
+      else
+        total = 0
+      end
       
       Prawn::Document.generate("invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf") do
-        text inv.block + "\n\n" + "Total: £" + ('%.2f' % inv.total).to_s
+        make_invoice(lines, total, inv.block)
       end
       
     end
@@ -57,17 +62,13 @@ module InvsHelper
   end
   
   
-  
   def downloadpdf(inv)
-    
     send_file(
       "#{Rails.root}/invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf",
       filename: "invoice" + inv.id.to_s +  ".pdf",
       type: "application/pdf"
     )
-  
   end
-  
 
 
 end

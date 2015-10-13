@@ -20,40 +20,42 @@ module GroupsHelper
     Prawn::Document.generate("invoices/" + group.user.name + "/invoice" + group.id.to_s +  ".pdf") do
       group.invs.each_with_index do |y, y2|
         
-            ##############################################
-      ###############>>>>LINES METHOD<<<<###################
-    ##############################################
+        ##############################################
+        ###############>>>>LINES METHOD<<<<###################
+        ##############################################
         
         if y.block.nil? || y.block == "" #will use this section if the block method is unused
           lines = []
           total = 0
           
           y.lines.each do |x| 
-            to_push = "" #holds each line and pushes it to the line array, will only push service and price if they're not nil
-            unless x.service == ""
-              to_push += x.service + ": "
-            end
-              to_push += x.description
-              
-            unless x.price.nil?
-              to_push += " ||£" + ('%.2f' % x.price).to_s + "||"
-            end
-            
+            to_push = [] #holds each line and pushes it to the line array, will only push service and price if they're not nil
+
+            to_push << x.service 
+            to_push << x.description
+            to_push << x.price
+
             lines << to_push
             total += x.price unless x.price.nil?
           end
           
           total = y.total unless y.total.nil?
           
-          text lines.join("\n") + "\n\n" + "Total: £" + ('%.2f' % total).to_s
+          make_invoice(lines, total)
           
-              ##############################################  
-      ############>>>BLOCK METHOD<<<<<<############## 
-    ##############################################
+            ##############################################  
+            ############>>>BLOCK METHOD<<<<<<############## 
+            ##############################################
           
         else #block rendering
         
-          text y.block + "\n\n" + "Total: £" + ('%.2f' % y.total).to_s
+          unless y.total.nil?
+            total = y.total 
+          else
+            total = 0
+          end
+          
+            make_invoice(lines, total, y.block)
       
         end
         
@@ -69,16 +71,13 @@ module GroupsHelper
   end
   
   
-  
+
   def download_pdf_group(inv)
-    
     send_file(
       "#{Rails.root}/invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf",
       filename: "invoice" + inv.id.to_s +  ".pdf",
       type: "application/pdf"
     )
-    
   end
-  
   
 end

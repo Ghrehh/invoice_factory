@@ -29,8 +29,11 @@ class InvsController < ApplicationController
   
   def update
     @inv = Inv.find(params[:id]) 
-    @inv.update_attributes(inv_params)
-    
+    if @inv.update_attributes(inv_params)
+      flash.now[:success] = "Inv updated successfully"
+    else
+      flash.now[:danger] = "Oops, something went wrong! Did you leave the name field blank?"
+    end
     
     @invs = Inv.all
     @lines = @inv.lines.all
@@ -46,11 +49,10 @@ class InvsController < ApplicationController
   def create
     @inv = current_user.invs.create(inv_params)
     if @inv.valid?
-      flash[:success] = "Successfully created inv"
       redirect_to edit_inv_path(@inv.id)
     else
-      flash.now[:danger] = 'something went wrong'
-      render new_invs_path
+      flash.now[:danger] = 'something went wrong, ensure you provided a recipient'
+      render new_inv_path
     end
   end
   
