@@ -10,24 +10,29 @@ class LinesController < ApplicationController
     @inv = Inv.find(params[:inv_id])
     @lines = @inv.lines.all
     
-    @total = 0
-    @inv.lines.each do |x|
-      if x.price != nil
-        @total += x.price
-      end
-    end
+    @total = get_total(@inv)
     
     @line = @inv.lines.new(line_params)
     @line.position = @inv.lines.count + 1
+    @line.save
+  end
+  
+  def edit
+    @line = Line.find(params[:id])
     
+    @inv = @line.inv
+    @lines = @inv.lines.all
+    @total = get_total(@inv)
+  end
+  
+  
+  def update
+    @line = Line.find(params[:id]) 
+    @line.update_attributes(line_params)
     
-    if @line.save
-      
-       
-    else
-      flash.now[:danger] = 'Your comment must contain a body!'
-    end
-    
+    @inv = @line.inv
+    @lines = @inv.lines.all
+    @total = get_total(@inv)
   end
   
   def order
@@ -45,12 +50,7 @@ class LinesController < ApplicationController
     @line.destroy
     @inv = @line.inv
     
-    @total = 0
-    @inv.lines.each do |x|
-      if x.price != nil
-        @total += x.price
-      end
-    end
+    @total = get_total(@inv)
   end
   
   
@@ -62,7 +62,7 @@ class LinesController < ApplicationController
   end
   
   def correct_user
-    @user = Line.find(params[:id]).user
+    @user = Line.find(params[:id]).inv.user
     redirect_to(root_url) unless current_user?(@user)
   end
   

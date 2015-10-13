@@ -1,13 +1,38 @@
 set_positions = function(){
   // loop through and give each task a data-pos
   // attribute that holds its position in the DOM
-  $('.sortable > li').each(function(i){
+  $('.sortable > li').each(function(i){ 
       $(this).attr("data-pos",i+1);
   });
 }
 
 var ready = function() {
   
+  $(".line-button").click(function(){ //clears the form after it's been posted
+ 
+     setTimeout(function(){ //timeout because without it the form cleared to fast and an empty form was submitted
+       $(".service").val("");
+       $(".description").val("");
+       $(".price").val("");
+       $(".service").focus();
+     }, 100);
+     
+   });
+   
+    var edit_inv_shown = false;
+    
+    $(".edit-inv").click(function(){
+      
+      if (edit_inv_shown == false) {
+        $(".edit-inv-form").show();
+        edit_inv_shown = true;
+      }
+      else {
+        $(".edit-inv-form").hide();
+        edit_inv_shown = false;
+      }
+     
+   });
 
   set_positions()
   
@@ -15,7 +40,7 @@ var ready = function() {
   $('.sortable').sortable().bind('sortupdate', function() {
     
     
-    updated_order = []
+    updated_order = [] 
     // set the updated positions
     set_positions();
 

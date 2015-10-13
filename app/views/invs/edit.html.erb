@@ -1,19 +1,29 @@
-<br>
-<a class="change-mode" href="javascript:void(0)" style="text-align:center; display: block">Change Mode</a>
-<br>
+<!-- THIS IS A FUCKING MESS OMG -->
 
-////////////////////////////////////
 <br>
-INVOICE FOR: <%= @inv.recipient %>
+<a class="change-mode" href="javascript:void(0)" style="text-align:center; display: block">Change Mode</a> <!-- BUTTOM TO CHANGE MODE -->
+<div class="inv-container">
+  <%= render "inv.html.erb" %>
+</div>
 <br>
-GROUP: 
-<% if @inv.group == nil %>
-  none
-<% else %>
-<%= @inv.group.name %>
+<div class="edit-inv-form" style = "display:none">
+  
+<%= form_for (@inv), :remote => :true do |f| %>
+  <%= f.label "Who is the recipient?" %>
+  <br>
+  <%= f.text_field :recipient, autofocus: true %>
+  <br>
+  <%= f.label "Include in a group? Leave blank if no" %>
+  <br>
+  <%= f.collection_select :group_id, @group,:id,:name, include_blank: true %>
+  <br>
+  <%= f.submit "Update" %>
 <% end %>
+
+</div>
+<a class="edit-inv" href="javascript:void(0)">Edit Details</a>
 <br>
-////////////////////////////////////
+<br>
 
 
 <div class="line-mode">
@@ -58,8 +68,6 @@ GROUP:
 <div class="block-mode" style="display:none">
   
   
-<br>
-<br>
 
 <%= link_to "Download as PDF", inv_download_path  %>
 <br>
@@ -67,9 +75,9 @@ GROUP:
   
   <%= form_for [@inv], :remote => true do |f| %>
     <br>
-    <%= f.label :block %>
+    <%= f.label "Plain text body, leave this blank if you wish to use the lines method" %>
     <br>
-    <%= f.text_area :block %>
+    <%= f.text_area :block, class: "block-body" %>
     <br>
     
     <div class="form-container">
@@ -77,7 +85,7 @@ GROUP:
       <%= f.text_field :total, class: "price", input_html: {autocomplete: 'off'} %>
     </div>
       
-    <%= f.submit "Update", class: "line-button" %>
+    <%= f.submit "Update", class: "line-button2" %>
     
   <% end %>
   <br>

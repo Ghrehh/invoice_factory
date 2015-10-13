@@ -1,0 +1,22 @@
+<%= form_for [@line], :remote => true do |f| %>
+  
+  <div class="form-container">
+    <%= f.label :service %>
+    <%= f.text_field :service, autofocus: true, class: "service", input_html: {autocomplete: 'off'} %>
+  </div>
+  
+  <div class="form-container">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "description", input_html: {autocomplete: 'off'} %>
+  </div>
+  
+  <div class="form-container">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'} %>
+  </div>
+    
+    
+  <%= f.submit "Update", class: "line-button" %>
+  
+<% end %>
+<br>

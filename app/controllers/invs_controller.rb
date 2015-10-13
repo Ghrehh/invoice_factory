@@ -21,6 +21,8 @@ class InvsController < ApplicationController
     @lines = @inv.lines.all
     @line = @inv.lines.new
     
+    @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+    
     @total = get_total(@inv)
   end
   

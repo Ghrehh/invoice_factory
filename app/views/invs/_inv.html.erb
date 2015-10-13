@@ -1,0 +1,13 @@
+////////////////////////////////////
+<br>
+INVOICE FOR: <%= @inv.recipient %>
+<br>
+GROUP: 
+<% if @inv.group == nil %> <!-- WILL DISPLAY A GTROUP IF THERE IS ONE -->
+  none
+<% else %>
+  <%= @inv.group.name %>
+<% end %>
+
+<br>
+////////////////////////////////////

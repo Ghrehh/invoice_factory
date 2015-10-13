@@ -24,6 +24,11 @@
   float:right;
 }
 
+.edit-button {
+  float: right;
+  margin-right: 5px;
+}
+
 .line {
   border: 1px solid black;
   border-width: 1px 0px;
@@ -50,3 +55,7 @@
   padding: 0;
 }
 
+.block-body {
+  width: 1000px;
+  height: 400px;
+}
