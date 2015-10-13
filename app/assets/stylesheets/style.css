@@ -59,3 +59,11 @@
   width: 1000px;
   height: 400px;
 }
+
+/**************************#
+******EDIT INV *************
+*****************************/
+
+.inv-container {
+  border: 1px solid black;
+}

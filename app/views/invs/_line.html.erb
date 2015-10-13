@@ -14,7 +14,7 @@
     <%= link_to 'edit', edit_line_path(x), class: "edit-button", :remote => true %>
     
     <% unless x.price.nil? %> <!-- will print the price is one is provided -->
-      <p class="price-paragraph">||£<%= x.price %>||</p>
+      <p class="price-paragraph">||£<%= '%.2f' % x.price %>||</p>
     <% end %>
     
     <!--these are for debugging if the ordering breaks(<%= x.id %>||

@@ -1,6 +1,10 @@
 module GroupsHelper
   
   def makepdfgroup(group)
+    
+        ##############################################
+      #######DIRECTORY MAKING SECTION###########
+    #############################################
   
     
     if File.directory?("invoices") == false
@@ -16,6 +20,10 @@ module GroupsHelper
     Prawn::Document.generate("invoices/" + group.user.name + "/invoice" + group.id.to_s +  ".pdf") do
       group.invs.each_with_index do |y, y2|
         
+            ##############################################
+      ###############>>>>LINES METHOD<<<<###################
+    ##############################################
+        
         if y.block.nil? || y.block == "" #will use this section if the block method is unused
           lines = []
           total = 0
@@ -28,7 +36,7 @@ module GroupsHelper
               to_push += x.description
               
             unless x.price.nil?
-              to_push += " ||£" + x.price.to_s + "||"
+              to_push += " ||£" + ('%.2f' % x.price).to_s + "||"
             end
             
             lines << to_push
@@ -37,11 +45,15 @@ module GroupsHelper
           
           total = y.total unless y.total.nil?
           
-          text lines.join("\n") + "\n\n" + "Total: £" + total.to_s
+          text lines.join("\n") + "\n\n" + "Total: £" + ('%.2f' % total).to_s
+          
+              ##############################################  
+      ############>>>BLOCK METHOD<<<<<<############## 
+    ##############################################
           
         else #block rendering
-         
-          text y.block + "\n\n" + "Total: £" + y.total.to_s
+        
+          text y.block + "\n\n" + "Total: £" + ('%.2f' % y.total).to_s
       
         end
         

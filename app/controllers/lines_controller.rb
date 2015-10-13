@@ -10,11 +10,11 @@ class LinesController < ApplicationController
     @inv = Inv.find(params[:inv_id])
     @lines = @inv.lines.all
     
-    @total = get_total(@inv)
-    
     @line = @inv.lines.new(line_params)
     @line.position = @inv.lines.count + 1
     @line.save
+    
+    @total = get_total(@inv)
   end
   
   def edit

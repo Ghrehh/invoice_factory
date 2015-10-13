@@ -1,11 +1,9 @@
 <!-- THIS IS A FUCKING MESS OMG -->
 
-<br>
-<a class="change-mode" href="javascript:void(0)" style="text-align:center; display: block">Change Mode</a> <!-- BUTTOM TO CHANGE MODE -->
 <div class="inv-container">
   <%= render "inv.html.erb" %>
 </div>
-<br>
+
 <div class="edit-inv-form" style = "display:none">
   
 <%= form_for (@inv), :remote => :true do |f| %>
@@ -22,6 +20,7 @@
 
 </div>
 <a class="edit-inv" href="javascript:void(0)">Edit Details</a>
+<a class="change-mode" href="javascript:void(0)">Change Mode</a>
 <br>
 <br>
 

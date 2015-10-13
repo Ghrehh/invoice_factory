@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012141420) do
+ActiveRecord::Schema.define(version: 20151013112942) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20151012141420) do
     t.integer  "user_id"
     t.string   "recipient"
     t.integer  "group_id"
-    t.integer  "total"
+    t.float    "total"
     t.text     "block"
   end
 
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151012141420) do
     t.integer  "inv_id"
     t.string   "service"
     t.string   "description"
-    t.integer  "price"
+    t.float    "price"
     t.integer  "position"
   end
 
