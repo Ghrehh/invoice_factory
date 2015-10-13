@@ -1,0 +1,190 @@
+$lighter-blue: #e5f5fc;
+$light-blue: #b9dae8;
+$mid-blue: #70b5d3;
+$dark-blue: #2588b2;
+
+$nearly-black: #1c1c1c;
+
+
+html, body, p, div, a {
+ 
+}
+
+.contains-everything {
+  padding: 0px 5px;
+}
+
+
+
+.service, .description, .price {
+  display: block;
+  margin-right: 20px;
+}
+
+.form-container {
+  display: inline-block;
+}
+
+.service-paragraph, .description-paragraph, .price-paragraph {
+  display: inline-block;
+  margin: 2px 5px 2px;
+}
+
+.service-paragraph {
+  font-weight: 800;
+}
+
+.price-paragraph {
+  float: right;
+}
+
+.delete-button {
+  float:right;
+}
+
+.edit-button {
+  float: right;
+  margin-right: 5px;
+}
+
+
+.sortable-placeholder {
+  border: 1px dashed #CCC;
+  background-color: #f9f9f9;
+  height: 18px;
+  margin-bottom: 10px;
+  list-docoration: none
+}
+
+.sortable {
+  list-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.block-body {
+  width: 1000px;
+  height: 200px;
+}
+
+/**************************
+********HEADER***********
+************************/
+
+.header {
+  background-color: $nearly-black;
+  padding: 5px 10px;
+}
+
+.header > a {
+  color: $mid-blue;
+  margin-left: 12px;
+}
+
+/**************************#
+******EDIT INV *************
+*****************************/
+
+.inv-container {
+  border: 3px solid $mid-blue;
+  border-width: 3px 3px 2px 3px;
+  border-radius: 5px 5px 0px 0px;
+  background-color: $lighter-blue;
+  color: $nearly-black;
+  padding: 5px;
+}
+
+.inv-container-links {
+  border: 3px solid $mid-blue;
+  border-width: 1px 3px 3px 3px;
+  border-radius: 0px 0px 5px 5px;
+  background-color: $light-blue;
+  padding: 5px;
+}
+
+.inv-container-links > a {
+  color: $dark-blue;
+  margin-right: 7px;
+}
+
+.inv-container > p {
+  margin: 0px;
+}
+
+.edit-inv-form-inner {
+  border: 3px solid $dark-blue;
+  border-width: 0px 3px;
+  margin: 0px 5px;
+
+  background-color: $mid-blue;
+  padding: 5px;
+}
+
+.line {
+  border: 1px solid $mid-blue;
+  border-radius: 5px;
+  margin: 0px 0px 5px 0px;
+  background-color: $lighter-blue;
+  padding: 2px 10px 2px 5px;
+  overflow: auto;
+}
+
+.total-container {
+  border: 3px solid $dark-blue;
+  border-width: 3px;
+  margin: 0px 0px;
+
+  background-color: $light-blue;
+  padding: 5px;
+}
+
+.total-container > p, .custom-total-container > p {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-total-container {
+  border: 3px solid $dark-blue;
+  border-width: 0px 3px 3px 3px;
+  margin: 0px 0px;
+  border-radius: 0px 0px 5px 5px;
+
+  background-color: $light-blue;
+  padding: 5px;
+}
+
+.total-container > a {
+  color: $dark-blue;
+}
+
+.total {
+  display: inline-block;
+}
+
+.custom-total {
+  display: inline-block;
+  float: right;
+}
+/* NEW LINE FORM */
+
+.new-line-form {
+  margin: 0px 0px 20px 5px;
+}
+
+.description, .service, .price {
+  height: 25px;
+  width: 300px;
+  display: inline-block;
+  border-radius: 2px;
+  padding-left: 10px;
+}
+
+.description {
+  margin-bottom: -8px;
+}
+
+.edit_line {
+  display: inline-block;
+  margin: 3px 0px;
+}
+

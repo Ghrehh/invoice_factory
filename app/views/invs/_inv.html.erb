@@ -1,7 +1,7 @@
-<p>INVOICE FOR: <%= @inv.recipient %></p>
+<p><strong>INVOICE FOR:</strong> <%= @inv.recipient %></p>
 
 <p>
-  GROUP: 
+  <strong>GROUP:</strong> 
   <% if @inv.group == nil %> <!-- WILL DISPLAY A GTROUP IF THERE IS ONE -->
     none
   <% else %>

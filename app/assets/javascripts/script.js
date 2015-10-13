@@ -24,12 +24,27 @@ var ready = function() {
     $(".edit-inv").click(function(){
       
       if (edit_inv_shown == false) {
-        $(".edit-inv-form").show();
+        $(".edit-inv-form").slideDown(200);
         edit_inv_shown = true;
       }
       else {
-        $(".edit-inv-form").hide();
+        $(".edit-inv-form").slideUp(200);
         edit_inv_shown = false;
+      }
+     
+   });
+   
+    var custom_total_shown = false;
+    
+    $(".custom-total").click(function(){
+      
+      if (custom_total_shown == false) {
+        $(".custom-total-container").slideDown(200);
+        custom_total_shown = true;
+      }
+      else {
+        $(".custom-total-container").slideUp(200);
+        custom_total_shown = false;
       }
      
    });

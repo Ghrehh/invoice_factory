@@ -8,14 +8,14 @@
 </head>
 <body>
 <% if logged_in? %>
- 
- <%= link_to "All Invoices |", invs_path %>
- <%= link_to "Invoices by Group |", groups_path %>
- <%= link_to "New Invoice |", new_inv_path %>
- <%= link_to "New Group |", new_group_path %>
- <%= link_to "Edit User ", edit_user_path(current_user.id) %>
- <%= link_to "| Log Out(" + current_user.name + ") |", logout_path, method: "delete" %>
- 
+ <div class="header">
+   <%= link_to "All Invoices ", invs_path %>
+   <%= link_to "Invoices by Group ", groups_path %>
+   <%= link_to "New Invoice ", new_inv_path %>
+   <%= link_to "New Group ", new_group_path %>
+   <%= link_to "Edit User ", edit_user_path(current_user.id) %>
+   <%= link_to " Log Out(" + current_user.name + ") ", logout_path, method: "delete" %>
+ </div>
  
 
  <br>
