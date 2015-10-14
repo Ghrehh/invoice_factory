@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     
     if @user.valid?
-      log_in@user
+      log_in @user
       flash[:success] = "Successfully Logged In"
       redirect_to root_url
       

@@ -11,6 +11,12 @@
    <%= f.password_field :password,class: 'new-post-title' %>
    <br>
    <br>
+   
+   <%= f.label :remember_me do %>
+   <%= f.check_box :remember_me %>
+   <span>Remember me on this computer</span>
+   <% end %>
+   <br>
 
    <%= f.submit "Log in", class: "post-button" %>
 <% end %>

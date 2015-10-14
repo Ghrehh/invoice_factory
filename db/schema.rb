@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013112942) do
+ActiveRecord::Schema.define(version: 20151014135740) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20151013112942) do
     t.string   "password_digest"
     t.string   "email"
     t.string   "current_group",   default: "all", null: false
+    t.string   "remember_digest"
   end
 
 end
