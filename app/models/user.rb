@@ -2,10 +2,13 @@ class User < ActiveRecord::Base
   attr_accessor :remember_token
   
   has_secure_password
+  #validates :name, presence: true, uniqueness: { case_sensitive: false }
   
-  validates :name, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
+  
+  validates :name, presence: true, uniqueness: true, :on => :create
+  validates_format_of :name, :with => /\A(?=.*[a-z])[a-z\d]+\Z/i, :on => :create
+  validates :password, presence: true, :on => :create
+  validates :password_confirmation, presence: true, :on => :create
   
   has_many :invs
   has_many :groups
@@ -27,7 +30,6 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
   
-  
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -37,4 +39,5 @@ class User < ActiveRecord::Base
   def User.new_token
     SecureRandom.urlsafe_base64
   end
+  
 end

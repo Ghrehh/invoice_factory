@@ -17,11 +17,18 @@ module ApplicationHelper
     end
   end
   
-  def make_invoice(lines, total, block=nil)
+  def make_invoice(lines, total, block=nil, address_arr=nil, top_arr=nil)
     
     ##########################################
     ####### TOP RIGHT NONSENSE ###############
     ##########################################
+    
+    top_arr_fixed = []
+    
+    top_arr.each do |x|
+      x = "" if x.nil?
+      top_arr_fixed << x
+    end
     
     catx1 = 180 # coords for the top right stuff
     catx2 = 370
@@ -32,11 +39,11 @@ module ApplicationHelper
     size = 9
     
     bounding_box([catx1, 720], :width => leftwidth) do
-    	text "ADDRESS REALLY LONG ONE:", :style => :bold, :align => :right, :size => size
+    	text "ADDRESS:", :style => :bold, :align => :right, :size => size
     end
     
     bounding_box([catx2, 720], :width => rightwidth) do
-    	text "Test this is please workTest this is please. It's longer. This is longer now :D SOMETHING :DD :DD", :size => size
+    	text top_arr_fixed[0], :size => size
     end
     
     x = cursor #setting the cursor so that the bolded part is at the same level as non-bolded. Might consider doing this the way i've handled the main body of the invoices
@@ -46,7 +53,7 @@ module ApplicationHelper
     end
     
     bounding_box([catx2, x - 5], :width => rightwidth) do
-    	text "Test this is please work t t t t t t t t t", :size => size
+    	text top_arr_fixed[1], :size => size
     end
     
     x = cursor
@@ -56,7 +63,7 @@ module ApplicationHelper
     end
     
     bounding_box([catx2, x - 5], :width => rightwidth) do
-    	text "Test this is please work t t t t t t t t t", :size => size
+    	text top_arr_fixed[2], :size => size
     end
     
     x = cursor
@@ -66,7 +73,7 @@ module ApplicationHelper
     end
     
     bounding_box([catx2, x - 5], :width => rightwidth) do
-    	text "somethingpotentionallylong@hotmail.com", :size => size
+    	text top_arr_fixed[3], :size => size
     end
     
     ##########################################
@@ -85,16 +92,10 @@ module ApplicationHelper
      		text "INVOICE"
      	end
     
-     	move_down 20
-    
-     	font("Helvetica", :size => 10, :style => :bold) do
-     		text "DATE:"
-     	end
-    
-     	move_down 20
-    
+     	move_down 55
+      
      	font("Helvetica", :size => 17, :style => :bold) do
-     		text "RECIPIENT ADDRESS"
+     		text "RECIPIENT"
      	end
     
     	stroke do
@@ -133,16 +134,31 @@ module ApplicationHelper
     
     end
     
-    ###########USER INPUTS STUFF################
-    bounding_box([30, 500], :width => 500) do
-    	text "23 Fake Address, \n Placeholder Avenue, \n Unreal"
+    #if the address fields are nil this turns them into an empty string
+    address_arr_fixed = []
+    
+    address_arr.each do |x|
+      x = "" if x.nil?
+      address_arr_fixed << x
     end
     
-    startx = 30
+    address = address_arr_fixed.join("\n")
+    
+    ###########USER INPUTS STUFF################
+    bounding_box([35, 567], :width => 500) do
+    	text "DATE:", :style => :bold, :size => 10
+    end
+    
+    bounding_box([35, 506], :width => 500) do
+    	text address
+    end
+    
+    startx = 35
     starty = 400
     
     if block == nil || block == "" #gets executed if there's no block
       
+    
       lines.each do |x|
         
       unless x[2].nil? #wont run it unless there's a price

@@ -1,14 +1,30 @@
 <h1>Updating User Info</h1>
 
 <%= form_for @user do |f| %>
-  <%= f.label :password %>
+  <h4>These Will Appear at the top of each invoice you make:</h4>
+  
   <br>
-  <%= f.password_field :password %>
+  <%= f.label "Address" %>
   <br>
+  <%= f.text_field :address %>
   <br>
-  <%= f.label "Confirm Password" %>
+  
   <br>
-  <%= f.password_field :password_confirmation %>
+  <%= f.label "Mobile/Cell" %>
+  <br>
+  <%= f.text_field :mobile %>
+  <br>
+  
+  <br>
+  <%= f.label "Phone" %>
+  <br>
+  <%= f.text_field :phone %>
+  <br>
+  
+  <br>
+  <%= f.label "Email(Leave blank to use the email you signed up with)" %>
+  <br>
+  <%= f.text_field :invoice_email %>
   <br>
   
   

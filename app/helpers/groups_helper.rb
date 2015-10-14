@@ -20,6 +20,8 @@ module GroupsHelper
     Prawn::Document.generate("invoices/" + group.user.name + "/invoice" + group.id.to_s +  ".pdf") do
       group.invs.each_with_index do |y, y2|
         
+        address_arr = [y.recipient, y.address_1,y.address_2,y.address_3]
+        top_arr = [y.user.address, y.user.mobile, y.user.phone, y.user.invoice_email]
         ##############################################
         ###############>>>>LINES METHOD<<<<###################
         ##############################################
@@ -41,7 +43,7 @@ module GroupsHelper
           
           total = y.total unless y.total.nil?
           
-          make_invoice(lines, total)
+          make_invoice(lines, total, nil, address_arr, top_arr)
           
             ##############################################  
             ############>>>BLOCK METHOD<<<<<<############## 
@@ -55,7 +57,7 @@ module GroupsHelper
             total = 0
           end
           
-            make_invoice(lines, total, y.block)
+            make_invoice(lines, total, y.block, address_arr, top_arr)
       
         end
         

@@ -30,7 +30,11 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id]) 
-    @user.update_attributes(user_params)
+    if @user.update_attributes(user_params)
+      flash[:success] = "Successfully Updated"
+    else
+      flash[:danger] = "Oops, something went wrong"
+    end
     redirect_to edit_user_path(@user.id)
   end
   
@@ -38,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation)
+    params.require(:user).permit(:name, :password, :password_confirmation, :email, :invoice_email, :address, :phone, :mobile)
   end
   
   def correct_user

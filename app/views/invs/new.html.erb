@@ -4,10 +4,34 @@
   <br>
   <%= f.text_field :recipient, autofocus: true %>
   <br>
+
+  <br>
+  <br>
+  <%= f.label "Address Line 1" %>
+  <br>
+  <%= f.text_field :address_1%>
+  <br>
+  
+  <br>
+  <%= f.label "Address Line 2" %>
+  <br>
+  <%= f.text_field :address_2%>
+  <br>
+  
+  <br>
+  <%= f.label "Address Line 3" %>
+  <br>
+  <%= f.text_field :address_3%>
+  <br>
+  <br>
+  
+  <br>
   <%= f.label "Include in a group? Leave blank if no" %>
   <br>
   <%= f.collection_select :group_id, @group,:id,:name, include_blank: true %>
   <br>
+  <br>
+  
   <%= f.submit "Create" %>
 <% end %>
     

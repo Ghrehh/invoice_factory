@@ -4,6 +4,8 @@ module InvsHelper
   
   
   def makepdf(inv)
+    address_arr = [inv.recipient,inv.address_1,inv.address_2,inv.address_3]
+    top_arr = [inv.user.address, inv.user.mobile, inv.user.phone, inv.user.invoice_email]
     
     ##############################################
       #######DIRECTORY MAKING SECTION###########
@@ -39,7 +41,7 @@ module InvsHelper
       total = inv.total unless inv.total.nil?
       
       Prawn::Document.generate("invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf") do
-        make_invoice(lines, total)
+        make_invoice(lines, total, nil, address_arr, top_arr)
       end
       
     ############>>>BLOCK METHOD<<<<<<##############  
@@ -52,7 +54,7 @@ module InvsHelper
       end
       
       Prawn::Document.generate("invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf") do
-        make_invoice(lines, total, inv.block)
+        make_invoice(lines, total, inv.block, address_arr, top_arr)
       end
       
     end
