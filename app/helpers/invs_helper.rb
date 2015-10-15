@@ -67,7 +67,7 @@ module InvsHelper
   def downloadpdf(inv)
     send_file(
       "#{Rails.root}/invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf",
-      filename: "invoice" + inv.id.to_s +  ".pdf",
+      filename: "invoice" + inv.id.to_s +  ".pdf", :disposition => 'inline', #leaving the disposition thing here for now cause it simplifies so much shit
       type: "application/pdf"
     )
   end

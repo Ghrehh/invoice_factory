@@ -47,7 +47,7 @@
 <div class="inv-container-links">
   <a class="edit-inv" href="javascript:void(0)">Edit Details</a>
   <a class="change-mode" href="javascript:void(0)">Change Mode</a>
-  <%= link_to "Download as PDF", inv_download_path  %>
+  <%= link_to "Download as PDF", inv_download_path(@inv.id)%>
 </div>
 
 
@@ -104,4 +104,6 @@
 
 </div>
 
-
+<div class="iframe-container">
+  <%= render "iframe.html.erb" %>
+</div>

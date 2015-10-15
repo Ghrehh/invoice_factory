@@ -23,12 +23,12 @@ module ApplicationHelper
     ####### TOP RIGHT NONSENSE ###############
     ##########################################
     
-    top_arr_fixed = []
-    
+    top_arr_fixed = [] #top array sanitise.
     top_arr.each do |x|
       x = "" if x.nil?
       top_arr_fixed << x
     end
+    
     
     catx1 = 180 # coords for the top right stuff
     catx2 = 370
@@ -37,6 +37,7 @@ module ApplicationHelper
     rightwidth = 160
     
     size = 9
+    
     
     bounding_box([catx1, 720], :width => leftwidth) do
     	text "ADDRESS:", :style => :bold, :align => :right, :size => size
@@ -81,7 +82,7 @@ module ApplicationHelper
     ##########################################
     
     
-    bounding_box([30, 720], :width => 500) do
+    bounding_box([20, 720], :width => 500) do
     
     
     	image "picture2.png", :width => 80
@@ -145,15 +146,15 @@ module ApplicationHelper
     address = address_arr_fixed.join("\n")
     
     ###########USER INPUTS STUFF################
-    bounding_box([35, 567], :width => 500) do
+    bounding_box([25, 567], :width => 500) do
     	text "DATE:", :style => :bold, :size => 10
     end
     
-    bounding_box([35, 506], :width => 500) do
+    bounding_box([25, 506], :width => 500) do
     	text address
     end
     
-    startx = 35
+    startx = 25
     starty = 400
     
     if block == nil || block == "" #gets executed if there's no block
@@ -168,7 +169,7 @@ module ApplicationHelper
       end
       
       
-      text_width = 430 # standard width for the text-field
+      text_width = 420 # standard width for the text-field
       
       unless x[2].nil?
       	if num_digits(x[2]) > 7 # will reduce the size if the cost is too long
@@ -201,7 +202,7 @@ module ApplicationHelper
       	
     end
     
-    bounding_box([35, 14], :width => 500) do
+    bounding_box([25, 14], :width => 500) do
     	text "£" + ('%.2f' % total)
     end
     

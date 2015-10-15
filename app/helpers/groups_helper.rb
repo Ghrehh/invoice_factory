@@ -77,7 +77,7 @@ module GroupsHelper
   def download_pdf_group(inv)
     send_file(
       "#{Rails.root}/invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf",
-      filename: "invoice" + inv.id.to_s +  ".pdf",
+      filename: "invoice" + inv.id.to_s +  ".pdf", :disposition => 'inline',
       type: "application/pdf"
     )
   end
