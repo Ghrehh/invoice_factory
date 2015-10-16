@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016141025) do
+ActiveRecord::Schema.define(version: 20151016182951) do
 
   create_table "coverimages", force: :cascade do |t|
     t.string   "filename"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20151016141025) do
     t.string   "mobile"
     t.string   "phone"
     t.string   "invoice_email"
+    t.integer  "topoffset"
   end
 
 end

@@ -1,7 +1,14 @@
 module ApplicationHelper
   
   def num_digits(num) # gets the length of a fixnum, #need this to get the length of the line cost to readjust the height
-	  Math.log10(num).to_i + 1
+    if num > 0
+	    Math.log10(num).to_i + 1
+	  else #this lets me get the length of negative numbers
+	    numstring = num.to_s
+	    numstring = numstring[1..-1]
+	    numagain = numstring.to_i
+      Math.log10(numagain).to_i + 2
+    end
   end
   
   
@@ -17,11 +24,13 @@ module ApplicationHelper
     end
   end
   
-  def make_invoice(lines, total, block=nil, address_arr=nil, top_arr=nil)
+  def make_invoice(lines, total, block=nil, address_arr=nil, top_arr=nil, top_offset=nil)
     
     ##########################################
     ####### TOP RIGHT NONSENSE ###############
     ##########################################
+    
+    top_offset = 0 if top_offset == nil
     
     top_arr_fixed = [] #top array sanitise.
     top_arr.each do |x|
@@ -30,8 +39,8 @@ module ApplicationHelper
     end
     
     
-    catx1 = 180 # coords for the top right stuff
-    catx2 = 370
+    catx1 = 180 + top_offset # coords for the top right stuff
+    catx2 = 370 + top_offset
     
     leftwidth = 185
     rightwidth = 160
@@ -165,13 +174,13 @@ module ApplicationHelper
       unless x[2].nil? #wont run it unless there's a price
       	bounding_box([startx, starty], :width => 500) do
       		text "£" + ( '%.2f' % x[2]) + "", :style => :bold, :align => :right
-      	end
+      	end 
       end
       
       
       text_width = 420 # standard width for the text-field
       
-      unless x[2].nil?
+      unless x[2].nil? || x[2] == 0 
       	if num_digits(x[2]) > 7 # will reduce the size if the cost is too long
       		to_reduce = num_digits(x[2]) - 7
       		to_reduce.times { text_width -= 7}
