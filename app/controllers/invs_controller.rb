@@ -15,6 +15,11 @@ class InvsController < ApplicationController
     makepdf(@inv)
   end
   
+  def show
+    @inv = Inv.find(params[:id])
+    makepdf(@inv, true)
+  end
+  
   
   def edit
     @inv = Inv.find(params[:id])

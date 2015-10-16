@@ -3,7 +3,7 @@ include ApplicationHelper
 module InvsHelper
   
   
-  def makepdf(inv)
+  def makepdf(inv, display=false)
     address_arr = [inv.recipient,inv.address_1,inv.address_2,inv.address_3]
     top_arr = [inv.user.address, inv.user.mobile, inv.user.phone, inv.user.invoice_email]
     
@@ -59,15 +59,27 @@ module InvsHelper
       
     end
     
-    downloadpdf(inv) #sends the file for download after it's created
+    if display 
+      showpdf(inv) #shows the file instead of downloading it
+    else
+      downloadpdf(inv) #sends the file for download after it's created
+    end
     
   end
   
   
-  def downloadpdf(inv)
+  def showpdf(inv)
     send_file(
       "#{Rails.root}/invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf",
       filename: "invoice" + inv.id.to_s +  ".pdf", :disposition => 'inline', #leaving the disposition thing here for now cause it simplifies so much shit
+      type: "application/pdf"
+    )
+  end
+  
+  def downloadpdf(inv)
+    send_file(
+      "#{Rails.root}/invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf",
+      filename: "invoice" + inv.id.to_s +  ".pdf", #leaving the disposition thing here for now cause it simplifies so much shit
       type: "application/pdf"
     )
   end
