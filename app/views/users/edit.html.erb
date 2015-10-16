@@ -1,7 +1,8 @@
-<h1>Updating User Info</h1>
 <div style="float:right">
-  <iframe src="<%= asset_path "invs/" + "1" %>" width="1000px" height="1000px"></iframe>
+  <iframe src="<%= asset_path "invs/" + @previewinv.id.to_s %>" width="600px" height="700px"></iframe>
 </div>
+<h1>Updating User Info</h1>
+
 
 <%= form_for @user do |f| %>
   <h4>These Will Appear at the top of each invoice you make:</h4>

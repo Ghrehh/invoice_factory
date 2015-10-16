@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     
     if @user.valid?
+      @user.invs.create(recipient: "TestInvoice")
       log_in @user
       flash[:success] = "Successfully Logged In"
       redirect_to root_url
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @coverimage = @user.coverimages.first
+    @previewinv = @user.invs.first
   end
   
   def update
