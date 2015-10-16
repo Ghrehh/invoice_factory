@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   
   has_many :invs
   has_many :groups
+  has_many :coverimages
   
   
   

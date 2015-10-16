@@ -30,3 +30,21 @@
   
 <%= f.submit "Update", class: "line-button" %>
 <% end %>
+
+<br>
+<% if current_user.coverimages.count == 0 %>
+<p>Add a cover Image </p>
+  <%= form_for [Coverimage.new] do |f| %>
+    <%= f.file_field :file %>
+    <%= f.submit "Change cover image" %>
+  <% end %>
+<% else %>
+<p>Update cover image</p>
+  <%= form_for [@coverimage] do |f| %>
+    <%= f.file_field :file %>
+    <%= f.submit "Change cover image" %>
+  <% end %>
+
+    <img style="width:300px" src="/coverimages/<%= @coverimage.id %>">
+
+<% end %>

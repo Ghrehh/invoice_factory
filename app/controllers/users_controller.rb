@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    @coverimage = @user.coverimages.first
   end
   
   def update

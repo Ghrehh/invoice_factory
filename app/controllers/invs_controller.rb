@@ -52,6 +52,7 @@ class InvsController < ApplicationController
 
 
   def create
+    @inv = Inv.find(params[:id])
     @inv = current_user.invs.create(inv_params)
     if @inv.valid?
       redirect_to edit_inv_path(@inv.id)

@@ -1,0 +1,2 @@
+module CoverimagesHelper
+end
