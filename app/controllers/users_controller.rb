@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @user.invs.create(recipient: "TestInvoice") if @user.invs.count == 0 #creates an invoice for the user if they have none on the edit page
+    
     @coverimage = @user.coverimages.first
     @previewinv = @user.invs.first
   end
@@ -53,5 +54,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
-  
+  #dfg
 end
