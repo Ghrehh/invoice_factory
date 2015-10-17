@@ -24,7 +24,7 @@ module ApplicationHelper
     end
   end
   
-  def make_invoice(lines, total, block=nil, address_arr=nil, top_arr=nil, top_offset=nil)
+  def make_invoice(lines, total, block=nil, address_arr=nil, top_arr=nil, top_offset=nil, current_user)
     
     ##########################################
     ####### TOP RIGHT NONSENSE ###############
@@ -93,8 +93,12 @@ module ApplicationHelper
     
     bounding_box([20, 720], :width => 500) do
     
-    
-    	image "picture2.png", :width => 80
+      #width 80
+      if current_user.coverimages.first.nil? #if theres no cover image uploaded will use the black placeholder
+    	  image "picture2.png", :height => 80
+    	else
+    	  image "coverimages/" + current_user.name + "/" + current_user.coverimages.first.filename, :height => 80
+    	end
     
     	move_down 20
     

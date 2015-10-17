@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
   include InvsHelper
   include GroupsHelper
   include ApplicationHelper
+  include CoverimagesHelper
   
 end

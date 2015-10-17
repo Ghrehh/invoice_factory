@@ -3,7 +3,7 @@ include ApplicationHelper
 module InvsHelper
   
   
-  def makepdf(inv, display=false)
+  def makepdf(inv, display=false) #display is used by the iframe method to only show the pdf and not download it
     address_arr = [inv.recipient,inv.address_1,inv.address_2,inv.address_3]
     top_arr = [inv.user.address, inv.user.mobile, inv.user.phone, inv.user.invoice_email]
     
@@ -41,7 +41,7 @@ module InvsHelper
       total = inv.total unless inv.total.nil?
       
       Prawn::Document.generate("invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf") do
-        make_invoice(lines, total, nil, address_arr, top_arr, inv.user.topoffset)
+        make_invoice(lines, total, nil, address_arr, top_arr, inv.user.topoffset, inv.user)
       end
       
     ############>>>BLOCK METHOD<<<<<<##############  
@@ -54,7 +54,7 @@ module InvsHelper
       end
       
       Prawn::Document.generate("invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf") do
-        make_invoice(lines, total, inv.block, address_arr, top_arr, inv.user.topoffset)
+        make_invoice(lines, total, inv.block, address_arr, top_arr, inv.user.topoffset, inv.user)
       end
       
     end
@@ -71,7 +71,7 @@ module InvsHelper
   def showpdf(inv)
     send_file(
       "#{Rails.root}/invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf",
-      filename: "invoice" + inv.id.to_s +  ".pdf", :disposition => 'inline', #leaving the disposition thing here for now cause it simplifies so much shit
+      filename: "invoice" + inv.id.to_s +  ".pdf", :disposition => 'inline', 
       type: "application/pdf"
     )
   end
@@ -79,7 +79,7 @@ module InvsHelper
   def downloadpdf(inv)
     send_file(
       "#{Rails.root}/invoices/" + inv.user.name + "/invoice" + inv.id.to_s +  ".pdf",
-      filename: "invoice" + inv.id.to_s +  ".pdf", #leaving the disposition thing here for now cause it simplifies so much shit
+      filename: "invoice" + inv.id.to_s +  ".pdf", 
       type: "application/pdf"
     )
   end
