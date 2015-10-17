@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include CoverimagesHelper
   
   def num_digits(num) # gets the length of a fixnum, #need this to get the length of the line cost to readjust the height
     if num > 0
@@ -93,10 +94,15 @@ module ApplicationHelper
     
     bounding_box([20, 720], :width => 500) do
     
-      #width 80
+      #need to make a method thatll check if
       if current_user.coverimages.first.nil? #if theres no cover image uploaded will use the black placeholder
     	  image "picture2.png", :height => 80
     	else
+    	  
+    	  if File.directory?("coverimages/" + current_user.name + "/" + current_user.coverimages.first.filename) == false
+    	    write_to_tree(current_user.coverimages.first) #creates a image file in the tree
+    	  end
+    	  
     	  image "coverimages/" + current_user.name + "/" + current_user.coverimages.first.filename, :height => 80
     	end
     
