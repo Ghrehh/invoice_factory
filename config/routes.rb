@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'invs#new'
+  root 'static_pages#dashboard'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

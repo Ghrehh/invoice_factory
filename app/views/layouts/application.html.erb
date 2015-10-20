@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+  <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+  
 </head>
 <body>
 <% if logged_in? %>
@@ -21,12 +24,10 @@
  <div class="alert-container">
    <%= render "layouts/alerts.html.erb" %>
  </div>
- 
 
-
-<div class="contains-everything">
-  <%= yield %>
-</div>
+  <div class="contains-everything">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

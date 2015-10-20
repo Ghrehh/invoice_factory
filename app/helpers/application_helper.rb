@@ -99,8 +99,8 @@ module ApplicationHelper
     	  image "picture2.png", :height => 80
     	else
     	  
-    	  if File.directory?("coverimages/" + current_user.name + "/" + current_user.coverimages.first.filename) == false
-    	    write_to_tree(current_user.coverimages.first) #creates a image file in the tree
+    	  if File.directory?("coverimages/" + current_user.name + "/" + current_user.coverimages.first.filename) == false #checks if heroku hasn't deleted the image
+    	    write_to_tree(current_user.coverimages.first) #remakes the image
     	  end
     	  
     	  image "coverimages/" + current_user.name + "/" + current_user.coverimages.first.filename, :height => 80

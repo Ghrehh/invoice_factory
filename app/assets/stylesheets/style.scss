@@ -10,12 +10,20 @@ $nearly-black: #1c1c1c;
 *******GENERaL STUFF **
 *******************/
 
-html, body, p, div, a {
- 
+html, body{
+  height: 100%;
+  
+  
+}
+
+body {
+  background-color: #1c1c1c !important;
 }
 
 .contains-everything {
   padding: 0px 5px;
+  
+
 }
 
 
@@ -207,3 +215,99 @@ html, body, p, div, a {
   margin: 3px 0px;
 }
 
+/************************
+(((((((((((((((DASHBOARD
+*****************)*/
+
+.dashboard-left {
+  height: 700px;
+  width: 300px;
+  background-color: #2a323a;
+  margin-left: 15px;
+  border-radius: 5px;
+  
+}
+
+.left-invoices-container {
+  overflow:auto;
+  width: 100%;
+  height: 602px;
+}
+
+.dashboard-left > .left-inner {
+  width: 100%;
+  background-color: #0a0a0a;
+}
+
+.left-inner > h3 {
+  color: #ededed;
+  font-family: 'Patua One', cursive;
+  text-align: center;
+  padding: 18px 0px 15px;
+  border-bottom: 3px solid black;
+  margin: 0;
+}
+
+.left-search {
+  background-color: white;
+  width: 80%;
+  margin: 10px auto 0;
+  border-radius: 8px;
+  
+  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.fa-search {
+  margin: 5px 0 5px 5px;
+}
+
+.dashboard-left > a:hover {
+  text-decoration: none;
+  
+}
+
+.dashboard-invoice {
+  background-color: #141414;
+  border-radius: 8px;
+  width: 90%;
+  height: 60px;
+  margin: 10px auto;
+  
+  -webkit-transition:  background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.dashboard-invoice:hover {
+  background-color: #1c1c1c
+}
+
+.dashboard-invoice > p {
+  color: white;
+  font-size: 24px;
+  font-family: 'Patua One', cursive;
+  text-align: center;
+  margin: 0;
+}
+
+.dashboard-invoice > .dashboard-date {
+  color: #afafaf;
+  font-size: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9); 
+    border-radius: 10px;
+    
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    background-color: #141414;
+}

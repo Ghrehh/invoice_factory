@@ -19,6 +19,8 @@ gem 'rails_autolink'
 gem 'prawn'
 gem 'responders', '~> 2.0'
 
+gem 'font-awesome-sass'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
