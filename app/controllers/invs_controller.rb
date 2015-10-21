@@ -70,6 +70,10 @@ class InvsController < ApplicationController
   end
   
   
+  def search
+    @invs = Inv.all.where("recipient like ? ", "%#{params[:search]}%").where(user_id: current_user.id)
+  end
+  
   
   
   private

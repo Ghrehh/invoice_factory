@@ -53,6 +53,18 @@ var ready = function() {
      
    });
    
+   var plus_square_shown = false
+   $(".fa-plus-square").click(function(){
+     if (plus_square_shown == false){
+      $(".dashboard-right").slideDown()
+      plus_square_shown = true
+     }
+     else {
+       $(".dashboard-right").slideUp()
+       plus_square_shown = false
+     }
+   })
+   
   
 
   set_positions()

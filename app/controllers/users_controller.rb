@@ -13,9 +13,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     
     if @user.valid?
-      @user.invs.create(recipient: "TestInvoice")
       log_in @user
-      flash[:success] = "Successfully Logged In"
       redirect_to root_url
       
     else
@@ -27,7 +25,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
-    @user.invs.create(recipient: "TestInvoice") if @user.invs.count == 0 #creates an invoice for the user if they have none on the edit page
+    #@user.invs.create(recipient: "TestInvoice%/////%%///%%//%%//%%//") if @user.invs.count == 0 #creates an invoice for the user if they have none on the edit page
     
     @coverimage = @user.coverimages.first
     @previewinv = @user.invs.first
