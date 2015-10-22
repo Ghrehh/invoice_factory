@@ -330,6 +330,18 @@ textarea, input { outline: none; }
   
 }
 
+.right-inner > h3 { 
+  display: inline-block;
+  color: #ededed;
+  font-family: 'Patua One', cursive;
+  text-align: center;
+  padding: 18px 0px 15px;
+  border-bottom: 3px solid black;
+  margin: 0 0 0 15px;
+  font-size: 1.8em;
+}
+
+
 .dashboard-right > .right-inner {
   width: 100%;
   background-color: #0a0a0a;
@@ -342,7 +354,7 @@ textarea, input { outline: none; }
   color: #43bf35;
   margin: 3px 5px 3px 0px;
   font-size: 4.1em !important;
-  
+  display: inline-block;
 }
 
 .fa-plus-square:hover {
@@ -398,4 +410,9 @@ textarea, input { outline: none; }
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
     background-color: #141414;
+}
+
+.tt-menu {
+  width: 100px;
+  background-color: white;
 }
