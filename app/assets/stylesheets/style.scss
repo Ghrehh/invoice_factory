@@ -300,6 +300,10 @@ textarea, input { outline: none; }
   transition: background-color 0.3s;
 }
 
+.dashboard-invoice-selected {
+  background-color: #7a7a7a !important;
+}
+
 .dashboard-invoice:hover {
   background-color: #1c1c1c;
   text-decoration: none;

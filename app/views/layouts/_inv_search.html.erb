@@ -1,9 +1,23 @@
+
 <% @invs.each do |inv| %>
   <a href="/invs/<%= inv.id.to_s %>/edit">
-    <div class="dashboard-invoice">
-      <p><%= inv.recipient %></p>
-      <p class="dashboard-date"><%= inv.created_at.to_s[0..9] %></p>
-    </div>
+    
+    <% if !@inv.nil? && @inv.recipient == inv.recipient %>
+    
+        <div class="dashboard-invoice dashboard-invoice-selected">
+          <p><%= inv.recipient %></p>
+          <p class="dashboard-date"><%= inv.created_at.to_s[0..9] %></p>
+        </div>
+            
+      <% else %>
+      
+        <div class="dashboard-invoice">
+          <p><%= inv.recipient %></p>
+          <p class="dashboard-date"><%= inv.created_at.to_s[0..9] %></p>
+        </div>
+      <% end %>
+      
+
   </a>
 <% end %>
 

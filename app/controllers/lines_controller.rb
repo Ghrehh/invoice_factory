@@ -13,7 +13,7 @@ class LinesController < ApplicationController
     @line = @inv.lines.new(line_params)
     @line.position = @inv.lines.count + 1
     if @line.save
-      flash.now[:success] = "Line created successfully"
+      flash.now[:success] = "Invoice Saved"
     else
       flash.now[:danger] = "Line wasn't created properly, ensure the description field contains something"
     end
@@ -34,7 +34,7 @@ class LinesController < ApplicationController
   def update
     @line = Line.find(params[:id]) 
     if @line.update_attributes(line_params)
-      flash.now[:success] = "Line updated successfully"
+      flash.now[:success] = "Invoice Saved"
     else
       flash.now[:danger] = "Line wasn't updated, ensure the description field contains something"
     end

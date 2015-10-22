@@ -11,7 +11,7 @@
     
     <div class="right-form-container">
       
-      <%= form_for(@inv) do |f| %>
+      <%= form_for (@inv), :remote => :true do |f| %>
 
         <%= f.text_field :recipient, autofocus: true, placeholder: "Recipient", class: "recipient-form" %>
 
@@ -30,6 +30,7 @@
 
         
         <%= f.submit "Create" %>
+        
       <% end %>
       
     </div>

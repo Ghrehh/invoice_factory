@@ -35,7 +35,7 @@ class InvsController < ApplicationController
   def update
     @inv = Inv.find(params[:id]) 
     if @inv.update_attributes(inv_params)
-      flash.now[:success] = "Inv updated successfully"
+      flash.now[:success] = "Invoice Saved"
     else
       flash.now[:danger] = "Oops, something went wrong! Did you leave the name field blank?"
     end
@@ -52,12 +52,20 @@ class InvsController < ApplicationController
 
 
   def create
-    @inv = current_user.invs.create(inv_params)
+    @inv = current_user.invs.create(inv_params) #the invoice being created
+    @invs = Inv.all.where(user_id: current_user.id).reverse #invoices for the search bar
+    
     if @inv.valid?
-      redirect_to edit_inv_path(@inv.id)
+      
+        
+      @lines = @inv.lines.all
+      @line = @inv.lines.new
+      @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+      @total = get_total(@inv)
+      
     else
       flash.now[:danger] = 'something went wrong, ensure you provided a recipient'
-      render new_inv_path
+      
     end
   end
   
