@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   get "/download_group/:id", to: "groups#download", as: "group_download"
   
   get "/search_invoices/", to: "invs#search", as: "invoice_search"
+  get "/dashboard_invoice/:id", to: "invs#dashboard_invoice", as: "dashboard_invoice"
+  
+  get "/render_recipient_form/:id", to: "invs#recipient_form", as: "recipient_form"
+  get "/render_total_form/:id", to: "invs#total_form", as: "total_form"
+  
+  
   
   
   

@@ -1,61 +1,79 @@
 <div class="dashboard-container">
  <%= content_tag :div, id: 'trackers', data: {trackers: @recipients} do %>
  <% end %>
-  
-  
-  <div class="dashboard-right">
-    <div class="right-inner">
-      <h3>New Invoice</h3>
-      <i class="fa fa-plus-square fa-3x"></i>
-    </div>
+ 
+ <div class="dashboard-left-container">
+    <div class="dashboard-left">
+      <div class="left-inner">
+        <h3>Recent Invoices</h3>
+        
+      </div>
     
-    <div class="right-form-container">
-      
-      <%= form_for (@inv), :remote => :true do |f| %>
-
-        <%= f.text_field :recipient, autofocus: true, placeholder: "Recipient", class: "recipient-form" %>
-
-        <%= f.text_field :date, placeholder: "Date" %>
-      
-
-        <%= f.text_field :address_1, placeholder: "Address Line 1", class: "add1"%>
+    <!-- for some reason i need the param here and not in the routes -->
+    <%= form_tag invoice_search_path, :method => 'get', remote: true do %>
+        <i class="fa fa-search"></i>
+        <%= text_field_tag :search, params[:search], class: "left-search", :placeholder => "Enter the recipients name"  %>
         
-
-        <%= f.text_field :address_2, placeholder: "Address Line 2", class: "add2"%>
+    <% end %>
+    
+    
+      <div class="left-invoices-container">
         
-
-        <%= f.text_field :address_3, placeholder: "Address Line 3", class: "add3"%>
-      
-        <%= f.collection_select :group_id, @group,:id,:name, include_blank: true %>
-
+        <%= render "layouts/inv_search.html.erb" %>
         
-        <%= f.submit "Create" %>
+      </div>
         
-      <% end %>
-      
     </div>
   </div>
   
-  <div class="dashboard-left">
-    <div class="left-inner">
-      <h3>Recent Invoices</h3>
+  <div class="left-tab" style="display:none"></div>
+  <div class="right-tab" style="display:none"></div>
+  
+  <div class="dashboard-right-container">
+    <div class="dashboard-right">
+      <div class="right-inner-container">
+        <div class="right-inner">
+          <h3>New Invoice</h3>
+        </div>
+        
+        <div class="right-inner-two">
+          <h3></h3>
+        </div>
+      </div>
+      
+      <div class="right-form-container">
+        
+        <%= form_for (@inv), :remote => :true do |f| %>
+  
+          <%= f.text_field :recipient, autofocus: true, placeholder: "Recipient", class: "recipient-form" %>
+  
+          <%= f.text_field :date, placeholder: "Date" %>
+        
+  
+          <%= f.text_field :address_1, placeholder: "Address Line 1", class: "add1"%>
+          
+  
+          <%= f.text_field :address_2, placeholder: "Address Line 2", class: "add2"%>
+          
+  
+          <%= f.text_field :address_3, placeholder: "Address Line 3", class: "add3"%>
+        
+          <%= f.collection_select :group_id, @group,:id,:name, include_blank: true %>
+  
+          
+          <%= f.submit "Create" %>
+          
+        <% end %>
+        
+      </div>
     </div>
-  
-  <!-- for some reason i need the param here and not in the routes -->
-  <%= form_tag invoice_search_path, :method => 'get', remote: true do %>
-      <i class="fa fa-search"></i>
-      <%= text_field_tag :search, params[:search], class: "left-search", :placeholder => "Enter the recipients name"  %>
-      
-  <% end %>
-  
-  
-    <div class="left-invoices-container">
-      
-      <%= render "layouts/inv_search.html.erb" %>
-      
-    </div>
-      
   </div>
   
-</div>
+  
+    <div class="iframe-container" style="display:inline-block"></div>
+  </div>
+  
+
+  
+
 

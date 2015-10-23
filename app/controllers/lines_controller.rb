@@ -8,17 +8,23 @@ class LinesController < ApplicationController
   
   def create
     @inv = Inv.find(params[:inv_id])
-    @lines = @inv.lines.all
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
+   
     
     @line = @inv.lines.new(line_params)
     @line.position = @inv.lines.count + 1
+    @lines = @inv.lines.all
+    
+    @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+    
+     @total = get_total(@inv)
+  
     if @line.save
       flash.now[:success] = "Invoice Saved"
     else
       flash.now[:danger] = "Line wasn't created properly, ensure the description field contains something"
     end
     
-    @total = get_total(@inv)
     
   end
   
@@ -33,6 +39,9 @@ class LinesController < ApplicationController
   
   def update
     @line = Line.find(params[:id]) 
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
+    @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+
     if @line.update_attributes(line_params)
       flash.now[:success] = "Invoice Saved"
     else
@@ -55,11 +64,21 @@ class LinesController < ApplicationController
   
   def destroy
     @line = Line.find(params[:id])
+    
+    @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+    
+    @inv = @line.inv
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
+    
+    
     @lines = @line.inv.lines.all
     @line.destroy
-    @inv = @line.inv
     
     @total = get_total(@inv)
+    
+
+    
+   
     flash.now[:danger] = "Deleted Line"
   end
   

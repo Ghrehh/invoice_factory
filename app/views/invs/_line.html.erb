@@ -27,30 +27,7 @@
 
 </ul>
 
-<div class="total-container">
-  
-  <p class="total">
-  <% if @inv.total == nil %> <!-- will display (custom) if the price is custom -->
-    <strong>Total:</strong> £ <%= @total %>
-  <% else %>
-    <strong>Total:</strong> £ <%= @total %><strong>(CUSTOM)</strong>
-  <% end %>
-  </p>
-  <a class="custom-total" href="javascript:void(0)">Custom Total</a>
-</div>
 
-<div class="custom-total-container" style="display:none">
-  <%= form_for [@inv], :remote => true do |f| %> <!-- form to change total -->
-  
-    <div class="form-container">
-      <%= f.label "Custom Total" %>
-      <%= f.text_field :total, class: "price", input_html: {autocomplete: 'off'} %>
-    </div>
-      
-      
-    <%= f.submit "Change", class: "line-button" %>
-  <% end %>
-</div>
 
 
 <script type="text/javascript"> //reapplies the sorting thing every time the partial is reloaded.

@@ -201,15 +201,34 @@ body {
 }
 
 .description, .service, .price {
+  vertical-align:top;
   height: 25px;
   width: 300px;
   display: inline-block;
   border-radius: 2px;
   padding-left: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.service {
+  width: 200px;
 }
 
 .description {
   margin-bottom: -8px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 600px;
+  max-width: 800px;
+}
+
+.price {
+  width: 70px;
 }
 
 .edit_line {
@@ -222,8 +241,8 @@ body {
 *****************)*/
 
 .dashboard-container {
-  width: 1700px;
-  margin: auto;
+  width: 1900px;
+  overflow:hidden;
 }
 
 .dashboard-left {
@@ -234,6 +253,20 @@ body {
   border-radius: 5px;
   display:inline-block;
   float:left;
+}
+
+.dashboard-left-container {
+  display: inline-block;
+  width: 300px;
+  height: 700px;
+  margin-right: 20px;
+}
+
+.dashboard-right-container {
+  display: inline-block;
+  width: 1400px;
+  height: 700px;
+  vertical-align: top;
 }
 
 .left-invoices-container {
@@ -257,6 +290,8 @@ body {
   font-size: 1.8em;
   
 }
+
+
 
 .left-search {
   background-color: white;
@@ -329,9 +364,15 @@ textarea, input { outline: none; }
   background-color: #2a323a;
   margin-left: 15px;
   border-radius: 5px;
-  float: right;
+
   margin-right: 15px;
   
+}
+
+.right-body {
+  overflow: auto;
+  width: 100%;
+  min-height: 100%;
 }
 
 .right-inner > h3 { 
@@ -346,18 +387,54 @@ textarea, input { outline: none; }
 }
 
 
-.dashboard-right > .right-inner {
-  width: 100%;
-  background-color: #0a0a0a;
-  overflow:auto;
+.right-inner-two > h3 { 
+  display: inline-block;
+  color: #ededed;
+  font-family: 'Patua One', cursive;
+  text-align: center;
+  padding: 18px 0px 15px;
+  border-bottom: 3px solid black;
+  margin: 4px 10px 0 0px;
+  font-size: 1.4em;
+
+
 }
+
+
+.right-inner-container {
+  width:100%;
+  background-color: #0a0a0a;
+}
+
+.right-inner {
+  width: 70%;
+  background-color: #0a0a0a;
+  display:inline-block;
+  box-sizing: border-box;
+  margin-right: -4px;
+  overflow:hidden;
+}
+
+
+
+.right-inner-two {
+  width: 30%;
+  background-color: #0a0a0a;
+  display:inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  overflow:hidden;
+  text-align:right;
+
+}
+
 
 .fa-plus-square {
   float: right;
   right: 20px;
   color: #43bf35;
   margin: 3px 5px 3px 0px;
-  font-size: 4.1em !important;
+  
   display: inline-block;
 }
 
@@ -366,9 +443,215 @@ textarea, input { outline: none; }
   color: #68dd58;
 }
 
+.left-tab {
+  width: 15px;
+  height: 150px;
+  background-color: black;
+  display:inline-block;
+  position: absolute;
+  left: -4px;
+  border-radius: 0px 10px 30px 0px;
+  -webkit-transition:  background-color 0.3s;
+  transition: background-color 0.3s;
+}
 
+.right-tab {
+  width: 15px;
+  height: 150px;
+  background-color: black;
+  display:inline-block;
+  position: absolute;
+  top: 101px;
+  right: -4px;
+  border-radius: 10px 0px 0px 30px;
+  -webkit-transition:  background-color 0.3s;
+  transition: background-color 0.3s;
+}
 
+.left-tab:hover, .right-tab:hover {
+  cursor: pointer;
+  background-color:#2a323a;
+}
 
+.iframe-container {
+  display:inline-block;
+  vertical-align:top;
+  width: 400px !important;
+  height: 700px;
+}
+
+.iframe-inner {
+  width: 100% !important;
+  height: 100% !important;
+  margin-left: 700px;
+
+}
+
+.edit_inv {
+  display:inline-block !important;
+}
+
+.recipient-form-dashboard {
+  color: black;
+  background-color: #0A0A0A;
+  color: #8e8e8e;
+  border: none;
+  font-family: 'Patua One', cursive;
+  font-size: 1.8em;
+  margin-top: -1px;
+}
+
+.total-form-dashboard {
+  color: black;
+  background-color: #0A0A0A;
+  color: #8e8e8e;
+  border: none;
+  font-family: 'Patua One', cursive;
+  font-size: 1.4em;
+  margin-top: -1px;
+  width: 100px;
+}
+
+.fa-file {
+  color: #70e088;
+  position:relative;
+  bottom: -310px;
+  left: 1300px;
+}
+
+.date-form-dashboard {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+      font-family: 'Patua One', cursive;
+}
+
+.date-form-title {
+  display: inline-block;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  margin-left: 10px;
+    font-family: 'Patua One', cursive;
+}
+
+.date-form-container {
+  vertical-align:top;
+  background-color: #181818;
+  border-radius: 6px;
+  padding: 10px 0px 4px 0px;
+  margin: 15px 0px 15px 10px;
+  display: inline-block;
+  padding-right: 7px;
+    
+
+}
+
+.address-form-dashboard {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+  font-family: 'Patua One', cursive;
+  height: 32px;
+  width:450px;
+}
+
+.address-form-title {
+  vertical-align:top;
+  display: inline-block;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  margin-left: 10px;
+  font-family: 'Patua One', cursive;
+  
+}
+
+.address-form-container {
+  background-color: #181818;
+  border-radius: 6px;
+  padding: 10px 0px 4px 0px;
+  margin: 15px 0px 15px 10px;
+  display: inline-block;
+  padding-right: 7px;
+}
+
+.group-form-container {
+  vertical-align:top;
+    background-color: #181818;
+  border-radius: 6px;
+  padding: 10px 0px 4px 0px;
+  margin: 15px 0px 15px 10px;
+  display: inline-block;
+  padding-right: 7px;
+}
+
+.group-form-title {
+  vertical-align:top;
+  display: inline-block;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  margin-left: 10px;
+  font-family: 'Patua One', cursive;
+}
+
+.group-form-dashboard {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+  font-family: 'Patua One', cursive;
+}
+
+.dashboard-form-button {
+  vertical-align:top;
+  margin: 17px 0px 0px 10px;
+  height: 46px;
+  background-color: #0A0A0A;
+  font-family: 'Patua One', cursive;
+  color: white;
+  border:none;
+  border-radius: 6px;
+  font-size: 20px;
+}
+
+.dashboard-form-button:hover {
+  background-color: #2A323A;
+}
+
+.fa-pencil-square-o {
+  float:right;
+  margin-top: 20px;
+  margin-right: 15px;
+  font-size: 3.15em !important;
+}
+
+.fa-arrow-circle-down {
+  float:right;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.new-line-form-title {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+}
 /******************
 ********NO RESULTS *****
 ***************/
@@ -400,17 +683,17 @@ textarea, input { outline: none; }
 
 
 
-::-webkit-scrollbar {
+.left-invoices-container::-webkit-scrollbar {
     width: 12px;
 }
  
-::-webkit-scrollbar-track {
+.left-invoices-container::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9); 
     border-radius: 10px;
     
 }
  
-::-webkit-scrollbar-thumb {
+.left-invoices-container::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
     background-color: #141414;
@@ -420,3 +703,4 @@ textarea, input { outline: none; }
   width: 100px;
   background-color: white;
 }
+

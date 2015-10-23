@@ -1,3 +1,8 @@
 $('.right-form-container').html("<%= j (render "invs/editpage.html.erb") %>"); <!-- renders the form for the invoice you jsut made -->
 $('.left-invoices-container').html("<%= j (render "layouts/inv_search.html.erb") %>"); <!-- renders the search -->
-$('.right-inner').html("<h3>Editing Invoice for: <%= j (@inv.recipient) %></h3>"); <!-- renders the search -->
+$('.right-inner').html("<h3>Editing Invoice for: <%= j (link_to @inv.recipient, recipient_form_path(@inv.id), :remote => :true) %></h3>");
+
+$('.iframe-container').html("<%= j (render "iframe.html.erb") %>");<!-- renders the search -->
+hideDiv(".dashboard-left-container")
+showDiv(".iframe-container")
+$('.left-tab').show()

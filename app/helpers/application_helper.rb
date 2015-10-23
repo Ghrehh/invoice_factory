@@ -55,6 +55,9 @@ end
         @total += x.price unless x.price.nil?
       end
       
+      
+      @total = @inv.total unless @inv.total.nil?
+      
     else
       
       @total = @inv.total unless @inv.total.nil? #will asign the total to the custom one unless it's nil

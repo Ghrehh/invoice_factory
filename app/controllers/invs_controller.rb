@@ -36,13 +36,21 @@ class InvsController < ApplicationController
     @inv = Inv.find(params[:id]) 
     if @inv.update_attributes(inv_params)
       flash.now[:success] = "Invoice Saved"
+      
+      @invs = Inv.all.where(user_id: current_user.id).reverse 
+      @lines = @inv.lines.all
+      @line = @inv.lines.new
+      @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+      @total = get_total(@inv)
+      
     else
-      flash.now[:danger] = "Oops, something went wrong! Did you leave the name field blank?"
+      unless @inv.total.is_a? Integer
+        flash.now[:danger] = "A total must be a number"
+      else
+        flash.now[:danger] = "Oops, something went wrong! Did you leave the name field blank?"
+      end
     end
     
-    @invs = Inv.all
-    @lines = @inv.lines.all
-    @total = get_total(@inv)
   end
   
   
@@ -79,9 +87,26 @@ class InvsController < ApplicationController
   
   
   def search
-    @invs = Inv.all.where("recipient like ? ", "%#{params[:search]}%").where(user_id: current_user.id)
+    @invs = Inv.all.where("recipient like ? ", "%#{params[:search]}%").where(user_id: current_user.id).reverse
   end
   
+  def dashboard_invoice
+    @inv = Inv.find(params[:id])
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
+    @lines = @inv.lines.all
+    @line = @inv.lines.new
+    @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+    @total = get_total(@inv)
+  end
+  
+  def recipient_form
+    @inv = Inv.find(params[:id])
+  end
+  
+  def total_form
+    @inv = Inv.find(params[:id])
+    @total = get_total(@inv)
+  end
   
   
   private

@@ -6,6 +6,51 @@ set_positions = function(){
   });
 };
 
+var hideDiv = function(div) {
+  $(div + " > div").animate({ marginLeft: '-1000px' }, 700);
+  $(div).animate({ width: '0px' }, 700, function() {
+     
+      $(this).hide();
+      $('.left-tab').show();
+      $('.right-tab').hide();
+
+  });
+};
+
+var hideDivLeft = function(div) {
+  
+
+  $(div + " > div").animate({ marginLeft: '1000px' }, 700);
+  $(div).animate({ width: '0px', margin: '0px' }, 700, function() {
+     
+      $(this).hide();
+      
+  });
+  
+};
+
+var showDiv = function(div) {
+  $(div).animate({ width: '400px' }, 700, function() {
+    
+      $(this).show();
+
+      $(div + " > div").animate({ marginLeft: '0' }, 300);
+    });
+};
+
+var showDivLeft = function(div) {
+  $('.left-tab').hide()
+  $(div).show();
+  $(div).animate({ width: '300px' }, 700, function() {
+    
+     
+      
+      $(div + " > div").animate({ marginLeft: '15px' }, 300,function(){
+         $(".right-tab").show();
+      });
+    });
+};
+
 
 
 
@@ -145,14 +190,26 @@ var ready = function() {
   }
   
   $('.recipient-form').on('typeahead:selected', function(evt, item) {
-      console.log(item)
-      find_address(item)
-      console.log(add_arr)
+      console.log(item);
+      find_address(item);
+      console.log(add_arr);
       $(".add1").val(add_arr[1]);
       $(".add2").val(add_arr[2]);
       $(".add3").val(add_arr[3]);
 
-  })
+  });
+  
+  $(".left-tab").click(function(){
+    showDivLeft(".dashboard-left-container");
+    hideDivLeft(".iframe-container");
+    
+  });
+  
+  $(".right-tab").click(function(){
+    hideDiv(".dashboard-left-container");
+    showDiv(".iframe-container");
+  });
+ 
     
 
 };

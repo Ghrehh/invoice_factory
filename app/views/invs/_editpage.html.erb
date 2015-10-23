@@ -1,114 +1,102 @@
 <!-- THIS IS A FUCKING MESS OMG -->
 
-
-  
-
-<div class="inv-container">
-  <%= render "inv.html.erb" %>
-</div>
-
-<div class="edit-inv-form" style = "display:none">
-  <div class="edit-inv-form-inner">
-    <%= form_for (@inv), :remote => :true do |f| %>
-      <%= f.label "Who is the recipient?" %>
-      <br>
-      <%= f.text_field :recipient, autofocus: true %>
-      <br>
-      <%= f.label "Date" %>
-      <br>
-      <%= f.text_field :date %>
-      <br>
-      
-      <br>
-      <br>
-      <%= f.label "Address Line 1" %>
-      <br>
-      <%= f.text_field :address_1%>
-      <br>
-      
-      <br>
-      <%= f.label "Address Line 2" %>
-      <br>
-      <%= f.text_field :address_2%>
-      <br>
-      
-      <br>
-      <%= f.label "Address Line 3" %>
-      <br>
-      <%= f.text_field :address_3%>
-      <br>
-      <br>
-      <br>
-      <%= f.label "Include in a group? Leave blank if no" %>
-      <br>
-      <%= f.collection_select :group_id, @group,:id,:name, include_blank: true %>
-      <br>
-      <br>
-      <%= f.submit "Update" %>
-    <% end %>
-  </div>
-</div>
-
-<div class="inv-container-links">
-  <a class="edit-inv" href="javascript:void(0)">Edit Details</a>
-  <a class="change-mode" href="javascript:void(0)">Change Mode</a>
-  <%= link_to "Download as PDF", inv_download_path(@inv.id)%>
-</div>
-
-
-
-<div class="line-mode">
-  
-  <div class="new-line-form">
-      
-    <h4>Add Line</h4>
-    <%= form_for [@inv, Line.new], :remote => true do |f| %>
-    
-      <%= f.text_field :service, autofocus: true, class: "service", input_html: {autocomplete: 'off'},:placeholder => "Service(Not Required)" %>
-      
-      <%= f.text_area :description, class: "description", input_html: {autocomplete: 'off'},:placeholder => "Description" %>
-   
-      <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'},:placeholder => "Price(Not Required)" %>
-  
-      <%= f.submit "Add", class: "line-button" %>
-    
-    <% end %>
-  </div>
-  
-
-  
-  
-  <div class="line-container">
-   <%= render "line.html.erb" %>
-  </div>
-
-</div>
-
-<div class="block-mode" style="display:none">
-  
-  
-
-  
-  <%= form_for [@inv], :remote => true do |f| %>
-    <br>
-    <%= f.label "Plain text body, leave this blank if you wish to use the lines method" %>
-    <br>
-    <%= f.text_area :block, class: "block-body" %>
-    <br>
-    
-    <div class="form-container">
-      <%= f.label "Total" %>
-      <%= f.text_field :total, class: "price", input_html: {autocomplete: 'off'} %>
+  <div class="right-inner-container">
+    <div class="right-inner">
+      <h3>Editing Invoice for: <%= link_to @inv.recipient, recipient_form_path(@inv.id), :remote => :true %></h3>
     </div>
-      
-    <%= f.submit "Update", class: "line-button2" %>
     
-  <% end %>
-  <br>
+    <div class="right-inner-two">
+      <h3>Total: £ <%= link_to @total.to_s, total_form_path(@inv.id), :remote => :true %></h3>
+    </div>
+  </div>
+  <div class="right-body">
+    
   
 
+      <%= form_for (@inv), :remote => :true do |f| %>
+        <div class="date-form-container">
+          <p class="date-form-title">DATE </p>
+          <%= f.text_field :date, :placeholder => "Date", class: "date-form-dashboard" %>
+        </div>
+        
+
+        <div class="group-form-container">
+          <p class="group-form-title">Group </p>
+          <%= f.collection_select :group_id, @group,:id,:name, include_blank: true, class: "group-form-dashboard" %>
+        </div>
+        
+        <div class="address-form-container">
+          <p class="address-form-title">Address </p>
+          <%= f.text_area :address_1, class: "address-form-dashboard"%>
+        </div>
+        
+        <%= f.submit "Update", class: "dashboard-form-button"%>
+        
+      <% end %>
+
+    <a style:"float:right" href="/download/<%=@inv.id%>">
+      <i class="fa fa-arrow-circle-down fa-3x"></i>
+    </a>
+    
+    <a class="change-mode" href="javascript:void(0)">
+      <i  class="fa fa-pencil-square-o fa-3x"></i>
+    </a>
+    
+
+    
+  
+  
+  
+  <div class="line-mode">
+    
+    <div class="new-line-form">
+        
+      <h4 class="new-line-form-title">Add Line</h4>
+      <%= form_for [@inv, Line.new], :remote => true do |f| %>
+      
+        <%= f.text_field :service, autofocus: true, class: "service", input_html: {autocomplete: 'off'},:placeholder => "Service" %>
+        
+        <%= f.text_area :description, class: "description", input_html: {autocomplete: 'off'},:placeholder => "Description" %>
+     
+        <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'},:placeholder => "Price" %>
+    
+        <%= f.submit "Add", class: "line-button" %>
+      
+      <% end %>
+    </div>
+    
+  
+    
+    
+    <div class="line-container">
+     <%= render "invs/line.html.erb" %>
+    </div>
+  
+  </div>
+  
+  <div class="block-mode" style="display:none">
+    
+    <%= form_for [@inv], :remote => true do |f| %>
+      <br>
+      <%= f.label "Plain text body, leave this blank if you wish to use the lines method" %>
+      <br>
+      <%= f.text_area :block, class: "block-body" %>
+      <br>
+      
+      <div class="form-container">
+        <%= f.label "Total" %>
+        <%= f.text_field :total, class: "price", input_html: {autocomplete: 'off'} %>
+      </div>
+        
+      <%= f.submit "Update", class: "line-button2" %>
+      
+    <% end %>
+  
+  
+  </div>
 </div>
 
-<div class="iframe-container">
-  <%= render "iframe.html.erb" %>
-</div>
+<script>
+  $(document).ready(ready);
+  $(document).on('page:load', ready);
+</script>
