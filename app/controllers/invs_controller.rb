@@ -4,24 +4,20 @@ class InvsController < ApplicationController
   before_action :correct_user,   only: [:edit, :update, :show, :download, :delete]
   before_action :logged_in_user
   
-  def new
+  
+  def new #Dont actually need this
     @inv = Inv.new
     @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+    
+      @invs = Inv.all.where(user_id: current_user.id).reverse 
+      @lines = @inv.lines.all
+      @line = @inv.lines.new
+
+      @total = get_total(@inv)
   end
   
   
-  def download
-    @inv = Inv.find(params[:id])
-    makepdf(@inv)
-  end
-  
-  def show
-    @inv = Inv.find(params[:id])
-    makepdf(@inv, true)
-  end
-  
-  
-  def edit
+  def edit #don't think i need this
     @inv = Inv.find(params[:id])
     @lines = @inv.lines.all
     @line = @inv.lines.new
@@ -31,6 +27,22 @@ class InvsController < ApplicationController
     @total = get_total(@inv)
   end
   
+  
+  
+  
+  
+  def download #Actual download link
+    @inv = Inv.find(params[:id])
+    makepdf(@inv)
+  end
+  
+  def show #just displays the pdf, hence the true param
+    @inv = Inv.find(params[:id])
+    makepdf(@inv, true)
+  end
+  
+  
+
   
   def update
     @inv = Inv.find(params[:id]) 
@@ -90,7 +102,7 @@ class InvsController < ApplicationController
     @invs = Inv.all.where("recipient like ? ", "%#{params[:search]}%").where(user_id: current_user.id).reverse
   end
   
-  def dashboard_invoice
+  def dashboard_invoice #displays the clicked invoice on the dashboard
     @inv = Inv.find(params[:id])
     @invs = Inv.all.where(user_id: current_user.id).reverse 
     @lines = @inv.lines.all
@@ -99,7 +111,9 @@ class InvsController < ApplicationController
     @total = get_total(@inv)
   end
   
-  def recipient_form
+  
+  
+  def recipient_form #method to display the name change form on click
     @inv = Inv.find(params[:id])
   end
   

@@ -16,13 +16,13 @@
       <%= form_for (@inv), :remote => :true do |f| %>
         <div class="date-form-container">
           <p class="date-form-title">DATE </p>
-          <%= f.text_field :date, :placeholder => "Date", class: "date-form-dashboard" %>
+          <%= f.text_field :date, :placeholder => "Date", class: "date-form-dashboard", :autocomplete => :off %>
         </div>
         
 
         <div class="group-form-container">
           <p class="group-form-title">Group </p>
-          <%= f.collection_select :group_id, @group,:id,:name, include_blank: true, class: "group-form-dashboard" %>
+          <%= f.collection_select :group_id, @group,:id,:name, :prompt => "None", class: "group-form-dashboard" %>
         </div>
         
         <div class="address-form-container">
@@ -82,14 +82,6 @@
       <br>
       <%= f.text_area :block, class: "block-body" %>
       <br>
-      
-      <div class="form-container">
-        <%= f.label "Total" %>
-        <%= f.text_field :total, class: "price", input_html: {autocomplete: 'off'} %>
-      </div>
-        
-      <%= f.submit "Update", class: "line-button2" %>
-      
     <% end %>
   
   

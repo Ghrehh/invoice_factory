@@ -1,0 +1,41 @@
+      <div class="right-inner-container">
+        <div class="right-inner">
+          <h3>New Invoice</h3>
+        </div>
+        
+        <div class="right-inner-two">
+          <h3></h3>
+        </div>
+      </div>
+      
+      <div class="right-form-container">
+        
+        <%= form_for (Inv.new), :remote => :true do |f| %>
+  
+          <%= f.text_field :recipient, autofocus: true, placeholder: "Recipient", class: "recipient-form-dashboard" %>
+  
+          <%= f.text_field :date, placeholder: "Date: dd/mm/yyyy", class: "date-form-dashboard", :autocomplete => :off %>
+          
+          <div class="group-form-container group-new-container">
+            <p class="group-form-title">Group </p>
+            <%= f.collection_select :group_id, @group,:id,:name, :prompt => "None", class: "group-form-dashboard" %>
+          </div>
+        
+  
+          <%= f.text_area :address_1, placeholder: "Address", class: "address-form-dashboard"%>
+          
+
+        
+ 
+  
+          
+          <%= f.submit "Create", class: "new-button-dashboard" %>
+          
+        <% end %>
+        
+      </div>
+      
+<script>
+  type_ahead();
+  $(".date-form-dashboard").datepicker({ dateFormat: 'dd-mm-yy' }).val()
+</script>

@@ -12,19 +12,17 @@ $nearly-black: #1c1c1c;
 
 html, body{
   height: 100%;
-  
-  
 }
+
 
 body {
   background-color: #1c1c1c !important;
 }
 
+
 .contains-everything {
   padding: 0px 5px;
   height: 70%;
-  
-
 }
 
 
@@ -156,6 +154,13 @@ body {
   background-color: $lighter-blue;
   padding: 2px 10px 2px 5px;
   overflow: auto;
+  background-color: #181818;
+  border: none;
+  margin: 0px 10px 5px 10px;
+  font-size: 20px;
+  color: white;
+  font-family: 'Patua One', cursive;
+    
 }
 
 .total-container {
@@ -197,12 +202,16 @@ body {
 /* NEW LINE FORM */
 
 .new-line-form {
-  margin: 0px 0px 20px 5px;
+  margin: 0px 0px 30px 10px;
+  background-color: #20252A;
+    padding: 2px 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
 }
 
 .description, .service, .price {
   vertical-align:top;
-  height: 25px;
+  font-size:25px;
   width: 300px;
   display: inline-block;
   border-radius: 2px;
@@ -225,15 +234,25 @@ body {
   border-radius: 5px;
   width: 600px;
   max-width: 800px;
+  height:38px;
+  resize: none
 }
 
 .price {
-  width: 70px;
+  width: 90px;
 }
 
 .edit_line {
   display: inline-block;
   margin: 3px 0px;
+
+}
+
+.line-button {
+  height: 34px;
+  margin-top: 2px;
+  width: 70px;
+  border-radius: 5px;
 }
 
 /************************
@@ -260,6 +279,7 @@ body {
   width: 300px;
   height: 700px;
   margin-right: 20px;
+  
 }
 
 .dashboard-right-container {
@@ -267,6 +287,7 @@ body {
   width: 1400px;
   height: 700px;
   vertical-align: top;
+
 }
 
 .left-invoices-container {
@@ -278,6 +299,8 @@ body {
 .dashboard-left > .left-inner {
   width: 100%;
   background-color: #0a0a0a;
+  overflow: hidden;
+  height: 65px;
 }
 
 .left-inner > h3 {
@@ -364,15 +387,13 @@ textarea, input { outline: none; }
   background-color: #2a323a;
   margin-left: 15px;
   border-radius: 5px;
-
   margin-right: 15px;
-  
 }
 
 .right-body {
   overflow: auto;
   width: 100%;
-  min-height: 100%;
+  height: 90%;
 }
 
 .right-inner > h3 { 
@@ -651,7 +672,81 @@ textarea, input { outline: none; }
   color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 22px;
+  margin-left:5px;
 }
+/******************
+********DASHBOARD NEW FORM *****
+***************/
+
+.right-form-container {
+  padding: 10px 0px 0px 0px;
+}
+
+.recipient-form-dashboard {
+  background-color: black;
+  height: 45px;
+  width: 400px;
+  border-radius: 7px;
+  margin: 0px 0px 0px 10px;
+  padding: 10px;
+  position: static;
+  color: white;
+}
+
+.date-form-dashboard {
+  background-color: black;
+  height: 45px;
+  width: 261px;
+  border-radius: 7px;
+  vertical-align: Top;
+  margin: 0px 2px;
+  font-size: 1.8em;
+  padding-top: 3px;
+}
+
+.address-form-dashboard {
+  background-color: black;
+  height: 100px;
+  max-width: 400px;
+  border-radius: 7px;
+  vertical-align: top;
+  margin: 2px;
+  font-size: 1.8em;
+  padding-top: 3px;
+  resize: none
+}
+
+.group-new-container {
+  margin: 0px;
+  
+}
+
+.new-button-dashboard {
+  display: block;
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  margin: 15px auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  border:none;
+  
+  
+}
+
+.fa-plus-circle {
+  color: green;
+  position: relative;
+  top: -45px;
+  left: 255px;
+  -webkit-transition:  color 1s;
+  transition: color 1s;
+}
+.fa-plus-circle:hover {
+  color: white;
+
+}
+
 /******************
 ********NO RESULTS *****
 ***************/
@@ -683,24 +778,35 @@ textarea, input { outline: none; }
 
 
 
-.left-invoices-container::-webkit-scrollbar {
+.left-invoices-container::-webkit-scrollbar,.right-body::-webkit-scrollbar {
     width: 12px;
 }
  
-.left-invoices-container::-webkit-scrollbar-track {
+.left-invoices-container::-webkit-scrollbar-track, .right-body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9); 
     border-radius: 10px;
     
 }
  
-.left-invoices-container::-webkit-scrollbar-thumb {
+.left-invoices-container::-webkit-scrollbar-thumb, .right-body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
     background-color: #141414;
 }
 
 .tt-menu {
-  width: 100px;
-  background-color: white;
+  width: 400px;
+
+  margin: 0 0 0 10px;
+  background-color: #1c1c1c;
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  padding: 5px 10px;
+}
+
+.tt-hint {
+  color:#565656;
+  background-color: grey;
 }
 
