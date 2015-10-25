@@ -14,12 +14,25 @@
 <body>
 <% if logged_in? %>
  <div class="header">
-   <%= link_to "All Invoices ", invs_path %>
-   <%= link_to "Invoices by Group ", groups_path %>
-   <%= link_to "New Invoice ", new_inv_path %>
-   <%= link_to "New Group ", new_group_path %>
-   <%= link_to "Edit User ", edit_user_path(current_user.id) %>
-   <%= link_to " Log Out(" + current_user.name + ") ", logout_path, method: "delete" %>
+   
+   <a href="/groups/new" data-remote="true" style="margin: 0; padding: 0;">
+    <i class="fa fa-object-group fa-3x"></i>
+   </a>
+    
+    <a href="/invs/new" data-remote="true" style="margin: 0; padding: 0;">
+      <i class="fa fa-plus-circle fa-2x header-circle"></i>
+    </a>
+    
+    <a href="/users/<%=current_user.id%>/edit" data-remote="true" style="margin: 0; padding: 0;">
+      <i class="fa fa-pencil"></i>
+    </a>
+    
+    
+    <p class="user-name"><%= current_user.name %></p>
+   <i class="fa fa-user fa-3x"></i>
+   <div class="user-dropdown">
+    <%= link_to " Log Out", logout_path, method: "delete" %>
+   </div>
  </div>
 <% end %>
 

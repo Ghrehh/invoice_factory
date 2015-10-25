@@ -1,6 +1,6 @@
 <%= form_for (@inv), class: "recipient-form-form", :remote => :true do |f| %>
   
-  <%= f.text_field :recipient, autofocus: true, placeholder: "Recipient", class: "recipient-form-dashboard" %>
+  <%= f.text_field :recipient, autofocus: true, placeholder: "Recipient",input_html: {autocomplete: 'off'}, class: "recipient-form-dashboard" %>
 
           
 <% end %>

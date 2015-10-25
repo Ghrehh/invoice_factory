@@ -177,7 +177,18 @@ var ready = function() {
     }
   });
  
-  autosize($('.address-form-dashboard'));
+  //autosize($('.address-form-dashboard'));
+  var user_drop_shown = false
+  $(".fa-user").click(function(){
+    if (user_drop_shown == false){
+      $(".user-dropdown").show();
+      user_drop_shown = true
+    }
+    else {
+      $(".user-dropdown").hide();
+      user_drop_shown = false
+    }
+  })
 
 };
 

@@ -1,10 +1,10 @@
 <%= form_for [@line], :remote => true do |f| %>
   
-  <%= f.text_field :service, autofocus: true, class: "service", input_html: {autocomplete: 'off'},:placeholder => "Service(Not Required)" %>
+  <%= f.text_field :service, autofocus: true, class: "service", input_html: {autocomplete: 'off'},:placeholder => "Service" %>
   
   <%= f.text_area :description, class: "description", input_html: {autocomplete: 'off'},:placeholder => "Description" %>
 
-  <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'},:placeholder => "Price(Not Required)" %>
+  <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'},:placeholder => "Price" %>
 
   <%= f.submit "Update", class: "line-button" %>
   

@@ -1,0 +1,12 @@
+$( ".dashboard-right" ).fadeOut( "fast", function() {
+
+  $('.dashboard-right').html("<%= j (render "groups/newgroup.html.erb") %>"); // renders the form for the invoice you jsut made
+  $('.left-invoices-container').html("<%= j (render "layouts/inv_search.html.erb") %>"); //renders the search
+  
+  
+  $('.iframe-container').html(""); // renders the search 
+  $(".right-tab").hide()
+  
+  
+  $( ".dashboard-right" ).fadeIn( "fast")
+});

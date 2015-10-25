@@ -1,3 +1,3 @@
 <%= form_for (@inv), :remote => :true do |f| %>
-  <%= f.text_field :total, autofocus: true, placeholder: "total", class: "total-form-dashboard" %>
+  <%= f.text_field :total, autofocus: true, placeholder: "Custom Total",input_html: {autocomplete: 'off'}, class: "total-form-dashboard" %>
 <% end %>

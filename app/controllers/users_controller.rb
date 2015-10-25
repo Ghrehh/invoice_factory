@@ -29,16 +29,22 @@ class UsersController < ApplicationController
     
     @coverimage = @user.coverimages.first
     @previewinv = @user.invs.first
+    
+      @invs = Inv.all.where(user_id: current_user.id).reverse 
+
   end
   
   def update
     @user = User.find(params[:id]) 
+    
+      @invs = Inv.all.where(user_id: current_user.id).reverse
+      
     if @user.update_attributes(user_params)
       flash[:success] = "Successfully Updated"
     else
       flash[:danger] = "Oops, something went wrong"
     end
-    redirect_to edit_user_path(@user.id)
+    
   end
   
   
@@ -52,5 +58,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
-  #dfg
 end

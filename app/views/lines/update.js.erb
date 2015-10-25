@@ -1,6 +1,7 @@
 $('.dashboard-right').html("<%= j (render "invs/editpage.html.erb") %>"); <!-- renders the form for the invoice you jsut made -->
 $('.left-invoices-container').html("<%= j (render "layouts/inv_search.html.erb") %>"); <!-- renders the renders the search -->
 
+$('.alert-container').html("<%= j (render "layouts/alerts.html.erb") %>");
 
 $('.iframe-container').html("<%= j (render "invs/iframe.html.erb") %>");<!-- renders the search -->
 showDiv(".iframe-container")

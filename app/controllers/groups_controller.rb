@@ -1,20 +1,28 @@
 class GroupsController < ApplicationController
+  respond_to :html, :js
+  
   before_action :correct_user,   only: [:edit, :update, :show, :delete]
   before_action :logged_in_user
   
   def new
     @group = Group.new
+    
+      @invs = Inv.all.where(user_id: current_user.id).reverse 
+      
+
   end
   
   
   def create
     @group = current_user.groups.create(group_params)
+    
     if @group.valid?
-      flash[:success] = "Successfully created inv"
-      redirect_to new_inv_path
+      flash.now[:success] = "Successfully created group"
+      @invs = Inv.all.where(user_id: current_user.id).reverse
+      @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+
     else
       flash.now[:danger] = 'something went wrong'
-      render new_invs_path
     end
   end
   

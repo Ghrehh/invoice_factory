@@ -76,9 +76,10 @@ body {
 
 .sortable-placeholder {
   border: 1px dashed #CCC;
-  background-color: #f9f9f9;
-  height: 18px;
-  margin-bottom: 10px;
+  background-color: #4e6889;
+  height: 36px;
+
+  margin: 5px 15px;
   list-docoration: none
 }
 
@@ -98,16 +99,79 @@ body {
 ************************/
 
 .header {
-  background-color: black;
+  background-color: #495867;
   padding: 5px 10px;
-  height: 50px;
+  height: 2.8em;
+  -webkit-box-shadow: 2px 6px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 6px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 6px 5px 0px rgba(0,0,0,0.75);
 }
 
 .header > a {
-  color: $mid-blue;
+  color: white;
   margin-left: 12px;
 }
 
+.fa-object-group {
+  color: $nearly-black;
+  font-size: 2.3em !important;
+  -webkit-transition:  color 0.3s;
+  transition: color 0.3s;
+}
+
+.header-circle {
+  position:static !important;
+  top:0;
+  right:0;
+  left:0;
+  color: $nearly-black !important;
+  font-size: 2.3em !important;
+}
+
+.fa-pencil {
+  color: $nearly-black;
+  font-size: 2.3em !important;
+  -webkit-transition:  color 0.3s;
+  transition: color 0.3s;
+}
+
+.fa-user {
+  color: $nearly-black;
+  position: absolute;
+  right: 8px;
+  top:8px;
+  -webkit-transition:  color 0.3s;
+  transition: color 0.3s;
+  font-size: 2.3em !important;
+}
+
+.fa-user:hover, .fa-object-group:hover, .header-circle:hover, .fa-pencil:hover {
+  color: white !important;
+}
+
+.user-name {
+  color: white;
+  display: inline-block;
+    position: absolute;
+    top: 17px;
+    right: 38px;
+    font-size: 11px;
+}
+
+.user-dropdown {
+  display: inline-block;
+  position: absolute;
+  background-color: #5F7184;
+  right: 2px;
+  top: 39px;
+  padding: 5px 10px;
+  display:none;
+}
+
+.user-dropdown > a {
+  display: block;
+  color: white;
+}
 /**************************#
 ******EDIT INV *************
 *****************************/
@@ -235,7 +299,7 @@ body {
   width: 600px;
   max-width: 800px;
   height:38px;
-  resize: none
+  
 }
 
 .price {
@@ -679,7 +743,7 @@ textarea, input { outline: none; }
 ***************/
 
 .right-form-container {
-  padding: 10px 0px 0px 0px;
+  padding: 20px 0px 0px 0px;
 }
 
 .recipient-form-dashboard {
@@ -713,11 +777,12 @@ textarea, input { outline: none; }
   margin: 2px;
   font-size: 1.8em;
   padding-top: 3px;
-  resize: none
+  
 }
 
 .group-new-container {
   margin: 0px;
+  background-color: black;
   
 }
 
@@ -726,12 +791,14 @@ textarea, input { outline: none; }
   color: white;
   background-color: black;
   border-radius: 8px;
-  margin: 15px auto;
+  margin: 25px auto;
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
   border:none;
-  
-  
+}
+
+.new-button-dashboard:hover {
+  background-color: $nearly-black;
 }
 
 .fa-plus-circle {
@@ -747,7 +814,133 @@ textarea, input { outline: none; }
 
 }
 
+
 /******************
+********EDIT USER *****/
+
+.edit-user-h4 {
+  color: white;
+}
+
+
+.edit-user-sender {
+  background-color: #181818;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.edit-user-sender > label {
+  color: white;
+}
+
+.edit-user-sender > input {
+  background-color: black;
+  border:none;
+  border-radius: 5px;
+}
+
+
+.edit-user-address {
+  background-color: #181818;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.edit-user-address > label {
+  color: white;
+}
+
+.edit-user-address > input {
+  background-color: black;
+  border:none;
+  border-radius: 7px;
+}
+
+
+.edit-user-mobile {
+  background-color: #181818;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.edit-user-mobile > label {
+  color: white;
+}
+
+.edit-user-mobile > input {
+  background-color: black;
+  border:none;
+  border-radius: 7px;
+}
+
+
+
+
+.edit-user-email {
+  background-color: #181818;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.edit-user-email > label {
+  color: white;
+}
+
+.edit-user-email > input {
+  background-color: black;
+  border:none;
+  border-radius: 7px;
+}
+
+
+
+
+.edit-user-phone {
+  background-color: #181818;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.edit-user-phone > label {
+  color: white;
+}
+
+.edit-user-phone > input {
+  background-color: black;
+  border:none;
+  border-radius: 7px;
+}
+
+
+
+
+.edit-user-topoffset {
+  background-color: #181818;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.edit-user-topoffset > label {
+  color: white;
+}
+
+.edit-user-topoffset > input {
+  background-color: black;
+  border:none;
+  border-radius: 7px;
+}
+
+
+
+
+
+/***************//******************
 ********NO RESULTS *****
 ***************/
 
@@ -810,3 +1003,14 @@ textarea, input { outline: none; }
   background-color: grey;
 }
 
+.alert {
+  display: block;
+  margin: 0px 10px !important;
+}
+
+.alert-success {
+  font-family: 'Roboto', sans-serif;
+  background-color:#76bf5d !important;
+  border: none !important;
+  color: white !important;
+}

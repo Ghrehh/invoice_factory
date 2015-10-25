@@ -1,0 +1,74 @@
+<div class="right-inner-container">
+  <div class="right-inner">
+    <h3>Updating User Info</h3>
+  </div>
+  
+  <div class="right-inner-two">
+    <h3></h3>
+  </div>
+</div>
+
+<div class="right-body">
+
+
+<h4 class="edit-user-h4">These Will Appear at the top of each invoice you make:</h4>
+
+<%= form_for @user, :remote => true do |f| %>
+  
+  
+<div class="edit-user-sender">
+  <%= f.label "You or your companies name: " %>
+  <%= f.text_field :sender %>
+</div>
+  
+<div class="edit-user-address">
+  <%= f.label "Address" %>
+  <%= f.text_field :address %>
+</div>  
+
+<div class="edit-user-mobile">
+  <%= f.label "Mobile/Cell" %>
+  <%= f.text_field :mobile %>
+</div>
+  
+<div class="edit-user-phone">
+  <%= f.label "Phone" %>
+  <%= f.text_field :phone %>
+</div>
+  
+<div class="edit-user-email">
+  <%= f.label "Email(Leave blank to use the email you signed up with)" %>
+  <%= f.text_field :invoice_email %>
+</div>
+  
+<div class="edit-user-topoffset">
+  <%= f.label "Offset" %>
+  <%= f.text_field :topoffset%>
+</div>
+  
+  
+<%= f.submit "Update", class: "line-button" %>
+<% end %>
+
+<% if current_user.coverimages.count == 0 %>
+<h4 class="edit-user-h4">Add a cover Image </h4>
+  <%= form_for [Coverimage.new] do |f| %>
+    <%= f.file_field :file %>
+    <%= f.submit "Change cover image" %>
+  <% end %>
+<% else %>
+<h4 class="edit-user-h4">Update cover image</h4>
+  <%= form_for [@coverimage] do |f| %>
+    <%= f.file_field :file %>
+    <%= f.submit "Change cover image" %>
+  <% end %>
+
+    <img style="width:300px" src="/coverimages/<%= @coverimage.id %>">
+
+<% end %>
+
+</div>
+
+<script>
+  //$('.edit-user-slider').slider();
+</script>

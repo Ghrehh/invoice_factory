@@ -48,9 +48,8 @@ var type_ahead = function() {
       console.log(item);
       find_address(item);
       console.log(add_arr);
-      $(".add1").val(add_arr[1]);
-      $(".add2").val(add_arr[2]);
-      $(".add3").val(add_arr[3]);
+      $(".address-form-dashboard").val(add_arr[1]);
+   
 
   });
   
