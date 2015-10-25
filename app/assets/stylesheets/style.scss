@@ -273,7 +273,7 @@ body {
     border-radius: 5px;
 }
 
-.description, .service, .price {
+.description, .service, .price, .quantity {
   vertical-align:top;
   font-size:25px;
   width: 300px;
@@ -302,8 +302,13 @@ body {
   
 }
 
+.quantity {
+  width: 60px;
+}
+
 .price {
   width: 90px;
+  margin-left: 15px;
 }
 
 .edit_line {

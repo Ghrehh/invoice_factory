@@ -41,6 +41,7 @@ end
   
   
   
+  
     
     if @block.nil? || @block == "" #makes lines if there's no block yo
     
@@ -51,6 +52,7 @@ end
         to_push << x.service 
         to_push << x.description
         to_push << x.price
+        to_push << x.quantity
   
         @lines << to_push
         @total += x.price unless x.price.nil?
@@ -218,6 +220,23 @@ end
     
     if @block == nil || @block == "" #gets executed if there's no block
       
+      
+      longest_cost = 0
+      longest_quantity = 0
+      
+      @lines.each do |line| #gets the length of the longest quantity and price to adjust the layout
+        unless line[2].nil?
+          length = num_digits(line[2])
+          longest_cost = length unless longest_cost > length
+        end
+        
+        unless line[3].nil?
+          length = num_digits(line[3])
+          longest_quantity = length unless longest_quantity > length
+        end
+        
+      end
+      
     
       @lines.each do |x|
         
@@ -228,14 +247,30 @@ end
         end
         
         
-        text_width = 420 # standard width for the text-field
+        text_width = 415 # standard width for the text-field
+
         
-        unless x[2].nil? || x[2] == 0 
-        	if num_digits(x[2]) > 7 # will reduce the size if the cost is too long
-        		to_reduce = num_digits(x[2]) - 7
-        		to_reduce.times { text_width -= 7}
+         
+        	if longest_cost > 7 # will reduce the size if the cost is too long
+        		(longest_cost - 7).times { text_width -= 7}
         	end
+        
+        
+        unless x[3].nil? #wont run it unless there's a price
+          bounding_box([startx, starty], :width => text_width) do
+          		text "(x" + x[3].to_s + ")", :align => :right
+          end 
         end
+        
+        
+        
+        text_width = text_width - 40 #defaults amount of space needed  between quantity and description
+        
+        if longest_quantity > 3 
+      		(longest_quantity - 3).times { text_width -= 7}
+      	end
+        
+        
         
       	bounding_box([startx, starty], :width => text_width) do
           if x[0].nil? || x[0] == ""

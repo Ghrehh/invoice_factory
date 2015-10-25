@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017121856) do
+ActiveRecord::Schema.define(version: 20151025225747) do
 
   create_table "coverimages", force: :cascade do |t|
     t.string   "filename"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20151017121856) do
     t.string   "description"
     t.float    "price"
     t.integer  "position"
+    t.integer  "quantity"
   end
 
   create_table "users", force: :cascade do |t|

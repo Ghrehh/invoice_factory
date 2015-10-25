@@ -87,7 +87,7 @@ class LinesController < ApplicationController
   private
 
   def line_params
-    params.require(:line).permit(:service, :description, :price)
+    params.require(:line).permit(:service, :description, :price, :quantity)
   end
   
   def correct_user

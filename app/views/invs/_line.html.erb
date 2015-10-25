@@ -13,8 +13,15 @@
     <%= link_to 'X', x, :method => :delete, class: "delete-button", :remote => true %>
     <%= link_to 'edit', edit_line_path(x), class: "edit-button", :remote => true %>
     
+ 
+    
+    
     <% unless x.price.nil? %> <!-- will print the price is one is provided -->
       <p class="price-paragraph">||£<%= '%.2f' % x.price %>||</p>
+    <% end %>
+    
+     <% unless x.quantity.nil? %> <!-- will print the price is one is provided -->
+      <p class="price-paragraph">(x<%= x.quantity %>)</p>
     <% end %>
   </div>
   
