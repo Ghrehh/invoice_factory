@@ -348,7 +348,7 @@ body {
 
 .dashboard-right-container {
   display: inline-block;
-  width: 1400px;
+  width: 1220px;
   height: 700px;
   vertical-align: top;
 
@@ -447,7 +447,7 @@ textarea, input { outline: none; }
 .dashboard-right {
   display: inline-block;
   height: 700px;
-  width: 1350px;
+  width: 100%;
   background-color: #2a323a;
   margin-left: 15px;
   border-radius: 5px;
@@ -561,8 +561,10 @@ textarea, input { outline: none; }
 .iframe-container {
   display:inline-block;
   vertical-align:top;
-  width: 400px !important;
-  height: 700px;
+  width: 650px;
+  margin: 0px 0px 0px 20px;
+  height: 820px;
+  overflow:hidden;
 }
 
 .iframe-inner {
@@ -1014,3 +1016,11 @@ textarea, input { outline: none; }
   border: none !important;
   color: white !important;
 }
+
+.alert-danger {
+  font-family: 'Roboto', sans-serif;
+  background-color:#dd809e !important;
+  border: none !important;
+  color: white !important;
+}
+

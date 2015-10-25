@@ -19,11 +19,12 @@ var hideDiv = function(div) {
 };
 
 var showDiv = function(div) {
-  $(div).animate({ width: '300px' }, 400, function() {
+  $(div).animate({ width: '650px' }, 400, function() {
     
-      $(this).show();
+      
 
-      $(div + " > div").animate({ marginLeft: '0' }, 300);
+      $(div + " > div").animate({ marginLeft: '20px' }, 300);
+      $(this).show();
     });
 };
 

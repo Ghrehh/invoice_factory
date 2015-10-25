@@ -4,10 +4,17 @@ $( ".dashboard-right" ).fadeOut( "fast", function() {
   $('.left-invoices-container').html("<%= j (render "layouts/inv_search.html.erb") %>"); <!-- renders the search -->
   
   
-  $('.iframe-container').html("<%= j (render "iframe.html.erb") %>");<!-- renders the search -->
+ 
+  
   hideDiv(".dashboard-left-container")
   showDiv(".iframe-container")
+  
 
-  $( ".dashboard-right" ).fadeIn( "fast")
+
+
+  $( ".dashboard-right" ).fadeIn( 300, function() {
+    $('.iframe-container').html("<%= j (render "iframe.html.erb") %>");
+
+  })
   
 });

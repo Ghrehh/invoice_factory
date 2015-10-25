@@ -37,6 +37,7 @@ end
     @top_offset = @user.topoffset
     @lines = []
     @total = 0
+    @date = inv.date
   
   
   
@@ -201,11 +202,11 @@ end
     
     address = address_arr_fixed.join("\n")
     
-    
+    @date = "" if @date.nil?
     
     ###########USER INPUTS STUFF################
     bounding_box([25, 567], :width => 500) do
-    	text "DATE:", :style => :bold, :size => 10
+    	text "DATE: " + @date, :style => :bold, :size => 10
     end
     
     bounding_box([25, 506], :width => 500) do
@@ -221,7 +222,7 @@ end
       @lines.each do |x|
         
         unless x[2].nil? #wont run it unless there's a price
-        	bounding_box([startx, starty], :width => 500) do
+        	bounding_box([startx, starty], :width => 495) do
         		text "£" + ( '%.2f' % x[2]) + "", :style => :bold, :align => :right
         	end 
         end
