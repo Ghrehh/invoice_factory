@@ -34,6 +34,7 @@ end
     @user = @inv.user
     @address_arr = [inv.recipient,inv.address_1,inv.address_2,inv.address_3] #creates the ne
     @top_arr = [@user.address, @user.mobile, @user.phone, @user.invoice_email]
+    @top_lines = @user.toplines
     @top_offset = @user.topoffset
     @lines = []
     @total = 0
@@ -94,45 +95,38 @@ end
     
     size = 9
     
+    if_first = 720
+    x = 0
     
-    bounding_box([catx1, 720], :width => leftwidth) do
-    	text "ADDRESS:", :style => :bold, :align => :right, :size => size
+    @top_lines.each_with_index do |line, ind|
+      
+      if ind == 0
+        to_use1 = if_first
+      else
+        to_use1 = cursor - 5
+      end
+      
+      if ind == 0
+        to_use2 = if_first
+      else
+        to_use2 = x - 5
+      end
+      
+      
+    
+      bounding_box([catx1, to_use1], :width => leftwidth) do
+      	text line.name + ": ", :style => :bold, :align => :right, :size => size
+      end
+      
+      bounding_box([catx2, to_use2], :width => rightwidth) do
+      	text line.value, :size => size
+      end
+      
+      x = cursor #setting the cursor so that the bolded part is at the same level as non-bolded. Might consider doing this the way i've handled the main body of the invoices
+      
+    
+    
     end
-    
-    bounding_box([catx2, 720], :width => rightwidth) do
-    	text top_arr_fixed[0], :size => size
-    end
-    
-    x = cursor #setting the cursor so that the bolded part is at the same level as non-bolded. Might consider doing this the way i've handled the main body of the invoices
-    
-    bounding_box([catx1, cursor - 5], :width => leftwidth) do
-    	text "MOBILE:", :style => :bold, :align => :right, :size => size
-    end
-    
-    bounding_box([catx2, x - 5], :width => rightwidth) do
-    	text top_arr_fixed[1], :size => size
-    end
-    
-    x = cursor
-    
-    bounding_box([catx1, cursor - 5], :width => leftwidth) do
-    	text "PHONE:", :style => :bold, :align => :right, :size => size
-    end
-    
-    bounding_box([catx2, x - 5], :width => rightwidth) do
-    	text top_arr_fixed[2], :size => size
-    end
-    
-    x = cursor
-    
-    bounding_box([catx1, cursor - 5], :width => leftwidth) do
-    	text "EMAIL:", :style => :bold, :align => :right, :size => size
-    end
-    
-    bounding_box([catx2, x - 5], :width => rightwidth) do
-    	text top_arr_fixed[3], :size => size
-    end
-    
     
     
     bounding_box([20, 720], :width => 500) do
@@ -140,6 +134,7 @@ end
       #need to make a method thatll check if
       if @user.coverimages.first.nil? || @use_picture == false #if theres no cover image uploaded will use the black placeholder
       
+          @user.sender = " " if @user.sender == ""
       	font("Helvetica", :size => 30, :style => :bold) do
        		text @user.sender
        	end
