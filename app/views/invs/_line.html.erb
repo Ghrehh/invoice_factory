@@ -5,11 +5,14 @@
   <li data-id="<%= x.id %>"> <!-- Nescessary for the sorting -->
   <div class="line line<%=x.id%>">
     
-    <% unless x.service == "" %> <!-- will print the description is one is provided -->
-      <p class="service-paragraph"><%= x.service %>:</p>
-    <% end %>
+    <div class="line-left">
+      <% unless x.service == "" %> <!-- will print the description is one is provided -->
+        <p class="service-paragraph"><%= x.service %>:</p>
+      <% end %>
+      
+      <p class="description-paragraph"><%= x.description %></p>
+    </div>
     
-    <p class="description-paragraph"><%= x.description %></p>
     <%= link_to 'X', x, :method => :delete, class: "delete-button", :remote => true %>
     <%= link_to 'edit', edit_line_path(x), class: "edit-button", :remote => true %>
     

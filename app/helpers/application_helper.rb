@@ -55,7 +55,10 @@ end
         to_push << x.quantity
   
         @lines << to_push
-        @total += x.price unless x.price.nil?
+        
+        x.quantity = 1 if x.quantity.nil?
+        
+        @total += (x.price * x.quantity) unless x.price.nil?
       end
       
       
@@ -247,12 +250,12 @@ end
         end
         
         
-        text_width = 415 # standard width for the text-field
+        text_width = 430 # standard width for the text-field
 
         
          
-        	if longest_cost > 7 # will reduce the size if the cost is too long
-        		(longest_cost - 7).times { text_width -= 7}
+        	if longest_cost > 5 # will reduce the size if the cost is too long
+        		(longest_cost - 5).times { text_width -= 7}
         	end
         
         
