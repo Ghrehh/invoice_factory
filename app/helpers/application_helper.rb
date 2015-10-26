@@ -33,7 +33,6 @@ end
     @block = inv.block
     @user = @inv.user
     @address_arr = [inv.recipient,inv.address_1,inv.address_2,inv.address_3] #creates the ne
-    @top_arr = [@user.address, @user.mobile, @user.phone, @user.invoice_email]
     @top_lines = @user.toplines
     @top_offset = @user.topoffset
     @lines = []
@@ -80,12 +79,6 @@ end
     
     @top_offset = 0 if @top_offset == nil #santizes top offset
     
-    top_arr_fixed = [] #top array sanitise.
-    @top_arr.each do |x|
-      x = "" if x.nil?
-      top_arr_fixed << x
-    end
-    
     
     catx1 = 180 + @top_offset # coords for the top right stuff
     catx2 = 370 + @top_offset
@@ -100,7 +93,7 @@ end
     
     @top_lines.each_with_index do |line, ind|
       
-      if ind == 0
+      if ind == 0 #these thingys need to be here as previously the first bounding box set the location for the rest of them 
         to_use1 = if_first
       else
         to_use1 = cursor - 5
@@ -111,7 +104,6 @@ end
       else
         to_use2 = x - 5
       end
-      
       
     
       bounding_box([catx1, to_use1], :width => leftwidth) do
@@ -125,7 +117,6 @@ end
       x = cursor #setting the cursor so that the bolded part is at the same level as non-bolded. Might consider doing this the way i've handled the main body of the invoices
       
     
-    
     end
     
     
@@ -134,7 +125,7 @@ end
       #need to make a method thatll check if
       if @user.coverimages.first.nil? || @use_picture == false #if theres no cover image uploaded will use the black placeholder
       
-          @user.sender = " " if @user.sender == ""
+          @user.sender = "Your Company Name" if @user.sender == "" || @user.sender.nil?
       	font("Helvetica", :size => 30, :style => :bold) do
        		text @user.sender
        	end

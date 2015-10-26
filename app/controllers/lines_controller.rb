@@ -3,6 +3,7 @@ class LinesController < ApplicationController
   
   before_action :correct_user,   only: [:edit, :update, :show, :delete]
   before_action :logged_in_user
+ 
   
   
   

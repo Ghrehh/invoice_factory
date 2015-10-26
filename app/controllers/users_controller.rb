@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     
     if @user.valid?
+      @user.toplines.create(name: "ADDRESS", value: "Your Address")
+      @user.toplines.create(name: "MOBILE", value: "Your Mobile/Cell")
+      @user.toplines.create(name: "PHONE", value: "Your Phone")
+      @user.toplines.create(name: "EMAIL", value: "Your Email")
+      
       log_in @user
       redirect_to root_url
       
