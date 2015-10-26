@@ -171,9 +171,13 @@ end
     	end
     
      	move_down 370
+     	
     
-     	font("Helvetica", :size => 17, :style => :bold) do
-     		text "TOTAL COSTS"
+     	font("Helvetica", :size => 17) do
+ 	     	formatted_text [ 
+	                     { text: "TOTAL COSTS ", :styles => [:bold], :size => 17 },
+	                     { text: "please make check payable to " +  @user.sender, :size => 10, :styles => [:italic],:color => "3a3a3a" }
+	                   ]
      	end
     
     	stroke do

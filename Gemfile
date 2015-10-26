@@ -18,11 +18,13 @@ gem 'bootstrap-sass',       '3.2.0.0'
 #gem 'bootstrap-will_paginate', '0.0.10'
 #gem 'rails_autolink'
 
-gem 'prawn'
-gem 'responders', '~> 2.0'
+gem 'prawn' #makes the invoices, dummy
+gem 'responders', '~> 2.0' #lets me use respond to js
 
 gem 'font-awesome-sass'
 gem 'puma'
+
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
