@@ -1,0 +1,7 @@
+  <%= form_for [@topline], :remote => true do |f| %>
+    <div class="edit-user-sender">
+      <%= f.text_field :name, placeholder: "name" %>
+      <%= f.text_field :value, placeholder: "value" %>
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>

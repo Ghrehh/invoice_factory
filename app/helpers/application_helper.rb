@@ -38,6 +38,9 @@ end
     @lines = []
     @total = 0
     @date = inv.date
+    @due_date = inv.due_date
+    @note = inv.note
+    @use_picture = @user.use_picture
   
   
   
@@ -135,8 +138,14 @@ end
     bounding_box([20, 720], :width => 500) do
     
       #need to make a method thatll check if
-      if @user.coverimages.first.nil? #if theres no cover image uploaded will use the black placeholder
-    	  image "picture2.png", :height => 80
+      if @user.coverimages.first.nil? || @use_picture == false #if theres no cover image uploaded will use the black placeholder
+      
+      	font("Helvetica", :size => 30, :style => :bold) do
+       		text @user.sender
+       	end
+       	
+       	move_down 45
+       	
     	else
     	  
         if File.directory?("coverimages/" + @user.name + "/" + @user.coverimages.first.filename) == false #checks if heroku hasn't deleted the image
@@ -207,11 +216,35 @@ end
     
     address = address_arr_fixed.join("\n")
     
-    @date = "" if @date.nil?
     
-    ###########USER INPUTS STUFF################
-    bounding_box([25, 567], :width => 500) do
-    	text "DATE: " + @date, :style => :bold, :size => 10
+   
+    unless @date == "" or @date.nil?
+      ###########USER INPUTS STUFF################
+      bounding_box([25, 580], :width => 500) do
+      	
+      	formatted_text [ 
+      	                     { text: "SENT ON: ", :styles => [:bold], :size => 10 },
+      	                     { text: @date, :size => 10 }
+      	                   ]
+      end
+    end
+    
+    unless @due_date == "" or @due_date.nil?
+      ###########USER INPUTS STUFF################
+      bounding_box([25, 567], :width => 500) do
+    
+      	formatted_text [ 
+      	                     { text: "DUE BY: ", :styles => [:bold], :size => 10 },
+      	                     { text: @due_date, :size => 10 }
+      	                   ]
+      end
+    end
+    
+    unless @note == "" or @note.nil?
+      ###########USER INPUTS STUFF################
+      bounding_box([20, 75], :width => 500) do
+      	text @note, :style => :italic, :size => 12, :color => "3a3a3a"
+      end
     end
     
     bounding_box([25, 506], :width => 500) do

@@ -30,14 +30,19 @@ class UsersController < ApplicationController
     @coverimage = @user.coverimages.first
     @previewinv = @user.invs.first
     
-      @invs = Inv.all.where(user_id: current_user.id).reverse 
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
+    @toplines = current_user.toplines.all
 
   end
   
   def update
     @user = User.find(params[:id]) 
     
-      @invs = Inv.all.where(user_id: current_user.id).reverse
+    @invs = Inv.all.where(user_id: current_user.id).reverse
+      
+    @coverimage = @user.coverimages.first
+    @previewinv = @user.invs.first
+    @toplines = current_user.toplines.all
       
     if @user.update_attributes(user_params)
       flash[:success] = "Successfully Updated"
@@ -51,7 +56,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :email, :invoice_email, :address, :phone, :mobile, :topoffset, :sender)
+    params.require(:user).permit(:name, :password, :password_confirmation, :email, :invoice_email, :address, :phone, :mobile, :topoffset, :sender, :use_picture)
   end
   
   def correct_user

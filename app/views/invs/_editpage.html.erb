@@ -15,11 +15,17 @@
 
       <%= form_for (@inv), :remote => :true do |f| %>
         <div class="date-form-container">
-          <p class="date-form-title">DATE </p>
+          <p class="date-form-title">SENT </p>
           <%= f.text_field :date, :placeholder => "Date", class: "date-form-dashboard", :autocomplete => :off %>
+          
+        <p class="date-form-title">DUE</p>
+          <%= f.text_field :due_date, :placeholder => "Date", class: "date-form-dashboard", :autocomplete => :off %>
         </div>
         
 
+      <div style="display:inline-block">
+        <div>
+          
         <div class="group-form-container">
           <p class="group-form-title">Group </p>
           <%= f.collection_select :group_id, @group,:id,:name, :prompt => "None", class: "group-form-dashboard" %>
@@ -30,7 +36,17 @@
           <%= f.text_area :address_1, class: "address-form-dashboard"%>
         </div>
         
-        <%= f.submit "Update", class: "dashboard-form-button"%>
+      </div>
+        
+        
+        <div class="note-form-container">
+          <p class="note-form-title">Note </p>
+          <%= f.text_area :note, class: "note-form-dashboard"%>
+        </div>
+        
+      </div>
+        
+         <%= f.submit "Update", class: "dashboard-form-button"%>
         
       <% end %>
 

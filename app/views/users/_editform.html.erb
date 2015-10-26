@@ -45,30 +45,77 @@
   <%= f.label "Offset" %>
   <%= f.text_field :topoffset%>
 </div>
-  
+
+<div class="edit-user-topoffset">
+  <%= f.label "Use a picture instead of the name of your organisation" %>
+  <%= f.check_box :use_picture, class: "check-box2"  %>
+</div>
   
 <%= f.submit "Update", class: "line-button" %>
 <% end %>
 
-<% if current_user.coverimages.count == 0 %>
-<h4 class="edit-user-h4">Add a cover Image </h4>
-  <%= form_for [Coverimage.new] do |f| %>
-    <%= f.file_field :file %>
-    <%= f.submit "Change cover image" %>
+<div style="display:inline-block">
+  <% if current_user.coverimages.count == 0 %>
+  <h4 class="edit-user-h4">Add a cover Image </h4>
+    <%= form_for [Coverimage.new], :remote => true do |f| %>
+      <%= f.file_field :file %>
+      <%= f.submit "Change cover image" %>
+    <% end %>
+  <% else %>
+  <h4 class="edit-user-h4">Update cover image</h4>
+    <%= form_for [@coverimage], :remote => true do |f| %>
+      <%= f.file_field :file %>
+      <%= f.submit "Change cover image" %>
+    <% end %>
+  
+      <img style="width:300px" src="/coverimages/<%= @coverimage.id %>">
+  
   <% end %>
-<% else %>
-<h4 class="edit-user-h4">Update cover image</h4>
-  <%= form_for [@coverimage] do |f| %>
-    <%= f.file_field :file %>
-    <%= f.submit "Change cover image" %>
+</div>
+
+<div style="display:inline-block; width: 800px; margin-left: 10px">
+  
+  <h4 class="edit-toplines-h4">Add contact info</h4>
+  
+  <%= form_for [Topline.new], :remote => true do |f| %>
+    <div class="edit-user-sender">
+      <%= f.text_field :name, placeholder: "name" %>
+      <%= f.text_field :value, placeholder: "value" %>
+      <%= f.submit "Submit" %>
+    </div>
   <% end %>
 
-    <img style="width:300px" src="/coverimages/<%= @coverimage.id %>">
-
-<% end %>
+  <ul class="sortable2">
+    
+  <% @toplines.each do |x| %>
+    
+    <li data-id="<%= x.id %>"> <!-- Nescessary for the sorting -->
+    
+    <div class="line line<%=x.id%>">
+      
+        <p class="service-paragraph"><%= x.name %>:</p>
+        
+        <p class="description-paragraph"><%= x.value %></p>
+        
+        <%= link_to 'X', x, :method => :delete, class: "delete-button", :remote => true %>
+        <%= link_to 'edit', edit_topline_path(x), class: "edit-button", :remote => true %>
+  
+    </div>
+    
+      <div class="line line<%=x.id%>-form" style="display:none"> <!-- form for edit is displayed here -->
+      </div>
+    
+    </li>
+  
+  <% end %>
+  
+  </ul>
 
 </div>
 
-<script>
-  //$('.edit-user-slider').slider();
+
+<script type="text/javascript"> //reapplies the sorting thing every time the partial is reloaded.
+    ready();
 </script>
+</div>
+

@@ -15,7 +15,7 @@
           <%= f.text_field :recipient, autofocus: true, placeholder: "Recipient", class: "recipient-form-dashboard" %>
           
           <% time = Time.new %>
-          <%= f.text_field :date, class: "date-form-dashboard", :autocomplete => :off, value: time.day.to_s + "-" + time.month.to_s + "-" + time.year.to_s %>
+          <%= f.text_field :date, class: "date-form-dashboard-new", :autocomplete => :off, value: time.day.to_s + "-" + time.month.to_s + "-" + time.year.to_s %>
           
           <div class="group-form-container group-new-container">
             <p class="group-form-title">Group </p>

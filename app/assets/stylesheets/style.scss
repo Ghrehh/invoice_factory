@@ -91,6 +91,18 @@ body {
   padding: 0;
 }
 
+.sortable2 {
+  list-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.edit-toplines-h4 {
+  color: white;
+  margin-left: 10px;
+}
+
+
 .block-body {
   width: 1000px;
   height: 200px;
@@ -341,8 +353,8 @@ body {
 }
 
 .dashboard-left {
-  height: 700px;
-  width: 300px;
+  height: 100%;
+  width: 100%;
   background-color: #2a323a;
   margin-left: 15px;
   border-radius: 5px;
@@ -622,12 +634,21 @@ textarea, input { outline: none; }
   background-color: #0A0A0A;
   border:none;
   color: white;
-  display: inline-block;
+  display: block;
   font-size: 19px;
   border-radius: 8px;
   padding: 0 5px 5px 10px;
   margin-top: -1px;
       font-family: 'Patua One', cursive;
+      
+  background-color: black;
+  height: 45px;
+  width: 261px;
+  border-radius: 7px;
+  vertical-align: Top;
+  margin: 0px 2px;
+  font-size: 1.8em;
+  padding-top: 3px;
 }
 
 .date-form-title {
@@ -680,7 +701,7 @@ textarea, input { outline: none; }
   background-color: #181818;
   border-radius: 6px;
   padding: 10px 0px 4px 0px;
-  margin: 15px 0px 15px 10px;
+  margin: 15px 0px 0px 10px;
   display: inline-block;
   padding-right: 7px;
 }
@@ -715,6 +736,42 @@ textarea, input { outline: none; }
   padding: 0 5px 5px 10px;
   margin-top: -1px;
   font-family: 'Patua One', cursive;
+}
+
+.note-form-container {
+  vertical-align:top;
+    background-color: #181818;
+  border-radius: 6px;
+  padding: 10px 0px 4px 0px;
+  margin: 5px 0px 15px 10px;
+  display: inline-block;
+  padding-right: 7px;
+}
+
+.note-form-dashboard {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+  font-family: 'Patua One', cursive;
+  height: 32px;
+  width:579px;
+  max-width:579px;
+}
+
+.note-form-title {
+  vertical-align:top;
+  display: inline-block;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  margin-left: 10px;
+  font-family: 'Patua One', cursive;
+  
 }
 
 .dashboard-form-button {
@@ -771,7 +828,17 @@ textarea, input { outline: none; }
   color: white;
 }
 
-.date-form-dashboard {
+.date-form-dashboard-new {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+      font-family: 'Patua One', cursive;
+      
   background-color: black;
   height: 45px;
   width: 261px;
@@ -784,7 +851,7 @@ textarea, input { outline: none; }
 
 .address-form-dashboard {
   background-color: black;
-  height: 100px;
+  height: 105px;
   max-width: 400px;
   border-radius: 7px;
   vertical-align: top;

@@ -6,10 +6,18 @@ set_positions = function(){
   });
 };
 
+set_positions2 = function(){
+  // loop through and give each task a data-pos
+  // attribute that holds its position in the DOM
+  $('.sortable2 > li').each(function(i){ 
+      $(this).attr("data-pos",i+1);
+  });
+};
+
 
 var hideDiv = function(div) {
-  $(div + " > div").animate({ marginLeft: '-1000px' }, 400);
-  $(div).animate({ width: '0px' }, 400, function() {
+  $(div + " > div").animate({ marginLeft: '-1000px' }, 200);
+  $(div).animate({ width: '0px' }, 200, function() {
      
       $(this).hide();
       $('.left-tab').show();
@@ -19,19 +27,19 @@ var hideDiv = function(div) {
 };
 
 var showDiv = function(div) {
-  $(div).animate({ width: '650px' }, 400, function() {
+  $(div).animate({ width: '650px' }, 200, function() {
     
       
 
-      $(div + " > div").animate({ marginLeft: '20px' }, 300);
+      $(div + " > div").animate({ marginLeft: '20px' }, 200);
       $(this).show();
     });
 };
 
 var hideDivLeft = function(div) {
   
-  $(div + " > div").animate({ marginLeft: '1000px' }, 400);
-  $(div).animate({ width: '0px', margin: '0px' }, 400, function() {
+  $(div + " > div").animate({ marginLeft: '1000px' }, 200);
+  $(div).animate({ width: '0px', margin: '0px' }, 200, function() {
      
       $(this).hide();
   });
@@ -43,9 +51,9 @@ var hideDivLeft = function(div) {
 var showDivLeft = function(div) {
   $('.left-tab').hide()
   $(div).show();
-  $(div).animate({ width: '300px' }, 700, function() {
+  $(div).animate({ width: '300px' }, 200, function() {
     
-      $(div + " > div").animate({ marginLeft: '15px' }, 300,function(){
+      $(div + " > div").animate({ marginLeft: '15px' }, 200,function(){
          $(".right-tab").show();
       });
       
@@ -130,6 +138,30 @@ var ready = function() {
     
   });
   
+  set_positions2();
+  
+ $('.sortable2').sortable().bind('sortupdate', function() {
+    
+    
+    updated_order = [];
+    // set the updated positions
+    set_positions2();
+
+    // populate the updated_order array with the new task positions
+    $('.sortable2 > li').each(function(i){
+        updated_order.push($(this).data("id"));
+    });
+    
+    //console.log(updated_order)
+    console.log(updated_order)
+    $.ajax({
+        type: "PUT",
+        url: '/toplines/order',
+        data: { order: updated_order }
+    });
+    
+  });
+  
   
   var mode = 0;
   
@@ -153,8 +185,9 @@ var ready = function() {
   var wait_period = true
   
   $(".left-tab").click(function(){
-    $(this).hide();
+    
     if (wait_period == true) {
+      $(this).hide();
       showDivLeft(".dashboard-left-container");
       hideDivLeft(".iframe-container");
       wait_period = false
@@ -166,15 +199,17 @@ var ready = function() {
   });
   
   $(".right-tab").click(function(){
-    $(this).hide();
+    
     if (wait_period == true) {
+      $(this).hide();
       hideDiv(".dashboard-left-container");
       showDiv(".iframe-container");
       wait_period = false;
       
+    
       setTimeout(function(){
         wait_period = true;
-      }, 100);
+      }, 2000);
     }
   });
  

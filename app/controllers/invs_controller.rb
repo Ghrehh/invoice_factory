@@ -126,7 +126,7 @@ class InvsController < ApplicationController
   private
 
   def inv_params
-    params.require(:inv).permit(:recipient, :group_id, :total, :block, :address_1, :address_2, :address_3, :date)
+    params.require(:inv).permit(:recipient, :group_id, :total, :block, :address_1, :address_2, :address_3, :date, :due_date, :note)
   end
   
   def correct_user

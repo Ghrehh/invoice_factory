@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025225747) do
+ActiveRecord::Schema.define(version: 20151026030450) do
 
   create_table "coverimages", force: :cascade do |t|
     t.string   "filename"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20151025225747) do
     t.string   "address_2"
     t.string   "address_3"
     t.string   "date"
+    t.text     "note"
+    t.string   "due_date"
   end
 
   create_table "lines", force: :cascade do |t|
@@ -52,6 +54,15 @@ ActiveRecord::Schema.define(version: 20151025225747) do
     t.float    "price"
     t.integer  "position"
     t.integer  "quantity"
+  end
+
+  create_table "toplines", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "position"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,6 +79,7 @@ ActiveRecord::Schema.define(version: 20151025225747) do
     t.string   "invoice_email"
     t.integer  "topoffset"
     t.string   "sender"
+    t.boolean  "use_picture",     default: false, null: false
   end
 
 end

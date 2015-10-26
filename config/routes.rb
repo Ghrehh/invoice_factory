@@ -27,11 +27,15 @@ Rails.application.routes.draw do
     put :order, on: :collection
   end
   
+  resources :toplines do
+    put :order, on: :collection
+  end
+  
   
   resources :users
   resources :groups
   resources :coverimages
-  
+  resources :toplines
   
   
 end

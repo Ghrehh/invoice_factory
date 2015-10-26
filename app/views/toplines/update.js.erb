@@ -1,0 +1,13 @@
+$( ".dashboard-right" ).fadeOut( "fast", function() {
+
+  $('.dashboard-right').html("<%= j (render "users/editform.html.erb") %>"); <!-- renders the form for the invoice you jsut made -->
+  $('.left-invoices-container').html("<%= j (render "layouts/inv_search.html.erb") %>"); <!-- renders the search -->
+  
+  
+  $('.iframe-container').html("<%= j (render "users/pdf.html.erb") %>");<!-- renders the search -->
+  hideDiv(".dashboard-left-container")
+  showDiv(".iframe-container")
+
+  $( ".dashboard-right" ).fadeIn( "fast")
+  
+});
