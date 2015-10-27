@@ -803,6 +803,13 @@ textarea, input { outline: none; }
   margin-right: 10px;
 }
 
+.fa-trash-o {
+    float:right;
+  margin-top: 20px;
+  margin-right: 18px;
+  font-size: 2.8em !important;
+}
+
 .new-line-form-title {
   color: white;
   font-family: 'Roboto', sans-serif;
@@ -1018,8 +1025,25 @@ textarea, input { outline: none; }
 }
 
 
+/********************
+****GROUPS**********
+*********************/
 
+.groups-container {
+  overflow:auto;
+  width: 300px;
+  height: 585px;
+  float:right;
+}
 
+.groups-inner {
+  display: inline-block;
+  height: 700px;
+  width: 100%;
+  background-color: #2a323a;
+  border-radius: 5px;
+
+}
 
 /***************//******************
 ********NO RESULTS *****
@@ -1052,17 +1076,17 @@ textarea, input { outline: none; }
 
 
 
-.left-invoices-container::-webkit-scrollbar,.right-body::-webkit-scrollbar {
+.left-invoices-container::-webkit-scrollbar,.right-body::-webkit-scrollbar, .groups-container::-webkit-scrollbar-track {
     width: 12px;
 }
  
-.left-invoices-container::-webkit-scrollbar-track, .right-body::-webkit-scrollbar-track {
+.left-invoices-container::-webkit-scrollbar-track, .right-body::-webkit-scrollbar-track, .groups-container::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9); 
     border-radius: 10px;
     
 }
  
-.left-invoices-container::-webkit-scrollbar-thumb, .right-body::-webkit-scrollbar-thumb {
+.left-invoices-container::-webkit-scrollbar-thumb, .right-body::-webkit-scrollbar-thumb, .groups-container::-webkit-scrollbar-track {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
     background-color: #141414;

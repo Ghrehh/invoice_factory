@@ -1,6 +1,0 @@
-<% @groups.each do |x| %>
-  <%= link_to x.name, group_path(x.id) %> -
-  <%= x.invs.count %> invoices
-  <%= link_to "download group", group_download_path(x.id) %>
-  <br>
-<% end %>

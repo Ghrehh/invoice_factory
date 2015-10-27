@@ -1,6 +1,6 @@
 $( ".dashboard-right" ).fadeOut( "fast", function() {
 
-  $('.dashboard-right').html("<%= j (render "groups/newgroup.html.erb") %>"); // renders the form for the invoice you jsut made
+  $('.dashboard-right').html("<%= j (render "groups/showgroup.html.erb") %>"); // renders the form for the invoice you jsut made
   $('.left-invoices-container').html("<%= j (render "layouts/inv_search.html.erb") %>"); //renders the search
   
   

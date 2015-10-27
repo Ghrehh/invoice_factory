@@ -7,14 +7,19 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     
-      @invs = Inv.all.where(user_id: current_user.id).reverse 
-      
-
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
+    @groups = Group.all.where(user_id: current_user.id).reverse
+    
   end
   
   
   def create
     @group = current_user.groups.create(group_params)
+    
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
+    @groups = Group.all.where(user_id: current_user.id).reverse
+    
+  
     
     if @group.valid?
       flash.now[:success] = "Successfully created group"
@@ -34,7 +39,8 @@ class GroupsController < ApplicationController
   
   def show
     @group = Group.find(params[:id])
-    @invs = @group.invs.all
+    @groupinvs = @group.invs.all
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
   end
   
   
@@ -43,6 +49,18 @@ class GroupsController < ApplicationController
     makepdfgroup(@group)
   end
   
+  def destroy
+    @group = Group.find(params[:id])
+    @group.invs.each do |inv| 
+      inv.group_id = nil
+      inv.save
+    end
+    @group.destroy
+    
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
+    @groups = Group.all.where(user_id: current_user.id).reverse
+    
+  end
   
   private
 

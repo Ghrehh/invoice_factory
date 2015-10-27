@@ -134,6 +134,7 @@ var ready = function() {
         type: "PUT",
         url: '/lines/order',
         data: { order: updated_order }
+      
     });
     
   });
