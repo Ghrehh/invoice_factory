@@ -8,5 +8,5 @@ class ApplicationController < ActionController::Base
   include GroupsHelper
   include ApplicationHelper
   include CoverimagesHelper
-  
+  ###
 end
