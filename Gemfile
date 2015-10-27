@@ -24,7 +24,7 @@ gem 'responders', '~> 2.0' #lets me use respond to js
 gem 'font-awesome-sass'
 gem 'puma'
 
-gem 'rack-cors', :require => 'rack/cors'
+#gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
