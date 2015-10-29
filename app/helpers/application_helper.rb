@@ -6,7 +6,8 @@ module ApplicationHelper
     if inv.total.nil? #checks if the inv has a custom total or not, if not it adds all the prices of the lines
       total = 0
       inv.lines.each do |x|
-        total += x.price unless x.price.nil?
+        x.quantity = 1 if x.quantity.nil?
+        total += x.price * x.quantity unless x.price.nil?
       end
       return '%.2f' % total #this nonsense rounds it to 2 decimal places
     else
@@ -80,8 +81,8 @@ end
     @top_offset = 0 if @top_offset == nil #santizes top offset
     
     
-    catx1 = 180 + @top_offset # coords for the top right stuff
-    catx2 = 370 + @top_offset
+    catx1 = 180 + 80 + @top_offset # coords for the top right stuff
+    catx2 = 370 + 80 + @top_offset
     
     leftwidth = 185
     rightwidth = 160
