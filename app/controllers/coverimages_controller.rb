@@ -1,7 +1,7 @@
 class CoverimagesController < ApplicationController
   respond_to :html, :js
   
-  before_action :correct_user,   only: [:update, :show, :create]
+  before_action :correct_user,   only: [:update, :show]
   before_action :logged_in_user
   
   def show
