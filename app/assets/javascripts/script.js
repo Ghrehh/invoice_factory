@@ -226,6 +226,7 @@ var ready = function() {
       user_drop_shown = false
     }
   })
+  
 
 };
 

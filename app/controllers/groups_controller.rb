@@ -29,6 +29,7 @@ class GroupsController < ApplicationController
     else
       flash.now[:danger] = 'something went wrong'
     end
+    
   end
   
   
