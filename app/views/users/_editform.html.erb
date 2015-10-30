@@ -38,14 +38,17 @@
 <div style="display:inline-block">
   <% if current_user.coverimages.count == 0 %>
   <h4 class="edit-user-h4">Add a cover Image </h4>
-    <%= form_for [Coverimage.new], :remote => true do |f| %>
+  
+    <%= form_for Coverimage.new, :remote => true do |f| %>
       <%= f.file_field :file %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <%= f.submit "Change cover image" %>
     <% end %>
   <% else %>
   <h4 class="edit-user-h4">Update cover image</h4>
-    <%= form_for [@coverimage], :remote => true do |f| %>
+    <%= form_for @coverimage, :remote => true do |f| %>
       <%= f.file_field :file %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <%= f.submit "Change cover image" %>
     <% end %>
   

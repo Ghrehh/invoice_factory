@@ -1,6 +1,7 @@
 class CoverimagesController < ApplicationController
+  respond_to :html, :js
   
-  before_action :correct_user,   only: [:edit, :update, :show, :download, :delete]
+  before_action :correct_user,   only: [:update, :show, :create]
   before_action :logged_in_user
   
   def show
@@ -11,9 +12,6 @@ class CoverimagesController < ApplicationController
                 :disposition => "inline")
   end
   
-  def new
-    @coverimage = Coverimage.new
-  end
   
   def create
     @coverimage = current_user.coverimages.new(coverimages_params)
@@ -24,12 +22,18 @@ class CoverimagesController < ApplicationController
     else
       flash[:danger] ="already have a picture"
     end
-      redirect_to edit_user_path(current_user.id)
   end
   
   def update
+    
     @coverimage = Coverimage.find(params[:id]) 
     @coverimage2 = current_user.coverimages.new(coverimages_params)
+    
+        @previewinv = @user.invs.first
+    @toplines = current_user.toplines.all
+     
+    
+    @invs = Inv.all.where(user_id: current_user.id).reverse
     
     if @coverimage2.save
       
@@ -39,11 +43,11 @@ class CoverimagesController < ApplicationController
       write_to_tree(@coverimage2) #and writes the new one
       
       flash.now[:success] = "Picture updated successfully"
+      
     else
-      flash.now[:danger] = "Oops, something went wrong! Did you leave the name field blank?"
+
     end
-    
-    redirect_to edit_user_path(current_user.id)
+
   end
   
   

@@ -3,7 +3,6 @@ class InvsController < ApplicationController
   
   before_action :correct_user,   only: [:edit, :update, :show, :download, :delete]
   before_action :logged_in_user
-    skip_before_filter :verify_authenticity_token, :only => [:show]
   
   
   def new #Dont actually need this
