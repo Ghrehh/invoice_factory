@@ -46,7 +46,7 @@
     <% end %>
   <% else %>
   <h4 class="edit-user-h4">Update cover image</h4>
-    <%= form_for @coverimage, :remote => true do |f| %>
+    <%= form_for @coverimage,:remote => true do |f| %>
       <%= f.file_field :file %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <%= f.submit "Change cover image" %>

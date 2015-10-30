@@ -29,9 +29,8 @@ class CoverimagesController < ApplicationController
     @coverimage = Coverimage.find(params[:id]) 
     @coverimage2 = current_user.coverimages.new(coverimages_params)
     
-        @previewinv = @user.invs.first
+    @previewinv = @user.invs.first
     @toplines = current_user.toplines.all
-     
     
     @invs = Inv.all.where(user_id: current_user.id).reverse
     
