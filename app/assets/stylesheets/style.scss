@@ -114,7 +114,7 @@ body {
 
 .header {
   background-color: #495867;
-  padding: 5px 10px;
+  padding: 5px 10px 39px;
   height: 2.8em;
   -webkit-box-shadow: 2px 6px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 6px 5px 0px rgba(0,0,0,0.75);
@@ -228,13 +228,12 @@ body {
 .line {
   border: 1px solid $mid-blue;
   border-radius: 5px;
-  margin: 0px 0px 5px 0px;
   background-color: $lighter-blue;
   padding: 2px 10px 2px 5px;
   overflow: auto;
   background-color: #181818;
   border: none;
-  margin: 0px 10px 5px 10px;
+  margin: 0px 5px 5px 5px;
   font-size: 20px;
   color: white;
   font-family: 'Patua One', cursive;
@@ -516,7 +515,7 @@ textarea, input { outline: none; }
 }
 
 .right-inner {
-  width: 70%;
+  width: 69%;
   background-color: #0a0a0a;
   display:inline-block;
   box-sizing: border-box;
@@ -787,7 +786,7 @@ textarea, input { outline: none; }
 }
 
 .dashboard-form-button:hover {
-  background-color: #2A323A;
+  background-color: #2b2b2b;
 }
 
 .fa-pencil-square-o {
@@ -859,7 +858,7 @@ textarea, input { outline: none; }
 .address-form-dashboard {
   background-color: black;
   height: 105px;
-  max-width: 400px;
+  max-width: 350px;
   border-radius: 7px;
   vertical-align: top;
   margin: 2px;
@@ -1005,8 +1004,6 @@ textarea, input { outline: none; }
 }
 
 
-
-
 .edit-user-topoffset {
   background-color: #181818;
   display: inline-block;
@@ -1127,3 +1124,22 @@ textarea, input { outline: none; }
   color: white !important;
 }
 
+.top-paragraph-container {
+  overflow:hidden;
+  width: 0;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.top-icon-paragraph {
+  display:inline-block;
+  vertical-align: top;
+  margin-top: 5px;
+  color: white !important;
+  padding-left: 10px;
+  display:none;
+}
+
+.top-icon-paragraph:hover {
+  color: #1c1c1c;
+}

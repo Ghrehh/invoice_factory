@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -16,15 +16,24 @@
  <div class="header">
    
    <a href="/groups/new" data-remote="true" style="margin: 0; padding: 0;">
-    <i class="fa fa-object-group fa-3x"></i>
+    <i class="fa fa-object-group fa-3x" id="group-icon"></i>
+    <div class="top-paragraph-container" id="group-paragraph-container">
+      <p class="top-icon-paragraph" id="group-paragraph">Manage Groups</p>
+    </div>
    </a>
     
     <a href="/invs/new" data-remote="true" style="margin: 0; padding: 0;">
-      <i class="fa fa-plus-circle fa-2x header-circle"></i>
+      <i class="fa fa-plus-circle fa-2x header-circle" id="invoice-icon"></i>
+      <div class="top-paragraph-container" id="invoice-paragraph-container">
+        <p class="top-icon-paragraph" id="invoice-paragraph">New Invoice</p>
+      </div>
     </a>
     
     <a href="/users/<%=current_user.id%>/edit" data-remote="true" style="margin: 0; padding: 0;">
-      <i class="fa fa-pencil"></i>
+      <i class="fa fa-pencil" id="edit-icon"></i>
+      <div class="top-paragraph-container" id="edit-paragraph-container">
+        <p class="top-icon-paragraph" id="edit-paragraph">Invoice Options</p>
+      </div>
     </a>
     
     
