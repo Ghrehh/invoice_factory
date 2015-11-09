@@ -1143,3 +1143,83 @@ textarea, input { outline: none; }
 .top-icon-paragraph:hover {
   color: #1c1c1c;
 }
+
+/***** 
+LOG IN PAGE
+*/
+
+.log-in-page-container {
+  width: 100%;
+}
+
+.not-logged-in-header {
+  color: white;
+  font-size: 100px;
+  text-align: center;
+}
+
+.not-logged-in-info {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 100px;
+}
+
+.log-in-page-top-paragraph {
+  color: white;
+  margin: 1px 5px;
+}
+
+.log-in-title {
+  color: white;
+  text-align: center;
+}
+
+.username-container {
+  margin: auto;
+  width: 400px;
+  margin-top: 30px;
+}
+
+.username-label {
+  display:block;
+  color: white;
+}
+
+.username-form {
+  width: 100%;
+  font-size: 20px;
+  margin-bottom:20px;
+}
+
+
+.password-container {
+  margin: auto;
+  width: 400px;
+}
+
+.password-label {
+  display:block;
+  color:white;
+  
+}
+
+.password-form {
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.log-in-button {
+  font-size: 20px;
+}
+
+.remember-me {
+  color: white;
+}
+
+input[type="checkbox"] {
+    margin: 5px 0px 0px 10px !important;
+    line-height: normal;
+}
+

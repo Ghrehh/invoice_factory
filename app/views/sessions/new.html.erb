@@ -1,27 +1,33 @@
-<h1>Logging In</h1>
-<%= form_for(:session, url: login_path) do |f| %>
-   <Br>
-   <%= f.label :username %>
-   <br>
-   <%= f.text_field :name, autofocus: true, class: 'new-post-title' %>
-   <br><br>
+<div class="log-in-page-container">
+  <h1 class="not-logged-in-header">Invoice Factory</h1>
+  <p class="not-logged-in-info">Invoice Factory let's you easily create and customize invoices with a minimum of effort.</p>
 
-   <%= f.label :password %>
-   <br>
-   <%= f.password_field :password,class: 'new-post-title' %>
-   <br>
-   <br>
    
-   <%= f.label :remember_me do %>
-   <%= f.check_box :remember_me %>
-   <span>Remember me on this computer</span>
+   <h1 class="log-in-title">Logging In</h1>
+   
+   <%= form_for(:session, url: login_path) do |f| %>
+   
+      <div class="username-container">
+         <%= f.label :username, class: "username-label" %>
+         <%= f.text_field :name, autofocus: true, class: "username-form" %>
+      </div>
+      
+      <div class="password-container">
+         <%= f.label :password, class: "password-label" %>
+         <%= f.password_field :password,class: 'password-form' %>
+         
+         <%= f.submit "Log In", class: "log-in-button" %>
+         <%= f.label :remember_me do %>
+            <%= f.check_box :remember_me %>
+            <span class="remember-me">Remember me</span>
+         <% end %>
+      </div>
+      
+         
+
+   
+
    <% end %>
-   <br>
+     
 
-   <%= f.submit "Log in", class: "post-button" %>
-<% end %>
-<br>
-  
-<%= link_to "New User", new_user_path %>
-
-
+</div>

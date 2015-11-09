@@ -43,6 +43,9 @@
     <%= link_to " Log Out", logout_path, method: "delete" %>
    </div>
  </div>
+<% else %>
+
+  <p class="log-in-page-top-paragraph"> New User? Click <%= link_to "here", new_user_path %> to create a new account. </p>
 <% end %>
 
 

@@ -1,22 +1,32 @@
-<h1>Creating New User</h1>
+<div class="log-in-page-container">
+  <h1 class="not-logged-in-header">Invoice Factory</h1>
+  <p class="not-logged-in-info">Invoice Factory let's you easily create and customize invoices with a minimum of effort.</p>
 
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <br>
-  <%= f.text_field :name %>
-  <br>
-  <Br>
+   
+   <h1 class="log-in-title">Creating Account</h1>
+   
+   <%= form_for @user do |f| %>
+   
+      <div class="username-container">
+         <%= f.label :username, class: "username-label" %>
+         <%= f.text_field :name, autofocus: true, class: "username-form" %>
+      </div>
+      
+      <div class="password-container">
+         <%= f.label :password, class: "password-label" %>
+         <%= f.password_field :password,class: 'password-form' %>
+         
+         <%= f.label "Confirm Password", class: "password-label" %>
+         <%= f.password_field :password_confirmation, class: 'password-form' %>
+         
+         <%= f.submit "Sign Up", class: "log-in-button" %>
+      </div>
+      
+         
 
-  <%= f.label :password %>
-  <br>
-  <%= f.password_field :password %>
-  <br>
-  <br>
-  <%= f.label "Confirm Password" %>
-  <br>
-  <%= f.password_field :password_confirmation %>
-  <br>
-  
-  
-<%= f.submit "Sign Up", class: "line-button" %>
-<% end %>
+   
+
+   <% end %>
+     
+
+</div>
