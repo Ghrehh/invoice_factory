@@ -67,6 +67,8 @@ var showDivLeft = function(div) {
 
 var ready = function() {
   
+  tool_tips();
+  
   $(".line-button").click(function(){ //clears the form after it's been posted
  
      setTimeout(function(){ //timeout because without it the form cleared to fast and an empty form was submitted

@@ -1,4 +1,4 @@
-var ready = function() {
+var tool_tips = function() {
   
   $("#group-icon").hover(function(){ //tooltip group top
     $("#group-paragraph-container").animate({ width: '130px' }, 100, function() {
@@ -32,5 +32,3 @@ var ready = function() {
   
 };
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
