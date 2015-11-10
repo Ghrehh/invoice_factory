@@ -1,0 +1,470 @@
+
+.dashboard-container {
+  width: 1900px;
+  overflow:hidden;
+}
+
+.dashboard-left {
+  height: 100%;
+  width: 100%;
+  background-color: #2a323a;
+  margin-left: 15px;
+  border-radius: 5px;
+  display:inline-block;
+  float:left;
+}
+
+.dashboard-left-container {
+  display: inline-block;
+  width: 300px;
+  height: 700px;
+  margin-right: 20px;
+  
+}
+
+.dashboard-right-container {
+  display: inline-block;
+  width: 1220px;
+  height: 700px;
+  vertical-align: top;
+
+}
+
+.left-invoices-container {
+  overflow:auto;
+  width: 100%;
+  height: 585px;
+}
+
+.dashboard-left > .left-inner {
+  width: 100%;
+  background-color: #0a0a0a;
+  overflow: hidden;
+  height: 65px;
+}
+
+.left-inner > h3 {
+  color: #ededed;
+  font-family: 'Patua One', cursive;
+  text-align: center;
+  padding: 18px 0px 15px;
+  border-bottom: 3px solid black;
+  margin: 0;
+  font-size: 1.8em;
+  
+}
+
+
+
+.left-search {
+  background-color: white;
+  width: 80%;
+  margin: 10px 0 10px 10px;
+  border-radius: 8px;
+  
+  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  
+  display: block;
+  padding-left: 22px;
+  border:none;
+  display: inline-block;
+}
+
+textarea, input { outline: none; }
+
+.fa-search {
+  margin: 5px 0 5px 5px;
+    position: relative;
+    left: 32px;
+    top: 0px;
+    display:inline-block;
+}
+
+.dashboard-left > a:hover {
+  text-decoration: none;
+  
+}
+
+.dashboard-invoice {
+  background-color: #141414;
+  border-radius: 8px;
+  width: 90%;
+  height: 60px;
+  margin: 0px auto 10px;
+  
+  -webkit-transition:  background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.dashboard-invoice-selected {
+  background-color: #7a7a7a !important;
+}
+
+.dashboard-invoice:hover {
+  background-color: #1c1c1c;
+  text-decoration: none;
+}
+
+.dashboard-invoice > p {
+  color: white;
+  font-size: 24px;
+  font-family: 'Patua One', cursive;
+  text-align: center;
+  margin: 0;
+}
+
+.dashboard-invoice > .dashboard-date {
+  color: #afafaf;
+  font-size: 15px;
+}
+
+.dashboard-right {
+  display: inline-block;
+  height: 700px;
+  width: 100%;
+  background-color: #2a323a;
+  margin-left: 15px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.right-body {
+  overflow: auto;
+  width: 100%;
+  height: 90%;
+}
+
+.right-inner > h3 { 
+  display: inline-block;
+  color: #ededed;
+  font-family: 'Patua One', cursive;
+  text-align: center;
+  padding: 18px 0px 15px;
+  border-bottom: 3px solid black;
+  margin: 0 0 0 15px;
+  font-size: 1.8em;
+}
+
+
+.right-inner-two > h3 { 
+  display: inline-block;
+  color: #ededed;
+  font-family: 'Patua One', cursive;
+  text-align: center;
+  padding: 18px 0px 15px;
+  border-bottom: 3px solid black;
+  margin: 4px 10px 0 0px;
+  font-size: 1.4em;
+
+
+}
+
+
+.right-inner-container {
+  width:100%;
+  background-color: #0a0a0a;
+}
+
+.right-inner {
+  width: 69%;
+  background-color: #0a0a0a;
+  display:inline-block;
+  box-sizing: border-box;
+  margin-right: -4px;
+  overflow:hidden;
+}
+
+
+
+.right-inner-two {
+  width: 30%;
+  background-color: #0a0a0a;
+  display:inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  overflow:hidden;
+  text-align:right;
+
+}
+
+
+.fa-plus-square {
+  float: right;
+  right: 20px;
+  color: #43bf35;
+  margin: 3px 5px 3px 0px;
+  
+  display: inline-block;
+}
+
+.fa-plus-square:hover {
+
+  color: #68dd58;
+}
+
+.left-tab {
+  width: 15px;
+  height: 150px;
+  background-color: black;
+  display:inline-block;
+  position: absolute;
+  left: -4px;
+  border-radius: 0px 10px 30px 0px;
+  -webkit-transition:  background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.right-tab {
+  width: 15px;
+  height: 150px;
+  background-color: black;
+  display:inline-block;
+  position: absolute;
+  top: 101px;
+  right: -4px;
+  border-radius: 10px 0px 0px 30px;
+  -webkit-transition:  background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.left-tab:hover, .right-tab:hover {
+  cursor: pointer;
+  background-color:#2a323a;
+}
+
+.iframe-container {
+  display:inline-block;
+  vertical-align:top;
+  width: 650px;
+  margin: 0px 0px 0px 20px;
+  height: 820px;
+  overflow:hidden;
+}
+
+.iframe-inner {
+  width: 100% !important;
+  height: 100% !important;
+  margin-left: 700px;
+
+}
+
+.edit_inv {
+  display:inline-block !important;
+}
+
+.recipient-form-dashboard {
+  color: black;
+  background-color: #0A0A0A;
+  color: #8e8e8e;
+  border: none;
+  font-family: 'Patua One', cursive;
+  font-size: 1.8em;
+  margin-top: -1px;
+}
+
+.total-form-dashboard {
+  color: black;
+  background-color: #0A0A0A;
+  color: #8e8e8e;
+  border: none;
+  font-family: 'Patua One', cursive;
+  font-size: 1.4em;
+  margin-top: -1px;
+  width: 100px;
+}
+
+.fa-file {
+  color: #70e088;
+  position:relative;
+  bottom: -310px;
+  left: 1300px;
+}
+
+.date-form-dashboard {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+      font-family: 'Patua One', cursive;
+      
+  background-color: black;
+  height: 45px;
+  width: 261px;
+  border-radius: 7px;
+  vertical-align: Top;
+  margin: 0px 2px;
+  font-size: 1.8em;
+  padding-top: 3px;
+}
+
+.date-form-title {
+  display: inline-block;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  margin-left: 10px;
+    font-family: 'Patua One', cursive;
+}
+
+.date-form-container {
+  vertical-align:top;
+  background-color: #181818;
+  border-radius: 6px;
+  padding: 10px 0px 4px 0px;
+  margin: 15px 0px 15px 10px;
+  display: inline-block;
+  padding-right: 7px;
+    
+
+}
+
+.address-form-dashboard {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+  font-family: 'Patua One', cursive;
+  height: 32px;
+  width:450px;
+}
+
+.address-form-title {
+  vertical-align:top;
+  display: inline-block;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  margin-left: 10px;
+  font-family: 'Patua One', cursive;
+  
+}
+
+.address-form-container {
+  background-color: #181818;
+  border-radius: 6px;
+  padding: 10px 0px 4px 0px;
+  margin: 15px 0px 0px 10px;
+  display: inline-block;
+  padding-right: 7px;
+}
+
+.group-form-container {
+  vertical-align:top;
+    background-color: #181818;
+  border-radius: 6px;
+  padding: 10px 0px 4px 0px;
+  margin: 15px 0px 15px 10px;
+  display: inline-block;
+  padding-right: 7px;
+}
+
+.group-form-title {
+  vertical-align:top;
+  display: inline-block;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  margin-left: 10px;
+  font-family: 'Patua One', cursive;
+}
+
+.group-form-dashboard {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+  font-family: 'Patua One', cursive;
+}
+
+.note-form-container {
+  vertical-align:top;
+    background-color: #181818;
+  border-radius: 6px;
+  padding: 10px 0px 4px 0px;
+  margin: 5px 0px 15px 10px;
+  display: inline-block;
+  padding-right: 7px;
+}
+
+.note-form-dashboard {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+  font-family: 'Patua One', cursive;
+  height: 32px;
+  width:531px;
+  max-width:531px;
+}
+
+.note-form-title {
+  vertical-align:top;
+  display: inline-block;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  margin-left: 10px;
+  font-family: 'Patua One', cursive;
+  
+}
+
+.dashboard-form-button {
+  vertical-align:top;
+  margin: 17px 0px 0px 10px;
+  height: 46px;
+  background-color: #0A0A0A;
+  font-family: 'Patua One', cursive;
+  color: white;
+  border:none;
+  border-radius: 6px;
+  font-size: 20px;
+}
+
+.dashboard-form-button:hover {
+  background-color: #2b2b2b;
+}
+
+.fa-pencil-square-o {
+  float:right;
+  margin-top: 20px;
+  margin-right: 15px;
+  font-size: 3.15em !important;
+}
+
+.fa-arrow-circle-down {
+  float:right;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.fa-trash-o {
+    float:right;
+  margin-top: 20px;
+  margin-right: 18px;
+  font-size: 2.8em !important;
+}
+
+.new-line-form-title {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  margin-left:5px;
+}

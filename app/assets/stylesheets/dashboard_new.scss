@@ -1,0 +1,88 @@
+$lighter-blue: #e5f5fc;
+$light-blue: #b9dae8;
+$mid-blue: #70b5d3;
+$dark-blue: #2588b2;
+
+$nearly-black: #1c1c1c;
+
+.right-form-container {
+  padding: 20px 0px 0px 0px;
+}
+
+.recipient-form-dashboard {
+  background-color: black;
+  height: 45px;
+  width: 400px;
+  border-radius: 7px;
+  margin: 0px 0px 0px 10px;
+  padding: 10px;
+  position: static;
+  color: white;
+}
+
+.date-form-dashboard-new {
+  background-color: #0A0A0A;
+  border:none;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 0 5px 5px 10px;
+  margin-top: -1px;
+      font-family: 'Patua One', cursive;
+      
+  background-color: black;
+  height: 45px;
+  width: 261px;
+  border-radius: 7px;
+  vertical-align: Top;
+  margin: 0px 2px;
+  font-size: 1.8em;
+  padding-top: 3px;
+}
+
+.address-form-dashboard {
+  background-color: black;
+  height: 105px;
+  max-width: 350px;
+  border-radius: 7px;
+  vertical-align: top;
+  margin: 2px;
+  font-size: 1.8em;
+  padding-top: 3px;
+  
+}
+
+.group-new-container {
+  margin: 0px;
+  background-color: black;
+  
+}
+
+.new-button-dashboard {
+  display: block;
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  margin: 25px auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  border:none;
+}
+
+.new-button-dashboard:hover {
+  background-color: $nearly-black;
+}
+
+.fa-plus-circle {
+  color: green;
+  position: relative;
+  top: -45px;
+  left: 255px;
+  -webkit-transition:  color 1s;
+  transition: color 1s;
+}
+.fa-plus-circle:hover {
+  color: white;
+
+}
