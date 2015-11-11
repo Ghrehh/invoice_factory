@@ -1,25 +1,25 @@
 <div class="log-in-page-container">
-  <h1 class="not-logged-in-header">Invoice Factory</h1>
-  <p class="not-logged-in-info">Invoice Factory let's you easily create and customize invoices with a minimum of effort.</p>
+  <h1 class="not-logged-in-header tk-moby-monospaced">Invoice Factory</h1>
+  <p class="not-logged-in-info tk-proxima-nova">Invoice Factory lets you easily create professional looking invoices, log in to get started.</p>
 
    
-   <h1 class="log-in-title">Logging In</h1>
+   <h1 class="log-in-title tk-refrigerator-deluxe">Logging In</h1>
    
    <%= form_for(:session, url: login_path) do |f| %>
    
       <div class="username-container">
-         <%= f.label :username, class: "username-label" %>
-         <%= f.text_field :name, autofocus: true, class: "username-form" %>
+         <%= f.label :username, class: "username-label tk-refrigerator-deluxe" %>
+         <%= f.text_field :name, autofocus: true, class: "username-form tk-proxima-nova" %>
       </div>
       
       <div class="password-container">
-         <%= f.label :password, class: "password-label" %>
-         <%= f.password_field :password,class: 'password-form' %>
+         <%= f.label :password, class: "password-label tk-refrigerator-deluxe" %>
+         <%= f.password_field :password,class: 'password-form tk-proxima-nova' %>
          
-         <%= f.submit "Log In", class: "log-in-button" %>
+         <%= f.submit "Log In", class: "log-in-button tk-refrigerator-deluxe" %>
          <%= f.label :remember_me do %>
             <%= f.check_box :remember_me %>
-            <span class="remember-me">Remember me</span>
+            <span class="remember-me tk-refrigerator-deluxe">Remember me</span>
          <% end %>
       </div>
       

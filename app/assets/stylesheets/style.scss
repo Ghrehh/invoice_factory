@@ -21,8 +21,16 @@ body {
 
 
 .contains-everything {
-  padding: 0px 5px;
+  padding: 0px 0px;
   height: 70%;
+}
+
+.absolute-title {
+  text-align:center;
+  color:white;
+  margin-top: -27px;
+    font-size: 20px;
+    word-spacing: -7px;
 }
 
 
@@ -113,7 +121,7 @@ body {
 ************************/
 
 .header {
-  background-color: #495867;
+  background-color: #3F444A;
   padding: 5px 10px 39px;
   height: 2.8em;
   -webkit-box-shadow: 2px 6px 5px 0px rgba(0,0,0,0.75);

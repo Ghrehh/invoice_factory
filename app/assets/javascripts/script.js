@@ -201,6 +201,24 @@ var ready = function() {
     }
   });
   
+$(".date-form-dashboard-new").datepicker({ dateFormat: 'dd-mm-yy' }).val()
+  
+  var wait_period = true
+  
+  $(".left-tab").click(function(){
+    
+    if (wait_period == true) {
+      $(this).hide();
+      showDivLeft(".dashboard-left-container");
+      hideDivLeft(".iframe-container");
+      wait_period = false
+      
+      setTimeout(function(){
+        wait_period = true;
+      }, 2000);
+    }
+  });
+  
   $(".right-tab").click(function(){
     
     if (wait_period == true) {

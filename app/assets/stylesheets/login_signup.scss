@@ -9,25 +9,36 @@ LOG IN PAGE
 
 .not-logged-in-header {
   color: white;
-  font-size: 100px;
+  font-size: 70px;
   text-align: center;
+  margin-bottom: 20px;
+  word-spacing: -25px;
+    background-color: #3F444A;
+    padding-bottom: 10px;
+  margin-top: 0px;
 }
 
 .not-logged-in-info {
   color: #c5cbea;
   text-align: center;
   font-size: 18px;
-  margin-bottom: 65px;
+  margin-bottom: 60px;
+  font-weight: 100;
 }
 
 .log-in-page-top-paragraph {
   color: white;
-  margin: 1px 5px;
+  margin: 3px 7px;
+}
+
+.log-in-page-top-paragraph > a {
+  color: #E55E65;
 }
 
 .log-in-title {
   color: white;
   text-align: center;
+  font-size: 40px;
 }
 
 .username-container {
@@ -39,11 +50,16 @@ LOG IN PAGE
 .username-label {
   display:block;
   color: #c5cbea;
+  font-size: 20px;
 }
 
 .username-form {
   width: 100%;
   font-size: 20px;
+  padding-left: 4px;
+    box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+    border: none;
+    padding: 2px 4px;
 }
 
 
@@ -53,8 +69,8 @@ LOG IN PAGE
   width: 400px;
 }
 
-.password-confirm-container { //only on the signup page
-  margin-top:12px !important;
+.password-container-confirm { //only on the signup page
+  margin-top:5px !important;
   margin: auto;
   width: 400px;
 }
@@ -62,13 +78,18 @@ LOG IN PAGE
 .password-label {
   display:block;
   color:#c5cbea;
+  font-size: 20px;
   
 }
 
 .password-form {
   width: 100%;
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  padding-left: 4px;
+    box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+    border: none;
+    padding: 2px 4px;
 }
 
 .log-in-button {

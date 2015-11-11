@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Invoice</title>
+  <title>Invoice Factory</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   
+<script src="https://use.typekit.net/rup5qrp.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+    
 </head>
 <body>
   
@@ -37,7 +38,7 @@
       </div>
     </a>
     
-    
+    <h1 class="absolute-title tk-moby-monospaced">Invoice Factory</h1>
     <p class="user-name"><%= current_user.name %></p>
     <i class="fa fa-user fa-3x"></i>
     
@@ -48,9 +49,9 @@
  
 <% else %>
   <% if current_page?(controller: 'users', action: 'new') %>
-    <p class="log-in-page-top-paragraph"> Already have an account? Click <%= link_to "here", login_path %> to sign in. </p>
+    <p class="log-in-page-top-paragraph tk-proxima-nova"> Already have an account? Click <%= link_to "here", login_path %> to sign in. </p>
   <% else %>
-    <p class="log-in-page-top-paragraph"> New User? Click <%= link_to "here", new_user_path %> to create an account. </p>
+    <p class="log-in-page-top-paragraph tk-proxima-nova"> New User? Click <%= link_to "here", new_user_path %> to create an account. </p>
   <% end %>
 <% end %>
 

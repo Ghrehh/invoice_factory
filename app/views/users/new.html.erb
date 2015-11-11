@@ -1,27 +1,27 @@
 <div class="log-in-page-container">
-  <h1 class="not-logged-in-header">Invoice Factory</h1>
-  <p class="not-logged-in-info">Invoice Factory let's you easily create and customize invoices with a minimum of effort.</p>
+   <h1 class="not-logged-in-header tk-moby-monospaced">Invoice Factory</h1>
+   <p class="not-logged-in-info tk-proxima-nova">Invoice Factory lets you easily create professional looking invoices, log in to get started.</p>
 
    
-   <h1 class="log-in-title">Creating Account</h1>
+   <h1 class="log-in-title tk-refrigerator-deluxe">Creating Account</h1>
    
    <%= form_for @user do |f| %>
    
       <div class="username-container">
-         <%= f.label :username, class: "username-label" %>
-         <%= f.text_field :name, autofocus: true, class: "username-form" %>
+         <%= f.label :username, class: "username-label tk-refrigerator-deluxe" %>
+         <%= f.text_field :name, autofocus: true, class: "username-form tk-proxima-nova" %>
       </div>
       
       <div class="password-container">
-         <%= f.label :password, class: "password-label" %>
-         <%= f.password_field :password,class: 'password-form' %>
+         <%= f.label :password, class: "password-label tk-refrigerator-deluxe" %>
+         <%= f.password_field :password,class: 'password-form tk-proxima-nova' %>
       </div>
          
-      <div class="password-confirm-container">
-         <%= f.label "Confirm Password", class: "password-label" %>
-         <%= f.password_field :password_confirmation, class: 'password-form' %>
+      <div class="password-container-confirm">
+         <%= f.label "Confirm Password", class: "password-label tk-refrigerator-deluxe" %>
+         <%= f.password_field :password_confirmation, class: 'password-form tk-proxima-nova' %>
          
-         <%= f.submit "Sign Up", class: "log-in-button" %>
+         <%= f.submit "Sign Up ", class: "log-in-button tk-refrigerator-deluxe" %>
       </div>
       
          

@@ -2,11 +2,11 @@
 
   <div class="right-inner-container">
     <div class="right-inner">
-      <h3>Editing Invoice for: <%= link_to @inv.recipient, recipient_form_path(@inv.id), :remote => :true %></h3>
+      <h3 class="tk-refrigerator-deluxe">Editing Invoice for: <%= link_to @inv.recipient, recipient_form_path(@inv.id), :remote => :true %></h3>
     </div>
     
     <div class="right-inner-two">
-      <h3>Total: £ <%= link_to @total.to_s, total_form_path(@inv.id), :remote => :true %></h3>
+      <h3 class="tk-refrigerator-deluxe">Total: £ <%= link_to @total.to_s, total_form_path(@inv.id), :remote => :true %></h3>
     </div>
   </div>
   <div class="right-body">
