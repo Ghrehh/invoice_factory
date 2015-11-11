@@ -1,0 +1,26 @@
+/**** ALERTS ******/
+
+.alert-container {
+  height: 50px;
+  padding: 10px 5px;
+}
+
+.alert {
+  height: 30px !important;
+  margin: 0px 10px !important;
+  padding: 5px 0px 0px 8px !important;
+  font-weight: 300px;
+}
+
+
+.alert-success {
+  background-color:#B5D0B6 !important;
+  border: none !important;
+  color: white !important;
+}
+
+.alert-danger {
+  background-color:#E06A6A !important;
+  border: none !important;
+  color: white !important;
+}
