@@ -6,6 +6,7 @@
 
   
   <%= form_for (Inv.new), :remote => :true do |f| %>
+    
     <%= f.text_field :date, :placeholder => "Your Organisation's Name", class: "tutorial-form tk-proxima-nova", :autocomplete => :off %>
     <%= f.submit "Submit", class: "tutorial-button tk-refrigerator-deluxe"%>
   <% end %>
@@ -16,6 +17,10 @@
     <div class="circle"></div>
     <div class="circle"></div>
   </div>
+  
+  <p class="tutorial-error">
+    This field must contain something.
+  </p>
 </div>
 
 
