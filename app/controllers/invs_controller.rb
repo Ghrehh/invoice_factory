@@ -19,6 +19,7 @@ class InvsController < ApplicationController
   
   def edit #don't think i need this
     @inv = Inv.find(params[:id])
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
     @lines = @inv.lines.all
     @line = @inv.lines.new
     
@@ -82,6 +83,7 @@ class InvsController < ApplicationController
       @line = @inv.lines.new
       @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
       @total = get_total(@inv)
+      redirect_to edit_inv_path(@inv.id)
       
     else
       flash.now[:danger] = 'something went wrong, ensure you provided a recipient'

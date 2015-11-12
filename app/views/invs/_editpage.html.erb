@@ -14,51 +14,56 @@
   
 
       <%= form_for (@inv), :remote => :true do |f| %>
-        <div class="date-form-container">
-          <p class="date-form-title">SENT </p>
-          <%= f.text_field :date, :placeholder => "Date", class: "date-form-dashboard", :autocomplete => :off %>
+      
+      
+        <div class="date-container">
+          <p class="date-form-title tk-refrigerator-deluxe">Sent</p>
+          <%= f.text_field :date, :placeholder => "Date", class: "date-form-dashboard tk-proxima-nova", :autocomplete => :off %>
+        </div>
           
-        <p class="date-form-title">DUE</p>
-          <%= f.text_field :due_date, :placeholder => "Date", class: "date-form-dashboard", :autocomplete => :off %>
+        <div class="date-container">
+          <p class="date-form-title tk-refrigerator-deluxe">Due</p>
+            <%= f.text_field :due_date, :placeholder => "Date", class: "date-form-dashboard tk-proxima-nova", :autocomplete => :off %>
         </div>
         
-
-      <div style="display:inline-block">
-        <div>
           
-        <div class="group-form-container">
-          <p class="group-form-title">Group </p>
+        <div class="group-container">
+          <p class="group-form-title tk-refrigerator-deluxe">Group </p>
           <%= f.collection_select :group_id, @group,:id,:name, :prompt => "None", class: "group-form-dashboard" %>
         </div>
         
-        <div class="address-form-container">
-          <p class="address-form-title">Address </p>
-          <%= f.text_area :address_1, class: "address-form-dashboard"%>
+        <div class="note-container">
+          <p class="note-form-title tk-refrigerator-deluxe">Note </p>
+          <%= f.text_area :note, class: "note-form-dashboard tk-proxima-nova"%>
         </div>
         
-      </div>
         
         
-        <div class="note-form-container">
-          <p class="note-form-title">Note </p>
-          <%= f.text_area :note, class: "note-form-dashboard"%>
+        
+        <div class="address-container">
+          <p class="address-form-title tk-refrigerator-deluxe">Address </p>
+          <%= f.text_area :address_1, class: "address-form-dashboard tk-proxima-nova"%>
         </div>
         
-      </div>
+
         
-         <%= f.submit "Update", class: "dashboard-form-button"%>
+        
+        
+
+        
+         <%= f.submit "Update", class: "dashboard-form-button tk-refrigerator-deluxe"%>
         
       <% end %>
 
-    <a style:"float:right" href="/download/<%=@inv.id%>">
+    <a  href="/download/<%=@inv.id%>">
       <i class="fa fa-arrow-circle-down fa-3x"></i>
     </a>
     
     <a class="change-mode" href="javascript:void(0)">
-      <i  class="fa fa-pencil-square-o fa-3x"></i>
+      <i class="fa fa-pencil-square-o fa-3x"></i>
     </a>
     
-    <a style:"float:right" href="/invs/<%=@inv.id%>"  data-remote="true" rel="nofollow" data-method="delete" data-confirm="Are you sure you want to delete this invoice?">
+    <a href="/invs/<%=@inv.id%>"  data-remote="true" rel="nofollow" data-method="delete" data-confirm="Are you sure you want to delete this invoice?">
      <i class="fa fa-trash-o fa-3x"></i>
     </a>
 
@@ -68,18 +73,18 @@
     
     <div class="new-line-form">
         
-      <h4 class="new-line-form-title">Add Line</h4>
+      <h4 class="new-line-form-title tk-refrigerator-deluxe">Add Line</h4>
       <%= form_for [@inv, Line.new], :remote => true do |f| %>
       
-        <%= f.text_field :service, autofocus: true, class: "service", input_html: {autocomplete: 'off'},:placeholder => "Service" %>
+        <%= f.text_field :service, autofocus: true, class: "service tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Service" %>
         
-        <%= f.text_area :description, class: "description", input_html: {autocomplete: 'off'},:placeholder => "Description" %>
+        <%= f.text_area :description, class: "description tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Description" %>
         
-        <%= f.text_field :quantity, class: "quantity", input_html: {autocomplete: 'off'},:placeholder => "x0" %>
+        <%= f.text_field :quantity, class: "quantity tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Quantity" %>
      
-        <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'},:placeholder => "Price" %>
+        <%= f.text_field :price, class: "price tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Price" %>
     
-        <%= f.submit "Add", class: "line-button" %>
+        <%= f.submit "Add", class: "line-button tk-refrigerator-deluxe" %>
       
       <% end %>
     </div>

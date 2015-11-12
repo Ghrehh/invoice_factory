@@ -6,8 +6,8 @@ module ApplicationHelper
     if inv.total.nil? #checks if the inv has a custom total or not, if not it adds all the prices of the lines
       total = 0
       inv.lines.each do |x|
-        x.quantity = 1 if x.quantity.nil?
-        total += x.price * x.quantity unless x.price.nil?
+        quantity = x.quantity || 1
+        total += x.price * quantity unless x.price.nil?
       end
       return '%.2f' % total #this nonsense rounds it to 2 decimal places
     else

@@ -1,0 +1,86 @@
+$lighter-blue: #e5f5fc;
+$light-blue: #b9dae8;
+$mid-blue: #70b5d3;
+$dark-blue: #2588b2;
+
+$nearly-black: #1c1c1c;
+
+
+/**************************
+********HEADER***********
+************************/
+
+.header {
+  background-color: #3F444A;
+  padding: 5px 10px 39px;
+  height: 2.8em;
+  -webkit-box-shadow: 2px 6px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 6px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 6px 5px 0px rgba(0,0,0,0.75);
+}
+
+.header > a {
+  color: white;
+  margin-left: 12px;
+}
+
+.fa-object-group {
+  color: $nearly-black;
+  font-size: 2.3em !important;
+  -webkit-transition:  color 0.3s;
+  transition: color 0.3s;
+}
+
+.header-circle {
+  position:static !important;
+  top:0;
+  right:0;
+  left:0;
+  color: $nearly-black !important;
+  font-size: 2.3em !important;
+}
+
+.fa-pencil {
+  color: $nearly-black;
+  font-size: 2.3em !important;
+  -webkit-transition:  color 0.3s;
+  transition: color 0.3s;
+}
+
+.fa-user {
+  color: $nearly-black;
+  position: absolute;
+  right: 8px;
+  top:8px;
+  -webkit-transition:  color 0.3s;
+  transition: color 0.3s;
+  font-size: 2.3em !important;
+}
+
+.fa-user:hover, .fa-object-group:hover, .header-circle:hover, .fa-pencil:hover {
+  color: white !important;
+}
+
+.user-name {
+  color: white;
+  display: inline-block;
+    position: absolute;
+    top: 17px;
+    right: 38px;
+    font-size: 11px;
+}
+
+.user-dropdown {
+  display: inline-block;
+  position: absolute;
+  background-color: #5F7184;
+  right: 2px;
+  top: 39px;
+  padding: 5px 10px;
+  display:none;
+}
+
+.user-dropdown > a {
+  display: block;
+  color: white;
+}

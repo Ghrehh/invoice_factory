@@ -10,15 +10,15 @@ class LinesController < ApplicationController
   def create
     @inv = Inv.find(params[:inv_id])
     @invs = Inv.all.where(user_id: current_user.id).reverse 
-   
+    @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
     
     @line = @inv.lines.new(line_params)
     @line.position = @inv.lines.count + 1
     @lines = @inv.lines.all
     
-    @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
     
-     @total = get_total(@inv)
+    
+    @total = get_total(@inv)
   
     if @line.save
       flash.now[:success] = "Invoice Saved"

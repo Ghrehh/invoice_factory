@@ -1,14 +1,14 @@
 <%= form_for [@line], :remote => true do |f| %>
   
-  <%= f.text_field :service, autofocus: true, class: "service", input_html: {autocomplete: 'off'},:placeholder => "Service" %>
+  <%= f.text_field :service, autofocus: true, class: "service service2 tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Service" %>
   
-  <%= f.text_area :description, class: "description", input_html: {autocomplete: 'off'},:placeholder => "Description" %>
+  <%= f.text_area :description, class: "description description2 tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Description" %>
   
-  <%= f.text_field :quantity, class: "quantity", input_html: {autocomplete: 'off'},:placeholder => "x0" %>
+  <%= f.text_field :quantity, class: "quantity quantity2 tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Quantity" %>
 
-  <%= f.text_field :price, class: "price", input_html: {autocomplete: 'off'},:placeholder => "Price" %>
+  <%= f.text_field :price, class: "price price2 tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Price" %>
 
-  <%= f.submit "Update", class: "line-button" %>
+  <%= f.submit "Change", class: "line-button line-button2 tk-refrigerator-deluxe" %>
   
 <% end %>
 

@@ -7,25 +7,26 @@
     
     <div class="line-left">
       <% unless x.service == "" %> <!-- will print the description is one is provided -->
-        <p class="service-paragraph"><%= x.service %>:</p>
+        <p class="service-paragraph tk-refrigerator-deluxe"><%= x.service %>:</p>
       <% end %>
       
-      <p class="description-paragraph"><%= x.description %></p>
+      <p class="description-paragraph tk-proxima-nova"><%= x.description %></p>
     </div>
     
-    <%= link_to 'X', x, :method => :delete, class: "delete-button", :remote => true %>
-    <%= link_to 'edit', edit_line_path(x), class: "edit-button", :remote => true %>
+    <%= link_to 'x', x, :method => :delete, class: "delete-button tk-refrigerator-deluxe", :remote => true %>
+    <%= link_to 'edit', edit_line_path(x), class: "edit-button tk-refrigerator-deluxe", :remote => true %>
     
  
     
     
     <% unless x.price.nil? %> <!-- will print the price is one is provided -->
-      <p class="price-paragraph">||£<%= '%.2f' % x.price %>||</p>
+      <p class="price-paragraph tk-refrigerator-deluxe">£<%= '%.2f' % x.price %></p>
     <% end %>
     
      <% unless x.quantity.nil? %> <!-- will print the price is one is provided -->
-      <p class="price-paragraph">(x<%= x.quantity %>)</p>
+      <p class="quantity-paragraph tk-refrigerator-deluxe">(x<%= x.quantity %>)</p>
     <% end %>
+    
   </div>
   
   <div class="line line<%=x.id%>-form" style="display:none"> <!-- form for edit is displayed here -->
