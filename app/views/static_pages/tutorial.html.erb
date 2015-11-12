@@ -1,0 +1,33 @@
+<div class="tutorial-container">
+  <h1 class="tutorial-header tk-refrigerator-deluxe">Welcome to Invoice Factory</h1>
+  
+  <p class="tutorial-paragraph tk-proxima-nova">You just need to fill out a few details, then you'll be well on your way underway to churning out invoices.</p>
+  <p class="tutorial-paragraph-2 tk-proxima-nova">What's the name of your company or organisation? </p>
+
+  
+  <%= form_for (Inv.new), :remote => :true do |f| %>
+    <%= f.text_field :date, :placeholder => "Your Organisation's Name", class: "tutorial-form tk-proxima-nova", :autocomplete => :off %>
+    <%= f.submit "Submit", class: "tutorial-button tk-refrigerator-deluxe"%>
+  <% end %>
+  
+  <div class="circle-container">
+    <div class="circle" id="selected-circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+</div>
+
+
+<script>
+  
+  var button_state = null;
+  
+  var ready = function() {
+    $(".tutorial-container").fadeIn(1500)
+    tutorial();
+  }
+  
+  $(document).ready(ready);
+  $(document).on('page:load', ready);
+</script>
