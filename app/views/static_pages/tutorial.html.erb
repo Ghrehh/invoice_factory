@@ -1,31 +1,65 @@
-<div class="tutorial-container">
-  <h1 class="tutorial-header tk-refrigerator-deluxe">Welcome to Invoice Factory</h1>
-  
-  <p class="tutorial-paragraph tk-proxima-nova">You just need to fill out a few details, then you'll be well on your way underway to churning out invoices.</p>
-  <p class="tutorial-paragraph-2 tk-proxima-nova">What's the name of your company or organisation? </p>
-
-  
-  <%= form_for (Inv.new), :remote => :true do |f| %>
+<div class="tutorial-container-container"><!-- need the extra container to animate the container moving left -->
+  <div class="tutorial-container">
+    <div class="buffer-top" style="width:100%; height:1px;"></div> <!-- to stop margin-top from going out of the top of the container -->
+    <div class="tutorial-inner-1">
+      <h1 class="tutorial-header tk-refrigerator-deluxe">Welcome to Invoice Factory</h1>
+      
+      <p class="tutorial-paragraph tk-proxima-nova">You just need to fill out a few details, then you'll be well on your way to churning out invoices.</p>
+      <p class="tutorial-paragraph-bold tk-proxima-nova">What's the name of your company or organisation? </p>
     
-    <%= f.text_field :date, :placeholder => "Your Organisation's Name", class: "tutorial-form tk-proxima-nova", :autocomplete => :off %>
-    <%= f.submit "Submit", class: "tutorial-button tk-refrigerator-deluxe"%>
-  <% end %>
-  
-  <div class="circle-container">
-    <div class="circle" id="selected-circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
+      
+      <%= form_tag tutorial_1_path, :method => "post", :remote => :true do |f| %>
+        <%= text_field_tag :data, params[:data], autofocus: true, class: "tutorial-form tk-proxima-nova", :autocomplete => :off, :placeholder => "Your Organisation's Name"  %>
+        <%= button_tag "Submit", class: "tutorial-button tk-refrigerator-deluxe"%>
+      <% end %>
+      </div>
+      
+      <div class="circle-container">
+        <div class="circle circle-1" id="selected-circle"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-4"></div>
+      </div>
+      
+      <p class="tutorial-error tk-proxima-nova"> <!-- error message -->
+        This field must contain something.
+      </p>
+      
+      <div style="display:none;" class="tutorial-1-confirm" value=0></div> <!-- I render stuff here to vertify that the users name was valid
+      kind of not need -->
+      
+      
+      
+      
+      <!-- TUTORIAL INNER 2 -->
+      <div class="tutorial-inner-2">
+        <h1 class="tutorial-header-2 tk-refrigerator-deluxe">Contact Details</h1>
+        <p class="tutorial-paragraph-2 tk-proxima-nova">These details will appear atop your invoices, you can edit, delete and add to them as you see fit. </p>
+        <button class="tutorial-button-2 tk-refrigerator-deluxe">Continue</button>
+      
+        
+      </div>
+    
   </div>
-  
-  <p class="tutorial-error">
-    This field must contain something.
-  </p>
 </div>
 
 
+<div class="iframe-container-container">
+  <div class="iframe-container" id="iframe-tutorial">
+    <%= render "users/iframe.html.erb" %>
+  </div>
+</div>
+
+<div class="tutorial-toplines-container-container">
+  <div class="tutorial-toplines-container">
+    <%= render "users/partials/toplines.html.erb" %>
+  </div>
+</div>
+
+
+
+
 <script>
-  
   var button_state = null;
   
   var ready = function() {

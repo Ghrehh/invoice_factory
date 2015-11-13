@@ -1,7 +1,7 @@
   <%= form_for [@topline], :remote => true do |f| %>
-    <div class="edit-user-sender">
-      <%= f.text_field :name, placeholder: "name" %>
-      <%= f.text_field :value, placeholder: "value" %>
-      <%= f.submit "Submit" %>
-    </div>
+ <div class="tutorial-topline-new-container-edit">
+        <%= f.text_field :name, placeholder: "Name", class: "tutorial-topline-new-name tk-proxima-nova" %>
+        <%= f.text_field :value, placeholder: "Value", class: "tutorial-topline-new-value tk-proxima-nova" %>
+        <%= f.submit "Add", class: "tutorial-topline-button tk-refrigerator-deluxe" %>
+      </div>
   <% end %>

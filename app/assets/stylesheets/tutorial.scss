@@ -1,19 +1,57 @@
+.tutorial-container-container {
+  margin:auto;
+  width: 800px;
+}
+
 .tutorial-container {
-  display:none;
+    display:none;
     height: 520px;
     width: 800px;
     background-color: #C3CED2;
-    margin: auto;
     border-radius: 2px;
     -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
     -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
 }
 
+.iframe-container-container, .tutorial-toplines-container-container {
+  height:1px;
+  width: 100px;
+  margin:auto;
+}
+
+#iframe-tutorial {
+    visibility:hidden;
+    opacity:0;
+    width: 530px !important;
+    height: 543px !important;
+    position: relative;
+    bottom: 280px;
+    right: 480px;
+}
+
+
+.tutorial-toplines-container {
+    display:none;
+    width: 500px;
+    position: relative;
+    left: 65px;
+    background-color: #444343;
+    padding: 10px;
+    top: 20px;
+    border-radius:3px;
+}
+
+
+//
+// TUTORIAL 1
+//
+
 .tutorial-header {
     text-align: center;
     font-size: 90px;
     padding-top: 27px;
+    margin-top:0px;
 }
 
 
@@ -26,7 +64,7 @@
     margin: 30px auto 5px;
 }
 
-.tutorial-paragraph-2 {
+.tutorial-paragraph-bold {
     font-size: 18px;
     margin-top: 40px !important;
     color: #4A4A4A;
@@ -46,7 +84,7 @@
     padding: 2px 12px;
     border-radius: 15px;
     box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    margin: 10px auto 0 200px;
+    margin: 10px auto 25px 200px;
 }
 
 .tutorial-button {
@@ -73,7 +111,7 @@
   padding-left: 10px;
   width: 150px;
   height: 27px;
-  margin: 45px auto 0;
+  margin: 20px auto 0;
   border-radius: 50px;
 }
 
@@ -101,4 +139,86 @@
     border-radius: 10px;
     right: 50px;
     opacity:0;
+}
+
+//
+// TUTORIAL 2
+//
+
+.tutorial-inner-2 {
+  display:none;
+}
+
+.tutorial-header-2 {
+    text-align: center;
+    font-size: 70px;
+    padding-top: 17px;
+    margin-top:0px;
+}
+
+.tutorial-paragraph-2 {
+    font-size: 18px;
+    margin-top: 20px !important;
+    color: #4A4A4A;
+    font-weight: 300;
+    text-align: center;
+    width: 500px;
+    margin: 20px auto 0px;
+    font-weight: 600
+}
+
+.tutorial-button-2 {
+    text-align: center;
+    font-size: 19px;
+    border-radius: 15px;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.tutorial-button-2:hover {
+  background-color: #a0a0a0
+}
+
+.tutorial-topline-new-container {
+ margin-bottom: 10px; 
+}
+
+.tutorial-topline-new-container-edit {
+ margin-bottom: 10px; 
+ background-color:#181818;
+}
+
+.tutorial-topline-new-title {
+  font-size: 18px;
+  color: white;
+
+  
+}
+
+.tutorial-topline-new-name {
+    box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  border: none;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.tutorial-topline-new-value {
+    box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  border: none;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.tutorial-topline-button {
+    text-align: center;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.tutorial-topline-button:hover {
+  background-color: #a0a0a0
 }

@@ -12,4 +12,10 @@ class StaticPagesController < ApplicationController
     @inv = Inv.new
     @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
   end
+  
+  def tutorial
+    @user = current_user
+    @toplines = current_user.toplines.all
+  end
+  
 end

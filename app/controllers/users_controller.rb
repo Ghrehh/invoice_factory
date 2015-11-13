@@ -57,6 +57,13 @@ class UsersController < ApplicationController
     
   end
   
+  def tutorial_1
+    @user = current_user
+    @user.sender = params[:data]
+    @user.save
+    @toplines = current_user.toplines.all
+  end
+  
   
   private
 

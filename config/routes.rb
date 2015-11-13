@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "/render_total_form/:id", to: "invs#total_form", as: "total_form"
   
   
-  
+  post "/tutorial_1/", to: "users#tutorial_1", as: "tutorial_1"
   
   
   
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
   
   
-  resources :users
+  resources :users 
   resources :groups
   resources :coverimages
   
