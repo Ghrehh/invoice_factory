@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       @user.toplines.create(name: "PHONE", value: "Your Phone")
       @user.toplines.create(name: "EMAIL", value: "Your Email")
       
+      @user.invs.create(recipient: "Test Recipient", address_1: "26 Test Street, \n Test City")
       log_in @user
       redirect_to root_url
       

@@ -1,3 +1,36 @@
 $('.tutorial-toplines-container').html("<%= j(render "users/partials/toplines.html.erb") %>");
 $('.dashboard-right').html("<%= j (render "users/edituser.html.erb") %>"); <!-- renders the form for the invoice you jsut made -->
 $('.iframe-container').html("<%= j (render "users/iframe.html.erb") %>");<!-- renders the search -->
+
+$(document).ready(function(){
+  set_positions2 = function(){
+    // loop through and give each task a data-pos
+    // attribute that holds its position in the DOM
+    $('.sortable2 > li').each(function(i){ 
+        $(this).attr("data-pos",i+1);
+    });
+  };
+  
+ $('.sortable2').sortable().bind('sortupdate', function() {
+    
+    
+    updated_order = [];
+    // set the updated positions
+    set_positions2();
+
+    // populate the updated_order array with the new task positions
+    $('.sortable2 > li').each(function(i){
+        updated_order.push($(this).data("id"));
+    });
+    
+    //console.log(updated_order)
+    console.log(updated_order)
+    $.ajax({
+        type: "PUT",
+        url: '/toplines/order',
+        data: { order: updated_order }
+    });
+    
+  });
+  
+});

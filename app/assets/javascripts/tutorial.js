@@ -25,12 +25,12 @@ function tutorial(){
             $(".tutorial-container").animate({width:"500px", height:"280px", backgroundColor: "#7FAE74"});
             $(".tutorial-container-container").animate({width:"500px"});
             $(".circle-container").animate({backgroundColor: "#6E9864"},function(){
-              $(".circle-1").animate({backgroundColor: "#272727"}, 200);
+              $(".circle-1").animate({backgroundColor: "#272727"}, 400);
               
-              $(".circle-2").animate({backgroundColor: "#FDFF8E"}, 200, function(){
+              $(".circle-2").animate({backgroundColor: "#EDEE9D"}, 400, function(){
                 $(".tutorial-inner-1").hide();
                 $(".tutorial-inner-2").fadeIn();
-                $(".tutorial-container").animate({marginLeft:"265px"}, function(){
+                $(".tutorial-container").animate({marginLeft:"295px"}, function(){
                   $(".iframe-container").css({visibility:"visible"});
                   $(".iframe-container").animate({opacity:"1"});
                   
@@ -56,6 +56,18 @@ function tutorial(){
     if (button_state == "success") {
       $(".tutorial-button").css({backgroundColor: "#87D687"});
     }
+  });
+  
+  $(".tutorial-inner-2").hover(function(){
+    $(".tutorial-2-tooltip").fadeIn();
+  }, function() {
+    $(".tutorial-2-tooltip").fadeOut();
+  });
+  
+  $(".tutorial-toplines-container").hover(function(){
+    $(".toplines-tooltip").fadeIn();
+  }, function() {
+    $(".toplines-tooltip").fadeOut();
   });
   
 }

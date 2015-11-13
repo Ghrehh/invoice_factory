@@ -63,7 +63,6 @@ class ToplinesController < ApplicationController
     params[:order].each_with_index do |post_id, i|
 	    Topline.find_by(id: post_id).update_attribute(:position, i + 1)
     end
-    render :nothing => true
   end
   
   
