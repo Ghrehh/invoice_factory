@@ -1,105 +1,63 @@
-<div class="right-inner-container">
-  <div class="right-inner">
-    <h3>Updating User Info</h3>
+<div class="edit-user-forms-container">
+  <h4 class="edit-user-h4 tk-refrigerator-deluxe">Editing Details</h4>
+  
+  <%= form_for @user, :remote => true do |f| %>
+    
+
+  <div class="company-container">
+    <p class="company-title">You or Your Organisation's Name</p>
+    <%= f.text_field :sender, class: "company-form tk-proxima-nova" %>
   </div>
   
-  <div class="right-inner-two">
-    <h3></h3>
+  <div class="divider"></div>
+  
+  <div class="company-container">
+    <p class="top-offset-title">Details Offset</p>
+    <%= f.text_field :topoffset, class: "top-offset-form tk-proxima-nova" %>
   </div>
+  
+  <div class="divider"></div>
+  
+  <% if current_user.coverimages.count > 0 %>
+    <div class="company-container" style="margin-bottom: 0px">
+      <p class="top-offset-title" >Use Picture</p>
+      <%= f.check_box :use_picture, class: "check-box2"  %>
+    </div>
+  <% end %>
+    
+  <%= f.submit "Update", class: "edit-user-button tk-refrigerator-deluxe" %>
+  <% end %>
 </div>
 
-<div class="right-body">
-
-
-<h4 class="edit-user-h4">These Will Appear at the top of each invoice you make:</h4>
-
-<%= form_for @user, :remote => true do |f| %>
-  
-  
-<div class="edit-user-sender">
-  <%= f.label "You or your companies name: " %>
-  <%= f.text_field :sender %>
-</div>
-  
-
-<div class="edit-user-topoffset">
-  <%= f.label "Offset" %>
-  <%= f.text_field :topoffset%>
-</div>
-
-<div class="edit-user-topoffset">
-  <%= f.label "Use a picture instead of the name of your organisation" %>
-  <%= f.check_box :use_picture, class: "check-box2"  %>
-</div>
-  
-<%= f.submit "Update", class: "line-button" %>
-<% end %>
-
-<div style="display:inline-block">
+<div class="edit-user-image-container">
   <% if current_user.coverimages.count == 0 %>
-  <h4 class="edit-user-h4">Add a cover Image </h4>
+  <h4 class="edit-user-h4 tk-refrigerator-deluxe">Add a cover Image </h4>
   
     <%= form_for Coverimage.new, :remote => true do |f| %>
-      <%= f.file_field :file %>
+      <%= f.file_field :file, class: "file-field tk-proxima-nova" %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <%= f.submit "Change cover image", class: "image-button" %>
+      <%= f.submit "Change cover image", class: "edit-image-button tk-refrigerator-deluxe" %>
     <% end %>
   <% else %>
-  <h4 class="edit-user-h4">Update cover image</h4>
+  <h4 class="edit-user-h4 tk-refrigerator-deluxe">Update cover image</h4>
     <%= form_for @coverimage,:remote => true do |f| %>
-      <%= f.file_field :file %>
+      <%= f.file_field :file, class: "file-field tk-proxima-nova" %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <%= f.submit "Change cover image", class: "image-button" %>
-    <% end %>
-  
-      <img style="width:300px" src="/coverimages/<%= @coverimage.id %>">
-  
-  <% end %>
-</div>
-
-<div style="display:inline-block; width: 800px; margin-left: 10px">
-  
-  <h4 class="edit-toplines-h4">Add contact info</h4>
-  
-  <%= form_for [Topline.new], :remote => true do |f| %>
-    <div class="edit-user-sender">
-      <%= f.text_field :name, placeholder: "name" %>
-      <%= f.text_field :value, placeholder: "value" %>
-      <%= f.submit "Submit" %>
-    </div>
-  <% end %>
-
-  <ul class="sortable2">
-    
-  <% @toplines.each do |x| %>
-    
-    <li data-id="<%= x.id %>"> <!-- Nescessary for the sorting -->
-    
-    <div class="line line<%=x.id%>">
       
-        <p class="service-paragraph"><%= x.name %>:</p>
-        
-        <p class="description-paragraph"><%= x.value %></p>
-        
-        <%= link_to 'x', x, :method => :delete, class: "delete-button", :remote => true %>
-        <%= link_to 'edit', edit_topline_path(x), class: "edit-button", :remote => true %>
-  
-    </div>
-    
-      <div class="line line<%=x.id%>-form" style="display:none"> <!-- form for edit is displayed here -->
-      </div>
-    
-    </li>
+      <%= f.submit "Change cover image", class: "edit-image-button tk-refrigerator-deluxe" %>
+      
+    <% end %>
+  <img style="width:300px" src="/coverimages/<%= @coverimage.id %>">
+      
   
   <% end %>
-  
-  </ul>
-
 </div>
 
+
+<div class="tutorial-toplines-container-2">
+  <%= render "users/partials/toplines.html.erb" %>
+</div>
 
 <script type="text/javascript"> //reapplies the sorting thing every time the partial is reloaded.
-    ready();
+  ready();
 </script>
-</div>
-

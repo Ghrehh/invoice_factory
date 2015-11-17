@@ -1,24 +1,12 @@
-
 <% @invs.each do |inv| %>
-  <a href="/dashboard_invoice//<%= inv.id.to_s %>" data-remote="true">
-    
-    <% if !@inv.nil? && @inv.id == inv.id %>
-        <div class="dashboard-invoice dashboard-invoice-selected">
-      <% else %>
-        <div class="dashboard-invoice">
-      <% end %>
-        
-        <% if inv.recipient.length > 19 %>
-          <p><%= inv.recipient[0..18] + "..." %></p>
-        <% else %>
-          <p><%= inv.recipient %></p>
-        <% end %>
-        <p class="dashboard-date"><%= inv.created_at.to_s[0..9] %></p>
-        </div>
-
-      
-
-  </a>
+ <div class="invoice-header-container">
+    <% if inv.recipient.length > 19 %>
+      <p class="invoice-header-container-name tk-refrigerator-deluxe"><%= inv.recipient[0..18] + "..." %></p>
+    <% else %>
+      <p class="invoice-header-container-name tk-refrigerator-deluxe"><%= inv.recipient %></p>
+    <% end %>
+    <p class="invoice-header-container-date tk-proxima-nova"><%= inv.created_at.to_s[0..9] %></p>
+  </div>
 <% end %>
 
 <% if current_user.invs.count < 1 %>

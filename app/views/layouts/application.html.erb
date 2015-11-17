@@ -17,6 +17,9 @@
 <% if logged_in? %> <!-- header if logged in, link to sign up if not -->
  <div class="header">
    
+   <i class="fa fa-file-text" id="file-icon"></i>
+
+   
    <a href="/groups/new" style="margin: 0; padding: 0;">
     <i class="fa fa-object-group fa-3x" id="group-icon"></i>
     <div class="top-paragraph-container" id="group-paragraph-container">
@@ -34,12 +37,14 @@
     <a href="/users/<%=current_user.id%>/edit" style="margin: 0; padding: 0;">
       <i class="fa fa-pencil" id="edit-icon"></i>
       <div class="top-paragraph-container" id="edit-paragraph-container">
-        <p class="top-icon-paragraph" id="edit-paragraph">Invoice Options</p>
+        <p class="top-icon-paragraph " id="edit-paragraph">Invoice Options</p>
       </div>
     </a>
     
+    
+    
     <h1 class="absolute-title tk-moby-monospaced">Invoice Factory</h1>
-    <p class="user-name"><%= current_user.name %></p>
+    <p class="user-name tk-proxima-nova"><%= current_user.name %></p>
     <i class="fa fa-user fa-3x"></i>
     
     <div class="user-dropdown">
@@ -62,8 +67,34 @@
       <%= render "layouts/alerts.html.erb" %>
     </div>
     
-    <%= yield %>
+  <% if logged_in? %>
+  
+     <div class="dropdown-invoices-container" style="display:none">
+      <div class="dropdown-invoices"> 
+        
+        <h3 class="dropdown-invoices-title tk-refrigerator-deluxe">Recent Invoices</h3>
+        
+        <!-- for some reason i need the param here and not in the routes -->
+        <%= form_tag invoice_search_path, :method => 'get', remote: true, class: "dropdown-invoices-search" do %>
+            <i class="fa fa-search"></i>
+            <%= text_field_tag :search, params[:search], class: "left-search tk-proxima-nova", :placeholder => "Search by Recipient"  %>
+        <% end %>
+        
+        <div class="dropdown-padding"></div> <!-- padding so the scroll bar looks correct -->
+        
+        <div class="dropdown-invoices-inner"> <!-- contains the rendered invoices -->
+          <%= render "layouts/inv_search.html.erb" %>
+        </div>
+        
+        <div class="dropdown-padding"></div> <!-- padding so the scroll bar looks correct -->
+      
+      </div>
+     </div>
+     
+   <% end %>
     
+    <%= yield %> <!-- the page and stuff -->
+  
   </div>
 
 </body>

@@ -2,8 +2,84 @@
 //********EDIT USER
 //
 
+//
+// company name
+//
+
+.company-container {
+  vertical-align:top;
+  background-color: #181818;
+  border-radius: 2px;
+  padding: 3px 8px 5px 7px;
+  display: inline-block;
+  margin-bottom: 7px;
+}
+
+.company-title {
+  display: block;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.company-form {
+  border:none;
+  display: block;
+  width: 300px;
+  vertical-align: Top;
+  font-size: 18px;
+  height: auto;
+  border-radius: 3px;
+  padding-left: 5px;
+  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+
+
+.top-offset-title {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.top-offset-form {
+  border:none;
+  display: inline-block;
+  width: 50px;
+  vertical-align: Top;
+  font-size: 18px;
+  height: auto;
+  border-radius: 3px;
+  padding-left: 5px;
+  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+
+
+
+
+.edit-user-container {
+  width: 520px;
+  margin:auto;
+  display:inline-block;
+}
+
+.iframe-container-user {
+  display:block;
+  vertical-align:top;
+  width: 665px !important;
+  height: 850px !important;
+  overflow:hidden;
+  margin-left: 10px;
+  
+}
+
 .edit-user-h4 {
   color: white;
+  margin-top:0px;
+  font-size: 18px;
 }
 
 .edit-toplines-h4 {
@@ -47,3 +123,69 @@
   border-radius: 7px;
 }
 
+.edit-user-button {
+  display: block;
+  color: black !important;
+  height: 30px !important;
+  color: black !important;
+  font-size: 19px !important;
+    padding-bottom: 27px !important;
+    margin-top: 10px;
+
+}
+
+.edit-user-button:hover {
+  background-color: #a0a0a0
+}
+
+.edit-user-image-container {
+  display:inline-block;
+  background-color: #444343;
+  width: 500px;
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
+}
+
+.edit-user-forms-container {
+  display:inline-block;
+  background-color: #444343;
+  width: 500px;
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
+}
+
+
+
+//
+// image
+//
+
+.edit-image-button {
+  display: block;
+  color: black !important;
+  height: 30px !important;
+  color: black !important;
+  font-size: 18px !important;
+    padding-bottom: 27px !important;
+    margin: 10px 0px;
+
+}
+
+.edit-image-button:hover {
+  background-color: #a0a0a0
+}
+
+//
+// file
+//
+
+.file-field {
+  color: white;
+
+}

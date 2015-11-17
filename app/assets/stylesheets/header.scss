@@ -31,6 +31,14 @@ $nearly-black: #1c1c1c;
   transition: color 0.3s;
 }
 
+.fa-file-text {
+    color: $nearly-black;
+  font-size: 2.3em !important;
+  -webkit-transition:  color 0.3s;
+  transition: color 0.3s;
+  margin-right: 5px;
+}
+
 .header-circle {
   position:static !important;
   top:0;
@@ -57,17 +65,17 @@ $nearly-black: #1c1c1c;
   font-size: 2.3em !important;
 }
 
-.fa-user:hover, .fa-object-group:hover, .header-circle:hover, .fa-pencil:hover {
+.fa-user:hover, .fa-object-group:hover, .header-circle:hover, .fa-pencil:hover, .fa-file-text:hover {
   color: white !important;
 }
 
 .user-name {
   color: white;
   display: inline-block;
-    position: absolute;
-    top: 17px;
-    right: 38px;
-    font-size: 11px;
+  position: absolute;
+  top: 22px;
+  right: 38px;
+  font-size: 11px;
 }
 
 .user-dropdown {
@@ -83,4 +91,72 @@ $nearly-black: #1c1c1c;
 .user-dropdown > a {
   display: block;
   color: white;
+}
+
+
+
+
+//
+//dropdown invoices
+//
+
+.dropdown-invoices-container {
+  display:inline-block;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  z-index:2;
+}
+
+.dropdown-invoices {
+  position: relative;
+  bottom: 50px;
+  background-color: #2c2e30;
+  width: 220px;
+  height: 600px;
+  
+}
+
+.dropdown-padding {
+  height: 10px;
+  background-color: #3F444A;
+}
+
+.dropdown-invoices-inner {
+  overflow-y:scroll;
+  height: 480px;
+  background-color: #3F444A;
+  padding: 0px 0px;
+}
+
+.dropdown-invoices-title {
+  color: white;
+  margin: 0px;
+  padding: 10px 10px 0px 10px;
+  text-align: center
+}
+
+.dropdown-invoices-search {
+  margin-left: -18px;
+}
+
+.invoice-header-container {
+  background-color: #252525;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 0px 10px 4px;
+}
+
+.invoice-header-container-name {
+  color: white;
+  text-align: center;
+  margin: 0;
+  font-size: 17px;
+}
+
+.invoice-header-container-date {
+  color: white;
+  text-align: center;
+  margin: 0;
+  font-size: 12px;
 }

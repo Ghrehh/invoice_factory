@@ -278,17 +278,17 @@ body {
 
 
 
-.left-invoices-container::-webkit-scrollbar,.right-body::-webkit-scrollbar, .groups-container::-webkit-scrollbar-track {
+.left-invoices-container::-webkit-scrollbar,.right-body::-webkit-scrollbar, .groups-container::-webkit-scrollbar,.dropdown-invoices-inner::-webkit-scrollbar  {
     width: 12px;
 }
  
-.left-invoices-container::-webkit-scrollbar-track, .right-body::-webkit-scrollbar-track, .groups-container::-webkit-scrollbar-track {
+.left-invoices-container::-webkit-scrollbar-track, .right-body::-webkit-scrollbar-track, .groups-container::-webkit-scrollbar-track,.dropdown-invoices-inner::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9); 
     border-radius: 10px;
     
 }
  
-.left-invoices-container::-webkit-scrollbar-thumb, .right-body::-webkit-scrollbar-thumb, .groups-container::-webkit-scrollbar-track {
+.left-invoices-container::-webkit-scrollbar-thumb, .right-body::-webkit-scrollbar-thumb, .groups-container::-webkit-scrollbar-thumb,.dropdown-invoices-inner::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
     background-color: #141414;

@@ -16,6 +16,7 @@ class StaticPagesController < ApplicationController
   def tutorial
     @user = current_user
     @toplines = current_user.toplines.all
+    @invs = Inv.all.where(user_id: current_user.id).reverse
   end
   
 end

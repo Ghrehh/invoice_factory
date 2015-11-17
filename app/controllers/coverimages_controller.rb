@@ -22,7 +22,7 @@ class CoverimagesController < ApplicationController
     else
       flash[:danger] ="already have a picture"
     end
-    redirect_to root_url
+    redirect_to edit_user_path(current_user.id)
   end
   
   def update
@@ -47,7 +47,7 @@ class CoverimagesController < ApplicationController
     else
 
     end
-    redirect_to root_url
+    redirect_to edit_user_path(current_user.id)
   end
   
   
