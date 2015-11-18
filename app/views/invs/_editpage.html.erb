@@ -1,102 +1,145 @@
-
-
-  <div class="right-inner-container">
-    <div class="right-inner">
-      <h3 class="tk-refrigerator-deluxe">Editing Invoice for: <%= link_to @inv.recipient, recipient_form_path(@inv.id), :remote => :true %></h3>
-    </div>
-    
-    <div class="right-inner-two">
-      <h3 class="tk-refrigerator-deluxe">Total: £ <%= link_to @total.to_s, total_form_path(@inv.id), :remote => :true %></h3>
-    </div>
+<div class="right-inner-container">
+  <div class="right-inner">
+    <h3 class="tk-refrigerator-deluxe">Editing Invoice for: <%= link_to @inv.recipient, 'javascript:;', :remote => :true %></h3>
   </div>
-  <div class="right-body">
-    
+  
+  <div class="right-inner-two">
+    <h3 class="tk-refrigerator-deluxe">Total: £ <%= link_to @total.to_s, 'javascript:;', :remote => :true %></h3>
+  </div>
+</div>
+<div class="right-body">
   
 
-      <%= form_for (@inv), :remote => :true do |f| %>
+
+    <%= form_for (@inv), :remote => :true do |f| %>
+    
+    
+      <div class="date-container">
+        <p class="date-form-title tk-refrigerator-deluxe">Sent</p>
+        <%= f.text_field :date, :placeholder => "Date", class: "date-form-dashboard tk-proxima-nova", :autocomplete => :off %>
+      </div>
+        
+      <div class="date-container">
+        <p class="date-form-title tk-refrigerator-deluxe">Due</p>
+          <%= f.text_field :due_date, :placeholder => "Date", class: "date-form-dashboard tk-proxima-nova", :autocomplete => :off %>
+      </div>
+      
+        
+      <div class="group-container">
+        <p class="group-form-title tk-refrigerator-deluxe">Group </p>
+        <%= f.collection_select :group_id, @group,:id,:name, :prompt => "None", class: "group-form-dashboard" %>
+      </div>
+      
+      <div class="note-container">
+        <p class="note-form-title tk-refrigerator-deluxe">Note </p>
+        <%= f.text_area :note, class: "note-form-dashboard tk-proxima-nova"%>
+      </div>
       
       
-        <div class="date-container">
-          <p class="date-form-title tk-refrigerator-deluxe">Sent</p>
-          <%= f.text_field :date, :placeholder => "Date", class: "date-form-dashboard tk-proxima-nova", :autocomplete => :off %>
-        </div>
+      
+      
+      <div class="address-container">
+        <p class="address-form-title tk-refrigerator-deluxe">Address </p>
+        <%= f.text_area :address_1, class: "address-form-dashboard tk-proxima-nova"%>
+      </div>
+      
+
+      
+      
+      
+
+      
+       <%= f.submit "Update", class: "dashboard-form-button tk-refrigerator-deluxe"%>
+      
+    <% end %>
+
+  <a  href="/download/<%=@inv.id%>">
+    <i class="fa fa-arrow-circle-down fa-3x"></i>
+  </a>
+  
+  <a class="change-mode" href="javascript:void(0)">
+    <i class="fa fa-pencil-square-o fa-3x"></i>
+  </a>
+  
+  <a href="/invs/<%=@inv.id%>" rel="nofollow" data-method="delete" data-confirm="Are you sure you want to delete this invoice?">
+   <i class="fa fa-trash-o fa-3x"></i>
+  </a>
+
+
+
+<div class="line-mode">
+  
+  <div class="new-line-form">
+      
+    <h4 class="new-line-form-title tk-refrigerator-deluxe">Add Line</h4>
+    <%= form_for [@inv, Line.new], :remote => true do |f| %>
+    
+      <%= f.text_field :service, autofocus: true, class: "service tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Service" %>
+      
+      <%= f.text_area :description, class: "description tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Description" %>
+      
+      <%= f.text_field :quantity, class: "quantity tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Quantity" %>
+   
+      <%= f.text_field :price, class: "price tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Price" %>
+  
+      <%= f.submit "Add", class: "line-button tk-refrigerator-deluxe" %>
+    
+    <% end %>
+  </div>
+  
+
+  
+  
+  <div class="line-container">
+   <ul class="sortable">
+  
+    <% @lines.each do |x| %>
+      
+      <li data-id="<%= x.id %>"> <!-- Nescessary for the sorting -->
+      <div class="line line<%=x.id%>">
+        
+        <div class="line-left">
+          <% unless x.service == "" %> <!-- will print the description is one is provided -->
+            <p class="service-paragraph tk-refrigerator-deluxe"><%= x.service %>:</p>
+          <% end %>
           
-        <div class="date-container">
-          <p class="date-form-title tk-refrigerator-deluxe">Due</p>
-            <%= f.text_field :due_date, :placeholder => "Date", class: "date-form-dashboard tk-proxima-nova", :autocomplete => :off %>
+          <p class="description-paragraph tk-proxima-nova"><%= x.description %></p>
         </div>
         
-          
-        <div class="group-container">
-          <p class="group-form-title tk-refrigerator-deluxe">Group </p>
-          <%= f.collection_select :group_id, @group,:id,:name, :prompt => "None", class: "group-form-dashboard" %>
-        </div>
+        <%= link_to 'x', x, :method => :delete, class: "delete-button tk-refrigerator-deluxe", :remote => true %>
+        <%= link_to 'edit', edit_line_path(x), class: "edit-button tk-refrigerator-deluxe", :remote => true %>
         
-        <div class="note-container">
-          <p class="note-form-title tk-refrigerator-deluxe">Note </p>
-          <%= f.text_area :note, class: "note-form-dashboard tk-proxima-nova"%>
-        </div>
-        
-        
-        
-        
-        <div class="address-container">
-          <p class="address-form-title tk-refrigerator-deluxe">Address </p>
-          <%= f.text_area :address_1, class: "address-form-dashboard tk-proxima-nova"%>
-        </div>
-        
-
-        
-        
-        
-
-        
-         <%= f.submit "Update", class: "dashboard-form-button tk-refrigerator-deluxe"%>
-        
-      <% end %>
-
-    <a  href="/download/<%=@inv.id%>">
-      <i class="fa fa-arrow-circle-down fa-3x"></i>
-    </a>
-    
-    <a class="change-mode" href="javascript:void(0)">
-      <i class="fa fa-pencil-square-o fa-3x"></i>
-    </a>
-    
-    <a href="/invs/<%=@inv.id%>"  data-remote="true" rel="nofollow" data-method="delete" data-confirm="Are you sure you want to delete this invoice?">
-     <i class="fa fa-trash-o fa-3x"></i>
-    </a>
-
-  
-  
-  <div class="line-mode">
-    
-    <div class="new-line-form">
-        
-      <h4 class="new-line-form-title tk-refrigerator-deluxe">Add Line</h4>
-      <%= form_for [@inv, Line.new], :remote => true do |f| %>
-      
-        <%= f.text_field :service, autofocus: true, class: "service tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Service" %>
-        
-        <%= f.text_area :description, class: "description tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Description" %>
-        
-        <%= f.text_field :quantity, class: "quantity tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Quantity" %>
      
-        <%= f.text_field :price, class: "price tk-proxima-nova", input_html: {autocomplete: 'off'},:placeholder => "Price" %>
-    
-        <%= f.submit "Add", class: "line-button tk-refrigerator-deluxe" %>
+        
+        
+        <% unless x.price.nil? %> <!-- will print the price is one is provided -->
+          <p class="price-paragraph tk-refrigerator-deluxe">£<%= '%.2f' % x.price %></p>
+        <% end %>
+        
+         <% unless x.quantity.nil? %> <!-- will print the price is one is provided -->
+          <p class="quantity-paragraph tk-refrigerator-deluxe">(x<%= x.quantity %>)</p>
+        <% end %>
+        
+      </div>
       
-      <% end %>
-    </div>
+      <div class="line line<%=x.id%>-form" style="display:none"> <!-- form for edit is displayed here -->
+      </div>
+      
+      </li>
     
-  
-    
-    
-    <div class="line-container">
-     <%= render "invs/line.html.erb" %>
-    </div>
-  
+    <% end %>
+
+    </ul>
+
+
+
+
+<script type="text/javascript"> //reapplies the sorting thing every time the partial is reloaded.
+    ready();
+</script>
   </div>
+
+</div>
   
   <div class="block-mode" style="display:none">
     

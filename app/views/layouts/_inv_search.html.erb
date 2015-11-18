@@ -1,4 +1,5 @@
 <% @invs.each do |inv| %>
+<a href="/invs/<%= inv.id %>/edit">
  <div class="invoice-header-container">
     <% if inv.recipient.length > 19 %>
       <p class="invoice-header-container-name tk-refrigerator-deluxe"><%= inv.recipient[0..18] + "..." %></p>
@@ -7,6 +8,7 @@
     <% end %>
     <p class="invoice-header-container-date tk-proxima-nova"><%= inv.created_at.to_s[0..9] %></p>
   </div>
+  </a>
 <% end %>
 
 <% if current_user.invs.count < 1 %>

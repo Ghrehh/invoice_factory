@@ -1,7 +1,10 @@
+
 $('.tutorial-toplines-container').html("<%= j(render "users/partials/toplines.html.erb") %>");
+$('.tutorial-toplines-container-2').html("<%= j(render "users/partials/toplines.html.erb") %>");
 $('.dashboard-right').html("<%= j (render "users/edituser.html.erb") %>"); <!-- renders the form for the invoice you jsut made -->
 $('.iframe-container').html("<%= j (render "users/iframe.html.erb") %>");<!-- renders the search -->
 $('.iframe-container-user').html("<%= j (render "users/iframe.html.erb") %>");<!-- renders the search -->
+$('.alert-container').html("<%= j (render "layouts/alerts.html.erb") %>");
 
 $(document).ready(function(){
   set_positions2 = function(){

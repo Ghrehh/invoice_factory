@@ -14,9 +14,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass',       '3.2.0.0'
 
-#gem 'will_paginate',           '3.0.7'
-#gem 'bootstrap-will_paginate', '0.0.10'
-#gem 'rails_autolink'
 
 gem 'prawn' #makes the invoices, dummy
 gem 'responders', '~> 2.0' #lets me use respond to js
@@ -24,10 +21,8 @@ gem 'responders', '~> 2.0' #lets me use respond to js
 gem 'font-awesome-sass'
 gem 'puma'
 
-#gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
 end

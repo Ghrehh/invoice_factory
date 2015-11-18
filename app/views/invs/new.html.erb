@@ -2,7 +2,76 @@
   <div class="dashboard-right-container">
       <div class="dashboard-right">
         
-       <%= render "invs/newpage.html.erb" %>
+       
+      <div class="right-inner-container">
+        <div class="right-inner">
+          <h3 class="tk-refrigerator-deluxe">Creating A New Invoice</h3>
+        </div>
+        
+        <div class="right-inner-two">
+          <h3></h3>
+        </div>
+      </div>
+      
+      <div class="right-form-container">
+        
+        <%= form_for (Inv.new) do |f| %>
+        
+        
+          <div class="recipient-container-new">
+            <p class="recipient-form-title-new tk-refrigerator-deluxe">Recipient</p>
+            <%= f.text_field :recipient, autofocus: true, class: "recipient-form-dashboard-new tk-proxima-nova" %>
+          </div>
+          
+          <p class="recipient-info tk-proxima-nova"> 
+            Enter the name of the person or company you're sending the invoice to,
+            this should be whatever name would appear along with address on the envelope if you were to post it. 
+            Additional recipients can be added later
+          </p>
+          
+      
+          <div class="divider"></div>
+          
+          
+          <div class="date-form-container-new">
+            <p class="date-form-title-new tk-refrigerator-deluxe">Sent Date</p>
+            <% time = Time.new %>
+            <%= f.text_field :date, class: "date-form-dashboard-new tk-proxima-nova", :autocomplete => :off, value: time.day.to_s + "-" + time.month.to_s + "-" + time.year.to_s %>
+          </div>
+          
+          <div class="group-container-new">
+            <p class="group-form-title-new tk-refrigerator-deluxe">Group </p>
+            <%= f.collection_select :group_id, @group,:id,:name, :prompt => "None", class: "group-form-dashboard-new tk-proxima-nova" %>
+          </div>
+          
+          <p class="date-info tk-proxima-nova"> 
+            This field automatically dates the invoice to today, but you can change it if you'd wish. 
+            You can create and add invoices to groups to make sorting them easier, or to download many invoices as a single file to aid with printing.
+          </p>
+          
+        
+          <div class="divider"></div>
+          
+          
+          <p class="address-info tk-proxima-nova"> 
+            The address of the recipient of the invoice, you should include the postcode in this field. 
+            Pressing the return or enter key will take a new line.
+          </p>
+            
+          <div class="address-container-new">
+            <p class="address-form-title-new tk-refrigerator-deluxe">Address</p>
+            <%= f.text_area :address_1, class: "address-form-dashboard-new tk-proxima-nova"%>
+          </div>
+      
+      
+          <%= f.submit "Create", class: "new-button-dashboard tk-refrigerator-deluxe" %>
+          
+        <% end %>
+        
+        
+        
+      </div>
+      
   
     </div>
   </div>

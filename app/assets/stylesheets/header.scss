@@ -147,6 +147,14 @@ $nearly-black: #1c1c1c;
   margin: 0px 10px 4px;
 }
 
+.invoice-header-container-selected {
+  background-color: #6B6B6B;
+}
+
+.invoice-header-container:hover {
+  background-color: #6B6B6B;
+}
+
 .invoice-header-container-name {
   color: white;
   text-align: center;

@@ -101,31 +101,13 @@ class InvsController < ApplicationController
     @line = @inv.lines.new
     @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
     @total = get_total(@inv)
+    
+    redirect_to root_url
   end
   
   
   def search
     @invs = Inv.all.where("recipient like ? ", "%#{params[:search]}%").where(user_id: current_user.id).reverse
-  end
-  
-  def dashboard_invoice #displays the clicked invoice on the dashboard
-    @inv = Inv.find(params[:id])
-    @invs = Inv.all.where(user_id: current_user.id).reverse 
-    @lines = @inv.lines.all
-    @line = @inv.lines.new
-    @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
-    @total = get_total(@inv)
-  end
-  
-  
-  
-  def recipient_form #method to display the name change form on click
-    @inv = Inv.find(params[:id])
-  end
-  
-  def total_form
-    @inv = Inv.find(params[:id])
-    @total = get_total(@inv)
   end
   
   

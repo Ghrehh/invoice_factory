@@ -1,0 +1,45 @@
+<div class="dashboard-container">
+ <%= content_tag :div, id: 'trackers', data: {trackers: @recipients} do %>
+ <% end %>
+ 
+ <div class="dashboard-left-container" style="display:none">
+    <div class="dashboard-left">
+      <div class="left-inner">
+        <h3>Recent Invoices</h3>
+        <a href="/invs/new" data-remote="true">
+          <i class="fa fa-plus-circle fa-2x"></i>
+        </a>
+        
+      </div>
+    
+    <!-- for some reason i need the param here and not in the routes -->
+    <%= form_tag invoice_search_path, :method => 'get', remote: true do %>
+        <i class="fa fa-search"></i>
+        <%= text_field_tag :search, params[:search], class: "left-search", :placeholder => "Enter the recipients name"  %>
+        
+    <% end %>
+    
+    
+      <div class="left-invoices-container">
+        
+        <%= render "layouts/inv_search.html.erb" %>
+        
+      </div>
+        
+    </div>
+  </div>
+  
+  <div class="left-tab" style="display:none"></div>
+  <div class="right-tab" style="display:none"></div>
+  
+  <div class="dashboard-right-container">
+    <div class="dashboard-right">
+      
+      <%= render "groups/newgroup.html.erb" %>
+    </div>
+  </div>
+  
+  
+    <div class="iframe-container" style="display:inline-block"></div>
+  </div>
+  
