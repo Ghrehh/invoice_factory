@@ -68,6 +68,7 @@ var showDivLeft = function(div) {
 var ready = function() {
   
   topDrop();
+  totalRecipientButtons();
   
   $(".line-button").click(function(){ //clears the form after it's been posted
  

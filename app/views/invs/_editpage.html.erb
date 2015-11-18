@@ -1,16 +1,30 @@
 <div class="right-inner-container">
   <div class="right-inner">
-    <h3 class="tk-refrigerator-deluxe">Editing Invoice for: <%= link_to @inv.recipient, 'javascript:;', :remote => :true %></h3>
+    <h3 class="tk-refrigerator-deluxe">Editing Invoice for: <%= link_to @inv.recipient, 'javascript:;', :remote => :true, class: "recipient-button-edit" %></h3>
+    
+    <div class="right-inner-form">
+      <%= form_for (@inv), :remote => :true do |f| %>
+        <%= f.text_field :recipient, autofocus: true, class: "recipient-form-dashboard-edit tk-proxima-nova" %>
+      <% end %>
+    </div>
   </div>
+
   
   <div class="right-inner-two">
-    <h3 class="tk-refrigerator-deluxe">Total: £ <%= link_to @total.to_s, 'javascript:;', :remote => :true %></h3>
+    <h3 class="tk-refrigerator-deluxe">Total: £ <%= link_to @total.to_s, 'javascript:;', :remote => :true, class: "total-button-edit" %></h3>
+  
+  
+    <div class="right-inner-two-form">
+      <%= form_for (@inv), :remote => :true do |f| %>
+        <%= f.text_field :total, autofocus: true, class: "total-form-dashboard-edit tk-proxima-nova" %>
+      <% end %>
+    </div>
+    
   </div>
 </div>
+
 <div class="right-body">
   
-
-
     <%= form_for (@inv), :remote => :true do |f| %>
     
     
@@ -24,7 +38,6 @@
           <%= f.text_field :due_date, :placeholder => "Date", class: "date-form-dashboard tk-proxima-nova", :autocomplete => :off %>
       </div>
       
-        
       <div class="group-container">
         <p class="group-form-title tk-refrigerator-deluxe">Group </p>
         <%= f.collection_select :group_id, @group,:id,:name, :prompt => "None", class: "group-form-dashboard" %>
@@ -35,21 +48,12 @@
         <%= f.text_area :note, class: "note-form-dashboard tk-proxima-nova"%>
       </div>
       
-      
-      
-      
       <div class="address-container">
         <p class="address-form-title tk-refrigerator-deluxe">Address </p>
         <%= f.text_area :address_1, class: "address-form-dashboard tk-proxima-nova"%>
       </div>
       
-
-      
-      
-      
-
-      
-       <%= f.submit "Update", class: "dashboard-form-button tk-refrigerator-deluxe"%>
+      <%= f.submit "Update", class: "dashboard-form-button tk-refrigerator-deluxe"%>
       
     <% end %>
 
@@ -131,12 +135,6 @@
 
     </ul>
 
-
-
-
-<script type="text/javascript"> //reapplies the sorting thing every time the partial is reloaded.
-    ready();
-</script>
   </div>
 
 </div>
@@ -150,7 +148,6 @@
       <%= f.text_area :block, class: "block-body" %>
       <br>
     <% end %>
-  
   
   </div>
 </div>
