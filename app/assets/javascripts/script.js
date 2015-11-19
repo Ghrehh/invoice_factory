@@ -69,6 +69,7 @@ var ready = function() {
   
   topDrop();
   totalRecipientButtons();
+  typeAhead();
   
   $(".line-button").click(function(){ //clears the form after it's been posted
  

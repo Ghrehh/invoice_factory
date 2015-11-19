@@ -253,12 +253,22 @@ end
       
       @lines.each do |line| #gets the length of the longest quantity and price to adjust the layout
         unless line[2].nil?
-          length = num_digits(line[2])
+        
+          if line[2] == 0 #0 breaks the method that finds the length of the numbers
+            length = 1
+          else
+            length = num_digits(line[2])
+          end
           longest_cost = length unless longest_cost > length
         end
         
         unless line[3].nil?
-          length = num_digits(line[3])
+        
+          if line[3] == 0 #0 breaks the method that finds the length of the numbers
+            length = 1
+          else
+            length = num_digits(line[3]) 
+          end
           longest_quantity = length unless longest_quantity > length
         end
         

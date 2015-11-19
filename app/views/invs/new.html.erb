@@ -1,4 +1,8 @@
 <div class="dashboard-container-new">
+  
+  <%= content_tag :div, id: 'trackers', data: {trackers: @recipients} do %>
+  <% end %>
+  
   <div class="dashboard-right-container">
       <div class="dashboard-right">
         
@@ -20,7 +24,7 @@
         
           <div class="recipient-container-new">
             <p class="recipient-form-title-new tk-refrigerator-deluxe">Recipient</p>
-            <%= f.text_field :recipient, autofocus: true, class: "recipient-form-dashboard-new tk-proxima-nova" %>
+            <%= f.text_field :recipient, autofocus: true, class: "recipient-form-dashboard-new tk-proxima-nova", :autocomplete => :off %>
           </div>
           
           <p class="recipient-info tk-proxima-nova"> 
@@ -78,6 +82,7 @@
 </div>
       
 <script>
-  type_ahead();
+
+  
   $(".date-form-dashboard").datepicker({ dateFormat: 'dd-mm-yy' }).val()
 </script>

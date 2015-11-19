@@ -8,12 +8,12 @@ class InvsController < ApplicationController
   def new #Dont actually need this
     @inv = Inv.new
     @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+    @invs = Inv.all.where(user_id: current_user.id).reverse 
+    @total = get_total(@inv)
     
-      @invs = Inv.all.where(user_id: current_user.id).reverse 
-      @lines = @inv.lines.all
-      @line = @inv.lines.new
-
-      @total = get_total(@inv)
+    @recipients = []
+    @invs.each {|x| @recipients << [x.recipient, x.address_1, x.address_2, x.address_3] }
+    
   end
   
   

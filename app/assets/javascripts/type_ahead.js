@@ -1,4 +1,4 @@
-var type_ahead = function() {
+var typeAhead = function() {
 
   var add_arr = []
   var datadump = ($('#trackers').data('trackers'));
@@ -30,7 +30,7 @@ var type_ahead = function() {
                       my_Suggestion_class.initialize();
       
                       
-                      $(".recipient-form-dashboard").typeahead({
+                      $(".recipient-form-dashboard-new").typeahead({
                           hint: true,
                           highlight: true,
                           minLength: 1
@@ -44,13 +44,13 @@ var type_ahead = function() {
 
   }
   
-  $('.recipient-form-dashboard').on('typeahead:selected', function(evt, item) {
+  $('.recipient-form-dashboard-new').on('typeahead:selected', function(evt, item) {
       console.log(item);
       find_address(item);
       console.log(add_arr);
-      $(".address-form-dashboard").val(add_arr[1]);
+      $(".address-form-dashboard-new").val(add_arr[1]);
    
 
   });
   
-}
+};
