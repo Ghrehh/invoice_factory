@@ -40,6 +40,7 @@ class GroupsController < ApplicationController
   
   def show
     @group = Group.find(params[:id])
+    @groups = Group.all.where(user_id: current_user.id).reverse
     @groupinvs = @group.invs.all
     @invs = Inv.all.where(user_id: current_user.id).reverse 
   end

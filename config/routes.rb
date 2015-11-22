@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/search_invoices/", to: "invs#search", as: "invoice_search"
   
   post "/tutorial_1/", to: "users#tutorial_1", as: "tutorial_1"
+  post "/tutorial_3/", to: "users#tutorial_3", as: "tutorial_3"
   
   
   

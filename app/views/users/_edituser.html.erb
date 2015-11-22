@@ -5,20 +5,20 @@
     
 
   <div class="company-container">
-    <p class="company-title">You or Your Organisation's Name</p>
+    <p class="company-title tk-refrigerator-deluxe">You or Your Organisation's Name</p>
     <%= f.text_field :sender, class: "company-form tk-proxima-nova" %>
   </div>
   
   <div class="divider"></div>
   
   <div class="company-container">
-    <p class="top-offset-title">Details Offset</p>
+    <p class="top-offset-title tk-refrigerator-deluxe">Details Offset</p>
     <%= f.text_field :topoffset, class: "top-offset-form tk-proxima-nova" %>
   </div>
   
   <% if current_user.coverimages.count > 0 %>
     <div class="company-container" style="margin-bottom: 0px">
-      <p class="top-offset-title" >Use Picture</p>
+      <p class="top-offset-title tk-refrigerator-deluxe" style="padding-bottom: 2px;">Use Cover Image</p>
       <%= f.check_box :use_picture, class: "check-box2"  %>
     </div>
   <% end %>
@@ -29,7 +29,7 @@
 
 <div class="edit-user-image-container">
   <% if current_user.coverimages.count == 0 %>
-  <h4 class="edit-user-h4 tk-refrigerator-deluxe">Add a cover Image </h4>
+  <h4 class="edit-user-h4 tk-refrigerator-deluxe">Add Cover Image </h4>
   
     <%= form_for Coverimage.new, :remote => true do |f| %>
       <%= f.file_field :file, class: "file-field tk-proxima-nova" %>
@@ -37,7 +37,7 @@
       <%= f.submit "Change cover image", class: "edit-image-button tk-refrigerator-deluxe" %>
     <% end %>
   <% else %>
-  <h4 class="edit-user-h4 tk-refrigerator-deluxe">Update cover image</h4>
+  <h4 class="edit-user-h4 tk-refrigerator-deluxe">Update Cover Image</h4>
     <%= form_for @coverimage,:remote => true do |f| %>
       <%= f.file_field :file, class: "file-field tk-proxima-nova" %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

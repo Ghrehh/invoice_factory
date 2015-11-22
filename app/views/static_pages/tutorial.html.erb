@@ -36,8 +36,20 @@
         <h1 class="tutorial-header-2 tk-refrigerator-deluxe">Contact Details</h1>
         <p class="tutorial-paragraph-2 tk-proxima-nova">These details will appear atop your invoices, you can edit, delete and add to them as you see fit. </p>
         <button class="tutorial-button-2 tk-refrigerator-deluxe">Continue</button>
+      </div>
       
+      <div class="tutorial-inner-3">
+        <h1 class="tutorial-header-2 tk-refrigerator-deluxe">Positioning</h1>
+        <p class="tutorial-paragraph-3 tk-proxima-nova">Readjust the positon of your contact details so that they look nice and <i>fancy</i>. </p>
         
+        <%= form_tag tutorial_3_path, :method => "post", :remote => :true do |f| %>
+          <%= text_field_tag :data, params[:data], autofocus: true, class: "tutorial-form-3 tk-proxima-nova", :autocomplete => :off, :placeholder => "Offset"  %>
+          <%= button_tag "Submit", class: "tutorial-button-3 tk-refrigerator-deluxe"%>
+        <% end %>
+        
+        <p class="tutorial-paragraph-3-2 tk-proxima-nova">Press the continue button when you're finished to move on to the final section. </p>
+        
+        <button class="tutorial-button-2 tk-refrigerator-deluxe">Continue</button>
       </div>
     
   </div>

@@ -70,4 +70,18 @@ function tutorial(){
     $(".toplines-tooltip").fadeOut();
   });
   
+  $(".tutorial-button-2").click(function(){
+    $(".tutorial-container").animate({backgroundColor: "#AA8AAC", height: "562px"});
+    $(".circle-container").animate({backgroundColor: "#967798"});
+    $(".circle-3").animate({backgroundColor: "#FFCE83"});
+    $(".circle-2").animate({backgroundColor: "#272727"});
+    $(".iframe-container").animate({bottom: "562px"});
+    $(".tutorial-toplines-container").fadeOut();
+    $(".tutorial-inner-2").fadeOut(function(){
+      $(".tutorial-inner-3").fadeIn();
+    });
+    
+    
+  });
+  
 }

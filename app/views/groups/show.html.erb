@@ -1,24 +1,54 @@
 <div class="group-wrapper">
-  <div class="group-form-container">
+  <div class="group-show-container">
   
     <div class="dashboard-right-container">
       <div class="dashboard-right">
         <div class="right-inner-container">
           <div class="right-inner">
-            <h3 class="tk-refrigerator-deluxe">New Group</h3>
+            <h3 class="tk-refrigerator-deluxe"><%= @group.name %></h3>
           </div>
         </div>
         
         <div class="right-form-container">
           
-          <%= form_for (Group.new) do |f| %>
-            <div class="group-container-new">
-              <p class="recipient-form-title-new tk-refrigerator-deluxe">Group Name</p>
-              <%= f.text_field :name, autofocus: true, class: "recipient-form-dashboard-new tk-proxima-nova", :autocomplete => :off %>
-            </div>
-            <%= f.submit "Create", class: "new-button-group tk-refrigerator-deluxe" %>
+          <div class="group-all"> 
+            <h3 class="dropdown-invoices-title tk-refrigerator-deluxe">All Groups</h3>
             
-          <% end %>
+            <div class="dropdown-padding"></div> <!-- padding so the scroll bar looks correct -->
+              
+            <div class="dropdown-invoices-inner"> <!-- contains the rendered invoices -->
+            <% @group.invs.each do |inv| %>
+              <a href="/invs/<%= inv.id %>/edit">
+               <div class="invoice-header-container">
+                  <% if inv.recipient.length > 19 %>
+                    <p class="invoice-header-container-name tk-refrigerator-deluxe"><%= inv.recipient[0..18] + "..." %></p>
+                  <% else %>
+                    <p class="invoice-header-container-name tk-refrigerator-deluxe"><%= inv.recipient %></p>
+                  <% end %>
+                  <p class="invoice-header-container-date tk-proxima-nova"><%= inv.created_at.to_s[0..9] %></p>
+                </div>
+                </a>
+              <% end %>
+              
+              <% if current_user.invs.count < 1 %>
+              
+                <div class="no-results">
+                  <i class="fa fa-frown-o fa-4x"></i>
+                  <p>You haven't made any<br>invoices yet!</p>
+                </div>
+              
+              <% elsif @invs.count == 0 %>
+                <div class="no-results">
+                  <i class="fa fa-frown-o fa-4x"></i>
+                  <p>No items found matching <br> that search!</p>
+                </div>
+              <% end %>
+            </div>
+              
+            <div class="dropdown-padding"></div> <!-- padding so the scroll bar looks correct -->
+                
+          </div>
+        
         </div>
         
   

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   before_action :correct_user,   only: [:edit, :update, :show]
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :tutorial_1, :tutorial_3]
   
   def new
     redirect_to root_url if logged_in?
@@ -63,6 +63,12 @@ class UsersController < ApplicationController
     @user.sender = params[:data]
     @user.save
     @toplines = current_user.toplines.all
+  end
+  
+  def tutorial_3
+    @user = current_user
+    @user.topoffset = params[:data]
+    @user.save
   end
   
   
