@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   respond_to :html, :js
   
-  before_action :correct_user,   only: [:edit, :update, :show, :delete]
+  before_action :correct_user,   only: [:edit, :update, :show, :delete, :download]
   before_action :logged_in_user
   
   def new

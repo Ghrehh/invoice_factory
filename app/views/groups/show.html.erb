@@ -11,12 +11,12 @@
         
         <div class="right-form-container">
           
-          <div class="group-all"> 
-            <h3 class="dropdown-invoices-title tk-refrigerator-deluxe">All Groups</h3>
+          <div class="group-all-show"> 
+            <h3 class="dropdown-invoices-title tk-refrigerator-deluxe" style="padding-bottom: 10px;">Invoices</h3>
             
             <div class="dropdown-padding"></div> <!-- padding so the scroll bar looks correct -->
               
-            <div class="dropdown-invoices-inner"> <!-- contains the rendered invoices -->
+            <div class="dropdown-invoices-inner" style="height:380px"> <!-- contains the rendered invoices -->
             <% @group.invs.each do |inv| %>
               <a href="/invs/<%= inv.id %>/edit">
                <div class="invoice-header-container">
@@ -48,7 +48,12 @@
             <div class="dropdown-padding"></div> <!-- padding so the scroll bar looks correct -->
                 
           </div>
-        
+          <div class="group-list-container">
+            <ul>
+              <li><a href="/groups/<%= @group.id %>" data-method="delete" data-confirm="Are you sure you want to delete this group?" class="delete-button tk-refrigerator-deluxe">Delete</li>
+              <li><%= link_to "Download", group_download_path(@group.id), class: "delete-button tk-refrigerator-deluxe" %></li>
+            </ul>
+          </div>
         </div>
         
   
@@ -59,7 +64,7 @@
   
   <div class="groups-container">
     <div class="group-all"> 
-      <h3 class="dropdown-invoices-title tk-refrigerator-deluxe">All Groups</h3>
+      <h3 class="dropdown-invoices-title tk-refrigerator-deluxe" style="padding-bottom: 10px;">All Groups</h3>
       
       <div class="dropdown-padding"></div> <!-- padding so the scroll bar looks correct -->
         
