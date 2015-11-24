@@ -14,6 +14,9 @@ class StaticPagesController < ApplicationController
   end
   
   def tutorial
+    if current_user.tutorial_complete == true
+      redirect_to new_inv_path
+    end
     @user = current_user
     @toplines = current_user.toplines.all
     @invs = Inv.all.where(user_id: current_user.id).reverse

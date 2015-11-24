@@ -31,7 +31,6 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
-    #@user.invs.create(recipient: "TestInvoice%/////%%///%%//%%//%%//") if @user.invs.count == 0 #creates an invoice for the user if they have none on the edit page
     
     @coverimage = @user.coverimages.first
     @previewinv = @user.invs.first
@@ -69,6 +68,14 @@ class UsersController < ApplicationController
     @user = current_user
     @user.topoffset = params[:data]
     @user.save
+  end
+  
+  def tutorial_complete
+    @user = current_user
+    @user.tutorial_complete = true if @user.tutorial_complete == false
+    @user.save
+    puts @user.name + "tut complete!"
+    render :nothing => true
   end
   
   

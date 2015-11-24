@@ -84,4 +84,21 @@ function tutorial(){
     
   });
   
+  $(".tutorial-button-3-submit").click(function(){
+    
+    $.ajax({
+        type: "GET",
+        url: '/tutorial_complete'
+    });
+    
+    $(".iframe-container").fadeOut();
+    $(".tutorial-inner-3").fadeOut(function(){
+      $(".tutorial-inner-4").fadeIn();
+      $(".tutorial-container").animate({marginLeft: 0, backgroundColor: "#B8B7D8", height: "240px"});
+      $(".circle-container").animate({backgroundColor: "#9493AC"});
+      $(".circle-4").animate({backgroundColor: "#A95757"});
+      $(".circle-3").animate({backgroundColor: "#272727"});
+    });
+    
+  });
 }
