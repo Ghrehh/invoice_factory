@@ -25,6 +25,7 @@ class GroupsController < ApplicationController
       flash.now[:success] = "Successfully created group"
       @invs = Inv.all.where(user_id: current_user.id).reverse
       @group = Group.all.where(user_id: current_user.id).reverse #finds all groups created by current user
+      redirect_to new_group_path
 
     else
       flash.now[:danger] = 'something went wrong'
