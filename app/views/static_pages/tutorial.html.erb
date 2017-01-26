@@ -40,7 +40,8 @@
       
       <div class="tutorial-inner-3">
         <h1 class="tutorial-header-2 tk-refrigerator-deluxe">Positioning</h1>
-        <p class="tutorial-paragraph-3 tk-proxima-nova">Readjust the positon of your contact details so that they look nice and <i>fancy</i>. </p>
+        <p class="tutorial-paragraph-3 tk-proxima-nova">Readjust the positon of your contact details so that they fit properly. 
+                                                        A positive number moves them to the right, a negative number moves them to the left. </p>
         
         <%= form_tag tutorial_3_path, :method => "post", :remote => :true do |f| %>
           <%= text_field_tag :data, params[:data], autofocus: true, class: "tutorial-form-3 tk-proxima-nova", :autocomplete => :off, :placeholder => "Offset"  %>
